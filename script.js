@@ -6,3 +6,11 @@ function Track1togg() {
     x.style.display = "none";
   }
 }
+function Track2togg() {
+  var x = document.getElementById("Track2");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
