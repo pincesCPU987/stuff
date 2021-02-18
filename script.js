@@ -15,10 +15,10 @@ function Track2togg() {
   }
 }
 function Track3togg() {
-  var T3 = document.getElementById("Track3");
-  if (T3.style.display === "none") {
-    T3.style.display = "block";
+  var T33 = document.getElementById("Track3");
+  if (T33.style.display === "none") {
+    T33.style.display = "block";
   } else {
-    T3.style.display = "none";
+    T33.style.display = "none";
   }
 }
