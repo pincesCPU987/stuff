@@ -14,3 +14,11 @@ function Track2togg() {
     T2.style.display = "none";
   }
 }
+function Track3togg() {
+  var T3 = document.getElementById("Track3");
+  if (T3.style.display === "none") {
+    T3.style.display = "block";
+  } else {
+    T3.style.display = "none";
+  }
+}
