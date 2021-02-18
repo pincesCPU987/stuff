@@ -22,3 +22,11 @@ function Track3togg() {
     T3.style.display = "none";
   }
 }
+function Track4togg() {
+  var T4 = document.getElementById("Track4");
+  if (T4.style.display === "none") {
+    T4.style.display = "block";
+  } else {
+    T4.style.display = "none";
+  }
+}
