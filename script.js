@@ -38,3 +38,11 @@ function Track5togg() {
     T5.style.display = "none";
   }
 }
+function Track6togg() {
+  var T6 = document.getElementById("Track6");
+  if (T6.style.display === "none") {
+    T6.style.display = "block";
+  } else {
+    T6.style.display = "none";
+  }
+}
