@@ -54,3 +54,11 @@ function Track7togg() {
     T7.style.display = "none";
   }
 }
+function Track8togg() {
+  var T8 = document.getElementById("Track7");
+  if (T8.style.display === "none") {
+    T8.style.display = "block";
+  } else {
+    T8.style.display = "none";
+  }
+}
