@@ -46,3 +46,11 @@ function Track6togg() {
     T6.style.display = "none";
   }
 }
+function Track7togg() {
+  var T7 = document.getElementById("Track7");
+  if (T7.style.display === "none") {
+    T7.style.display = "block";
+  } else {
+    T7.style.display = "none";
+  }
+}
