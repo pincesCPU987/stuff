@@ -108,13 +108,13 @@
     <p style="color:rgb(0,0,255)"><audio controls type="audio/mpeg" src="https://docs.google.com/uc?export=download&id=19HIYipR8diE9q1ApO5fU0S7rVPNx1hOt">Not supported</audio>Track 28</p>
 <p style="color:rgb(0,0,255)">Image display<input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
 <p style="color:rgb(0,0,255)"><label for="file" style="cursor: pointer;">Upload Image</label></p>
-<p><img id="output" /></p><button onClick="window.location.reload();">Reload</button></p><p><a style="color:rgb(0,0,0)" href="https://github.com/pincesCPU987/Links/edit/main/index.html">Edit HTML</a></p><p><a style="color:rgb(0,0,0)" href="https://github.com/pincesCPU987/Links/edit/main/script.js">Edit JS</a></p>
-  <p></p><video id="video" width="640" height="480" autoplay="true"></video>
-<button id="snap">Snap Photo</button>
-<canvas id="canvas" width="640" height="480"></canvas></body><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P"><style>
-    body {<video id="video" width="640" height="480" autoplay></video>
-<button id="snap">Snap Photo</button>
-<canvas id="canvas" width="640" height="480"></canvas>
+<p><img id="output" /></p><div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+</div><button onClick="window.location.reload();">Reload</button></p><p><a style="color:rgb(0,0,0)" href="https://github.com/pincesCPU987/Links/edit/main/index.html">Edit HTML</a></p><p><a style="color:rgb(0,0,0)" href="https://github.com/pincesCPU987/Links/edit/main/script.js">Edit JS</a></p>
+  <p></p><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P"><style>
+    body {
         font-family: 'Press Start 2P';
         font-size: 15px;
     }
@@ -123,43 +123,28 @@ var loadFile = function(event) {
 	var image = document.getElementById('output');
 	image.src = URL.createObjectURL(event.target.files[0]);
 }
-</script><script>
-// Grab elements, create settings, etc.
-var video = document.getElementById('video');
+</script><style>
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+</style><script>
+var video = document.querySelector("#videoElement");
 
-// Get access to the camera!
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Not adding `{ audio: true }` since we only want video now
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
-        video.srcObject = stream;
-        video.play();
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
     });
-}
-else if(navigator.getUserMedia) { // Standard
-    navigator.getUserMedia({ video: true }, function(stream) {
-        video.src = stream;
-        video.play();
-    }, errBack);
-} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
-    navigator.webkitGetUserMedia({ video: true }, function(stream){
-        video.src = window.webkitURL.createObjectURL(stream);
-        video.play();
-    }, errBack);
-} else if(navigator.mozGetUserMedia) { // Mozilla-prefixed
-    navigator.mozGetUserMedia({ video: true }, function(stream){
-        video.srcObject = stream;
-        video.play();
-    }, errBack);
-}
-// Elements for taking the snapshot
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
-var video = document.getElementById('video');
-
-// Trigger photo take
-document.getElementById("snap").addEventListener("click", function() {
-	context.drawImage(video, 0, 0, 640, 480);
-});
 }</script>
 </html>
