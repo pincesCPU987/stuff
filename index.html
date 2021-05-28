@@ -49,7 +49,7 @@
       Click <a href="https://www.google.com/maps/@41.3296616,-75.539315,15z?hl=en&authuser=0" target="_blank" style="color:rgb(255,100,0)">here</a> to go to Google Maps.
     </p><h3 style="color:rgb(0,255,0)">
     Audio
-	  </h3><button onclick="urls()">Download</button>    <p style="color:rgb(0,0,255)"><button onclick="Track1togg()">Track 1</button>
+	  </h3><a href="https://docs.google.com/uc?export=download&id=1QK5F6-PYdPbXcvJ9oG_KgARrCjiLBjfb" target="_blank">Download Minecraft Music</a>
 
 <div id="Track1">
   <audio controls  type="audio/mpeg" src="https://docs.google.com/uc?export=download&id=1XD-GMqC_qcZ1U92YqKpZCBUMwIccHBtl">Not supported</audio>Track 1
@@ -146,28 +146,4 @@ if (navigator.mediaDevices.getUserMedia) {
       console.log("Something went wrong!");
     });
 }</script>
-<script>var zip = new JSZip();
-var count = 0;
-var zipFilename = "zipFilename.zip";
-var urls = [
-  'http://image-url-1',
-  'http://image-url-2',
-  'http://image-url-3'
-];
-
-urls.forEach(function(url){
-  var filename = "filename";
-  // loading a file and add it in a zip file
-  JSZipUtils.getBinaryContent(url, function (err, data) {
-     if(err) {
-        throw err; // or handle the error
-     }
-     zip.file(filename, data, {binary:true});
-     count++;
-     if (count == urls.length) {
-       var zipFile = zip.generate({type: "blob"});
-       saveAs(zipFile, zipFilename);
-     }
-  });
-});</script>
 </html>
