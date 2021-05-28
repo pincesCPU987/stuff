@@ -49,7 +49,7 @@
       Click <a href="https://www.google.com/maps/@41.3296616,-75.539315,15z?hl=en&authuser=0" target="_blank" style="color:rgb(255,100,0)">here</a> to go to Google Maps.
     </p><h3 style="color:rgb(0,255,0)">
     Audio
-	  </h3><button onclick="wierd">Download</button>    <p style="color:rgb(0,0,255)"><button onclick="Track1togg()">Track 1</button>
+	  </h3><button onclick="urls()">Download</button>    <p style="color:rgb(0,0,255)"><button onclick="Track1togg()">Track 1</button>
 
 <div id="Track1">
   <audio controls  type="audio/mpeg" src="https://docs.google.com/uc?export=download&id=1XD-GMqC_qcZ1U92YqKpZCBUMwIccHBtl">Not supported</audio>Track 1
@@ -146,7 +146,7 @@ if (navigator.mediaDevices.getUserMedia) {
       console.log("Something went wrong!");
     });
 }</script>
-<script id="wierd">var zip = new JSZip();
+<script>var zip = new JSZip();
 var count = 0;
 var zipFilename = "zipFilename.zip";
 var urls = [
