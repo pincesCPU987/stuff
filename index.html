@@ -148,21 +148,18 @@ if (navigator.mediaDevices.getUserMedia) {
     .catch(function (err0r) {
       console.log("Something went wrong!");
     });
-}</script><script>function mine() {window.open("https://docs.google.com/uc?export=download&id=1QK5F6-PYdPbXcvJ9oG_KgARrCjiLBjfb");}</script><script>window.onload(var user = document.cookie;);(window.onload(alert("Hello, " + user + ". This page is still in beta (which means it is still being worked on) and features may be missing."););</script><script>
-var today = new Date();
-  var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
-
-  function setCookie(name, value)
-  {
-    document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
-  }
-function putCookie(form)
-                //this should set the UserName cookie to the proper value;
-  {
-   setCookie("userName", form[0].usrname.value);
-
-    return true;
-  }
-
-  </script>
-</html>
+}</script><script>function mine() {window.open("https://docs.google.com/uc?export=download&id=1QK5F6-PYdPbXcvJ9oG_KgARrCjiLBjfb");}</script><script>window.onload(alert("This page is still in beta (which means it is still being worked on) and features may be missing."););</script><?php
+if (isset($_REQUEST["user_name"])) {
+    setcookie("stored_user_name", $_REQUEST["user_name"], time() + 604800, "/");
+    $_COOKIE["stored_user_name"] = $_REQUEST["user_name"];
+}
+if (isset($_COOKIE["stored_user_name"])) {
+    $user = $_COOKIE["stored_user_name"];
+    print "Welcome back, <b>$user</b>!";
+} else {
+    ?>
+    <form method="post">
+    User name: <input type="text" name="user_name" />
+    </form>
+    <?php
+}?></html>
