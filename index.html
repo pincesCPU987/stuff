@@ -68,18 +68,7 @@
 	height: 375px;
 	background-color: #666;
 }
-</style><script>
-var video = document.querySelector("#videoElement");
-
-if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
-    });
-}</script><script>function mine() {window.open("https://docs.google.com/uc?export=download&id=1QK5F6-PYdPbXcvJ9oG_KgARrCjiLBjfb");}</script><script>window.onload(alert("This page is still in beta (which means it is still being worked on) and features may be missing."););</script><?php
+</style><script>function mine() {window.open("https://docs.google.com/uc?export=download&id=1QK5F6-PYdPbXcvJ9oG_KgARrCjiLBjfb");}</script><script>window.onload(alert("This page is still in beta (which means it is still being worked on) and features may be missing."););</script><?php
 if (isset($_REQUEST["user_name"])) {
     setcookie("stored_user_name", $_REQUEST["user_name"], time() + 604800, "/");
     $_COOKIE["stored_user_name"] = $_REQUEST["user_name"];
