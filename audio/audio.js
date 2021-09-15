@@ -1,3 +1,4 @@
+function mine() {window.open("https://docs.google.com/uc?export=download&id=1QK5F6-PYdPbXcvJ9oG_KgARrCjiLBjfb");}
 function Track1togg() {
   var T1 = document.getElementById("Track1"); 
   if (T1.style.display === "none") {
