@@ -14,8 +14,10 @@ window.onload(var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#ffffff";
 ctx.fillRect(0,0,1000,1000);
+ctx.fillStyle = "#f0f0f0";
+ctx.fillRect(0,0,10,10);
 while (true) {
-  if (mouseIsDown) {if (mouseX <= 10 && mouseY <= 10) {ctx.fillStlye = "#ffffff";ctx.fillRect(0, 0, 1000, 1000);ctx.fillStyle = "#0f0f0f";ctx.fillRect(0,0,10,10)} else {ctx.fillStyle = "#000000";ctx.fillRect(mouseX,mouseY,0,0)}}
+  if (mousedown) {if (e.clientX <= 10 && e.clientY <= 10) {ctx.fillStlye = "#ffffff";ctx.fillRect(0, 0, 1000, 1000);ctx.fillStyle = "#f0f0f0";ctx.fillRect(0,0,10,10)} else {ctx.fillStyle = "#000000";ctx.fillRect(e.clientX,e.clientY,0,0)}}
 });
 </script>
 <style>
