@@ -12,14 +12,12 @@
   <script>
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var posX = e.clientX;
-var posY = e.clientY;
 ctx.fillStyle = "#ffffff";
 ctx.fillRect(0,0,1000,1000);
 ctx.fillStyle = "#f0f0f0";
 ctx.fillRect(0,0,10,10);
 while (true) {
-  if (mousedown) {if (posX <= 10 && posY <= 10) {ctx.fillStlye = "#ffffff";ctx.fillRect(0, 0, 1000, 1000);ctx.fillStyle = "#f0f0f0";ctx.fillRect(0,0,10,10);} else {ctx.fillStyle = "#000000";ctx.fillRect(posX,posY,1,1);}}
+  if (mousedown) {if (e.clientX <= 10 && e.clientY <= 10) {ctx.fillStlye = "#ffffff";ctx.fillRect(0, 0, 1000, 1000);ctx.fillStyle = "#000000";ctx.fillRect(0,0,100,100);} else {ctx.fillStyle = "#000000";ctx.fillRect(e.clientX,e.clientY,1,1);}}
 }
 </script>
 <style>
