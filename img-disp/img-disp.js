@@ -1,8 +1,8 @@
-var loadImg = function(event) {
+var loadImg = function(eventImg) {
 	var image = document.getElementById('outputImg');
-	image.src = URL.createObjectURL(event.target.files[0]);
+	image.src = URL.createObjectURL(eventImg.target.files[0]);
 }
-var loadAud = function(event) {
+var loadAud = function(eventAud) {
 	var audio = document.getElementById('outputAud');
-	audio.src = URL.createObjectURL(event.target.files[0]);
+	audio.src = URL.createObjectURL(eventAud.target.files[0]);
 }
