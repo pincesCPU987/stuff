@@ -1,9 +1,18 @@
 <head>
     <title>File Display</title><link rel="icon" type="image/png" href="https://docs.google.com/uc?export=download&id=1Hz5g7Cyuwo49jpDI0i45BiYBlD1W-yNC">
-  </head><body><p><a style="color:rgb(255,100,0)" href="/Links/">«Go back</a>
+    <script>alert("This is where you can display images.");</script></head><body onunload="con()"><p><a style="color:rgb(255,100,0)" href="/Links/">«Go back</a>
 <h1 style="color:rgb(255,0,0)">Image display</h1><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
 <p style="color:rgb(0,0,255)"><label for="file" style="cursor: pointer;">Upload Image</label></p>
 <p><img id="output" /></p><div id="container">
 </body>
-  <script src="img-disp.js"></script>
+  <script src="img-disp.js">function con() {
+    var answer = confirm("Do you want to check out other stuff(or continue doing what you are doing)? You might not be in the same position as you are now.")
+    if (answer){
+
+        alert("bye");
+    }
+    else{
+        window.location = "window.location.href";
+    }
+}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P"><link rel="stylesheet" href="/Links/style.css">
