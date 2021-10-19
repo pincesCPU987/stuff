@@ -1,15 +1,15 @@
-p {
+p * {
   color: rgb (255,100,0);
 }
 
-h1 {
+h1 * {
   color: rgb (255,0,0);
 }
 
-h3 {
+h3 * {
   color: rgb (0,255,0);
 }
 
-a {
+a * {
   color: rgb (255,100,0);
 }
