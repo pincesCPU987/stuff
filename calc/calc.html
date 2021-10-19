@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Calculator with TXT Notes download</title><link rel="shortcut icon" type="image/png" href="https://docs.google.com/uc?export=download&id=1Hz5g7Cyuwo49jpDI0i45BiYBlD1W-yNC"/><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@900&display=swap" rel="stylesheet">
+<style>
+form * {
+  display: block;
+  margin: 10px;
+}
+  body {font-family: 'Inconsolata', monospace;
+        font-size: 20px;}
+</style>
+<script language="Javascript" >
+function download(filename, text) {
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + 
+
+encodeURIComponent(text));
+  pom.setAttribute('download', filename);
+
+  pom.style.display = 'none';
+  document.body.appendChild(pom);
+
+  pom.click();
+
+  document.body.removeChild(pom);
+}
+</script>
+</head>
+<body>
+<h1 style="color:rgb(0,0,255)">Notes</h1>
+<form onsubmit="download(this['name'].value, this['text'].value)">
+  <label for="txtForm">Choose a filename below (for example: math_notes.txt).</label>
+  <input type="text" name="name" value="math_notes.txt" id="txtForm">
+  <label for="txtA">Put the content of the file below.</label>
+  <textarea rows=3 cols=50 name="text" id="txtA">
+Put text here.
+
+
+Thank you for using my website!</textarea>
+  <input type="submit" value="Download">
+</form>
+<h1 style="color:rgb(0,0,255)">Calculator</h1>
+<form onsubmit="calculate()">
+  <label for="calc1">Choose a first number.</label>
+  <input type="number" name="calc1" id="calc1"></input>
+  <select name="operation" id="operation">
+    <option value="choose">Choose an operation</option>
+    <option value="plus">+</option>
+    <option value="minus">-</option>
+    <option value="times">×</option>
+    <option value="divide">÷</option>
+  </select>
+  <label for="calc2">Choose a second number.</label>
+  <input type="number" name="calc2" id="calc2"></input>
+  <input type="submit" value="Calculate">
+</form>
+  </body><script>function calculate(){
+      var calc1val = document.getElementById("calc1");
+      var calc2val = document.getElementById("calc2");
+      var oper = document.getElementById("operation");
+      if(oper.value == "choose"){
+        alert("Please choose an operation.");
+      } else if(oper.value == "plus"){
+        var answer = calc1val.value + calc2val.value;
+        alert(calc1val.value + " + " + calc2val.value + " = " + answer + " (This text can be copied into the text box where indicated.)");
+      } else if(oper.value == "minus"){
+        var answer = calc1val.value - calc2val.value;
+        alert(calc1val.value + " - " + calc2val.value + " = " + answer + " (This text can be copied into the text box where indicated.)");
+      } else if(oper.value == "times"){
+        var answer = calc1val.value * calc2val.value;
+        alert(calc1val.value + " × " + calc2val.value + " = " + answer + " (This text can be copied into the text box where indicated.)");
+      } else {
+        if(calc2val.value != 0){
+          var answer = calc1val.value / calc2val.value;
+          alert(calc1val.value + " ÷ " + calc2val.value + " = " + answer + " (This text can be copied into the text box whwere indicated.)");
+        } else {
+          alert("The second value cannot be zero when dividing.");
+        }
+      }
+    }</script>
+</html>
