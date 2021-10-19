@@ -1,15 +1,15 @@
 p {
-  color: #0000ff
+  color: rgb (255,100,0);
 }
 
 h1 {
-  color: #ff0000
+  color: rgb (255,0,0);
 }
 
 h3 {
-  color: #00ff00
+  color: rgb (0,255,0);
 }
 
 a {
-  color: #ff7700
+  color: rgb (255,100,0);
 }
