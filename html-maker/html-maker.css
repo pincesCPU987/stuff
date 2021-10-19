@@ -1,1 +1,7 @@
-
+form * {
+  display: block;
+  margin: 20px;
+}
+  body {font-family: 'Press Start 2P', cursive;
+        font-size: 14px;
+  background-color: #000000}
