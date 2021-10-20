@@ -7,3 +7,9 @@ body {
   font-size: 20px;
   background-color: #000000
 }
+label {
+  color: #0000ff
+}
+h1 {
+  color: #ff0000
+}
