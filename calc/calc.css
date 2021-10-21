@@ -5,11 +5,14 @@ form * {
 body {
   font-family: 'Press Start 2P', cursive;
   font-size: 14px;
-  background-color: #000000
+  background-color: #000000;
 }
 label {
-  color: #0000ff
+  color: #0000ff;
 }
 h1 {
-  color: #ff0000
+  color: #ff0000;
+}
+p {
+  color: #0000ff;
 }
