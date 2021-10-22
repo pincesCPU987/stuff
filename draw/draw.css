@@ -2,3 +2,7 @@ body {
     font-family: 'Press Start 2P';
     font-size: 15px;
 }
+
+a {
+    color: #ff00
+}
