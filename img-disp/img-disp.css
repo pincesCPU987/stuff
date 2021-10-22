@@ -25,3 +25,13 @@ a:hover {
   color: #ff6400;
   text-decoration: underline;
 }
+
+a:active {
+  color: #ffffff;
+  text-decoration: underline, bold;
+}
+
+a:visited {
+  color: #ff6400;
+  text-decoration: bold;
+}
