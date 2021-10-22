@@ -3,7 +3,7 @@ body {
     font-size: 15px;
     background-color: #000000;
 }
-a {color: #ff6400;text-decoration: none;}
-a:hover {color: #ff6400;text-decoration: underline;}
-a:active {color: #ffffff;text-decoration: underline bold;}
-a:visited {color: #ff6400;text-decoration: bold;}
+a {color: #ff6400;font-weight: normal;text-decoration: none;}
+a:hover {color: #ff6400;font-weight: normal;text-decoration: underline;}
+a:active {color: #ffffff;font-weight: bold;text-decoration: underline;}
+a:visited {color: #ff6400;font-weight: bold;text-decoration: none;}
