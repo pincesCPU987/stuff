@@ -20,5 +20,6 @@ h1 {
     color: #ff0000;
 }
 a:hover {
+    color: #ff6400;
     text-decoration: underline;
 }
