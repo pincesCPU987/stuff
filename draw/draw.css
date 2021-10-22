@@ -4,5 +4,17 @@ body {
 }
 
 a {
-    color: #ff00
+    color: #ff6400;
+}
+
+#can {
+    background-color: "#000000";
+}
+
+#eraserDiv {
+    color: #0000ff;
+}
+
+h1 {
+    color: #ff0000;
 }
