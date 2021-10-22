@@ -24,3 +24,8 @@ a:hover {
   color: #ff6400;
   text-decoration: underline;
 }
+
+a:active {
+  text-decoration: underline, bold;
+  color
+}
