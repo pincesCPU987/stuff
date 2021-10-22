@@ -26,7 +26,7 @@ a:hover {
 
 a:active {
   color: #ffffff;
-  text-decoration: underline, bold;
+  text-decoration: underline bold;
 }
 
 a:visited {
