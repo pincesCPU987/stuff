@@ -13,10 +13,12 @@ h3 {
 a {
   color: #ff6400;
   text-decoration: none;
+  font-weight: normal;
 }
 
 a:hover {
   color: #ff6400;
+  font-weight: normal;
   text-decoration: underline;
 }
 
