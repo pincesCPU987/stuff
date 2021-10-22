@@ -1,5 +1,6 @@
 a {
   color: #ff6400;
+  font-weight: normal;
   text-decoration: none;
 }
 
@@ -23,15 +24,18 @@ body {
 
 a:hover {
   color: #ff6400;
+  font-weight: normal;
   text-decoration: underline;
 }
 
 a:active {
   color: #ffffff;
+  font-weight: bold;
   text-decoration: underline bold;
 }
 
 a:visited {
   color: #ff6400;
+  font-weight: bold;
   text-decoration: bold;
 }
