@@ -1,25 +1,35 @@
 body {
-    font-family: 'Press Start 2P';
-    font-size: 15px;
+  font-family: 'Press Start 2P';
+  font-size: 15px;
 }
 
 a {
-    color: #ff6400;
-    text-decoration: none;
+  color: #ff6400;
+  text-decoration: none;
 }
 
 #can {
-    background-color: "#000000";
+  background-color: "#000000";
 }
 
 #eraserDiv {
-    color: #0000ff;
+  color: #0000ff;
 }
 
 h1 {
-    color: #ff0000;
+  color: #ff0000;
 }
 a:hover {
-    color: #ff6400;
-    text-decoration: underline;
+  color: #ff6400;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #ffffff;
+  text-decoration: underline, bold;
+}
+
+a:visited {
+  color: #ff6400;
+  text-decoration: bold;
 }
