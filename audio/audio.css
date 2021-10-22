@@ -27,14 +27,14 @@ body {
   font-family: 'Press Start 2P', cursive;
 }
 
-a:active {
-  text-decoration: underline;
-  font-weight: bold;
-  color: #ffffff;
-}
-
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #ff6400;
+}
+
+a:active {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #ffffff;
 }
