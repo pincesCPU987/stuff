@@ -31,11 +31,11 @@ a:hover {
 a:active {
   color: #ffffff;
   font-weight: bold;
-  text-decoration: underline bold;
+  text-decoration: underline;
 }
 
 a:visited {
   color: #ff6400;
   font-weight: bold;
-  text-decoration: bold;
+  text-decoration: none;
 }
