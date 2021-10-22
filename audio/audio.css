@@ -24,3 +24,13 @@ body {
   background-color: #000000;
   font-family: 'Press Start 2P', cursive;
 }
+
+a:active {
+  text-decoration: underline, bold;
+  color: #ffffff;
+}
+
+a:visited {
+  text-decoration: bold;
+  color: #ff6400;
+}
