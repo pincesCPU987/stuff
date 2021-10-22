@@ -1,5 +1,6 @@
 a {
   color: #ff6400;
+  text-decoration: none;
 }
 
 p {
@@ -18,4 +19,8 @@ h1 {
 body {
   font-family: 'Press Start 2P';
   background-color: #000000;
+}
+
+a:hover {
+  text-decoration: underline;
 }
