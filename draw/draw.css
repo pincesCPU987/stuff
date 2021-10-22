@@ -5,6 +5,7 @@ body {
 
 a {
   color: #ff6400;
+  font-weight: normal;
   text-decoration: none;
 }
 
@@ -19,17 +20,21 @@ a {
 h1 {
   color: #ff0000;
 }
+
 a:hover {
   color: #ff6400;
+  fonot-weight: normal;
   text-decoration: underline;
 }
 
 a:active {
   color: #ffffff;
-  text-decoration: underline bold;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 a:visited {
   color: #ff6400;
-  text-decoration: bold;
+  foont-weight: bold;
+  text-decoration: none;
 }
