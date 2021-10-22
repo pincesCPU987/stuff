@@ -18,19 +18,23 @@ p {
 }
 a {
   color: #ff6400;
+  font-weight: normal;
   text-decoration: none;
 }
 a:hover {
   color: #ff6400;
+  font-weight: normal;
   text-decoration: underline;
 }
 
 a:active {
-  text-decoration: underline bold;
+  text-decoration: underline;
+  font-weight: bold;
   color: #ffffff;
 }
 
 a:visited {
-  text-decoration: bold;
+  font-weight: bold;
+  text-decoration: none;
   color: #ff6400;
 }
