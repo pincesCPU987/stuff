@@ -26,5 +26,6 @@ label {
 }
 
 a:hover {
+  color: #ff6400;
   text-decoration: underline;
 }
