@@ -3,5 +3,7 @@ body {
     font-size: 15px;
     background-color: #000000;
 }
-a {text-decoration: none;}
-a:hover {text-decoration: underline;}
+a {color: #ff6400;text-decoration: none;}
+a:hover {color: #ff6400;text-decoration: underline;}
+a:active {color: #ffffff;text-decoration: underline, bold;}
+a:visited {color: #ff6400;text-decoration: bold;}
