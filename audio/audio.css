@@ -32,6 +32,7 @@ a:active {
 }
 
 a:visited {
-  text-decoration: bold;
+  text-decoration: none;
+  font-weight: bold;
   color: #ff6400;
 }
