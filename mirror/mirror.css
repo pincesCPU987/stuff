@@ -1,16 +1,22 @@
-    body {
-        font-family: 'Press Start 2P';
-        font-size: 15px;
-	background-color: #000000;
-    }
-#container {
-	margin: 0px auto;
-	width: 500px;
-	height: 375px;
-	border: 10px #333 solid;
+body {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  background-color: #000000;
 }
+
+#container {
+  margin: 0px auto;
+  width: 500px;
+  height: 375px;
+  border: 10px #333 solid;
+}
+
 #videoElement {
-	width: 500px;
-	height: 375px;
-	background-color: #666;
+  width: 500px;
+  height: 375px;
+  background-color: #666;
+}
+
+h1 {
+  color: #ff0000
 }
