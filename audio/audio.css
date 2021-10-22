@@ -26,7 +26,8 @@ body {
 }
 
 a:active {
-  text-decoration: underline bold;
+  text-decoration: underline;
+  font-weight: bold;
   color: #ffffff;
 }
 
