@@ -2,6 +2,24 @@ form * {
   display: block;
   margin: 20px;
 }
-  body {font-family: 'Press Start 2P', cursive;
-        font-size: 14px;
-  background-color: #000000}
+body {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  background-color: #000000
+}
+
+a {
+  color: #ff6400;
+}
+
+p {
+  color: #0000ff;
+}
+
+h1 {
+  color: #ff0000;
+}
+
+label {
+  color: #0000ff;
+}
