@@ -27,5 +27,10 @@ a:hover {
 
 a:active {
   text-decoration: underline, bold;
-  color
+  color: #ffffff;
+}
+
+a:visited {
+  text-decoration: bold;
+  color: #ff6400;
 }
