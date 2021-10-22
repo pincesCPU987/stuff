@@ -20,3 +20,12 @@ body {
 h1 {
   color: #ff0000;
 }
+
+a {
+  color: #ff6400;
+  text-decoration: none;
+}
+a:hover {
+  color: #ff6400;
+  text-decoration: underline;
+}
