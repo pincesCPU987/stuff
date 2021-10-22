@@ -3,3 +3,5 @@ body {
     font-size: 15px;
     background-color: #000000;
 }
+a {text-decoration: none;}
+a:hover {text-decoration: underline;}
