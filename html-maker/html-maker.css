@@ -10,6 +10,7 @@ body {
 
 a {
   color: #ff6400;
+  text-decoration: none;
 }
 
 p {
@@ -22,4 +23,8 @@ h1 {
 
 label {
   color: #0000ff;
+}
+
+a:hover {
+  text-decoration: underline;
 }
