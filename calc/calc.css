@@ -27,14 +27,14 @@ a:hover {
   text-decoration: underline;
 }
 
-a:active {
-  text-decoration: underline;
-  font-weight: bold;
-  color: #ffffff;
-}
-
 a:visited {
   font-weight: bold;
   text-decoration: none;
   color: #ff6400;
+}
+
+a:active {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #ffffff;
 }
