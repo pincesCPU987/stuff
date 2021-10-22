@@ -23,19 +23,23 @@ h1 {
 
 a {
   color: #ff6400;
+  font-weight: normal;
   text-decoration: none;
 }
 a:hover {
   color: #ff6400;
+  font-weight: normal;
   text-decoration: underline;
 }
 
 a:active {
   color: #ffffff;
-  text-decoration: underline bold;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 a:visited {
   color: #ff6400;
-  text--decoration: bold;
+  font-weight: bold;
+  text--decoration: none;
 }
