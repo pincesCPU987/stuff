@@ -12,6 +12,8 @@ h3 {
 
 a {
   color: #ff6400;
+  a {text-decoration: none;}
+  a:hover {text-decoration: underline;}
 }
 
 body {
