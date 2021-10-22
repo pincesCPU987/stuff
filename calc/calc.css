@@ -21,16 +21,16 @@ a {
   font-weight: normal;
   text-decoration: none;
 }
-a:hover {
-  color: #ff6400;
-  font-weight: normal;
-  text-decoration: underline;
-}
-
 a:visited {
   font-weight: bold;
   text-decoration: none;
   color: #ff6400;
+}
+
+a:hover {
+  color: #ff6400;
+  font-weight: normal;
+  text-decoration: underline;
 }
 
 a:active {
