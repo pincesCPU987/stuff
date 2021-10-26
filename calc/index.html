@@ -11,29 +11,25 @@
   <body><a href="/Links/">«Go back</a>
 <h1>Notes</h1>
 <form onsubmit="download(this['name'].value, this['text'].value)">
-  <label for="txtForm">Choose a filename below (for example: math_notes.txt).</label>
-  <input type="text" name="name" value="math_notes.txt" id="txtForm">
-  <label for="txtA">Put the content of the file below.</label>
-  <textarea rows=3 cols=50 name="text" id="txtA">
-Put text here.
+  <table>
+    <tr><th>Choose a filename below (for example: math_notes.txt).</th><th></th>Put the content of the file below.</tr>
+    <tr><td><input type="text" name="name" value="math_notes.txt" id="txtForm"></td><td><textarea rows=3 cols=50 name="text" id="txtA">Put text here.
 
 
-Thank you for using my website!</textarea>
+Thank you for using my website!</textarea></td>
   <input type="submit" value="Download">
+  </table>
 </form>
 <h1>Calculator</h1>
 <form onsubmit="calculate()">
-  <label for="calc1">Choose a first number.</label>
-  <input type="number" name="calc1" id="calc1"></input>
-  <select name="operation" id="operation">
-    <option value="choose">Choose an operation</option>
+  <tr><th>Choose a first number.</th><th>Then choose an operation.</th><th>Finally, choose a second number.</th></tr>
+  <tr><td><input type="number" name="calc1" id="calc1"></input></td><td><select name="operation" id="operation">
+    <option value="choose">Choose</option>
     <option value="plus">+</option>
     <option value="minus">-</option>
     <option value="times">×</option>
     <option value="divide">÷</option>
-  </select>
-  <label for="calc2">Choose a second number.</label>
-  <input type="number" name="calc2" id="calc2"></input>
+  </select></td><td><input type="number" name="calc2" id="calc2"></input></td></tr>
   <input type="submit" value="Calculate">
 </form>
 <h1>
