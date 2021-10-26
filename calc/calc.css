@@ -7,9 +7,7 @@ body {
   font-size: 14px;
   background-color: #000000;
 }
-label {
-  color: #0000ff;
-}
+
 h1 {
   color: #ff0000;
 }
@@ -38,3 +36,11 @@ a:active {
   font-weight: bold;
   color: #ffffff;
 }
+
+table,th,td
+    {
+      padding: 5px;
+      background-color: black;
+      border:2px solid white;
+      color:#0000ff;
+    }
