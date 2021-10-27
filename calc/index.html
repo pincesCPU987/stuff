@@ -22,21 +22,28 @@
 </form>
 <h1>Calculator</h1>
 <form onsubmit="calculate()">
-  <tr><th>Choose a first number.</th><th>Then choose an operation.</th><th>Finally, choose a second number.</th></tr>
-  <tr><td><input type="number" name="calc1" id="calc1"></input></td><td><select name="operation" id="operation">
+  <label for="calc1">Choose a first number below.</label>
+  <input type="number" name="calc1" id="calc1">
+  <label for="operation">Choose an operation below.</label>
+  <select name="operation" id="operation">
     <option value="choose">Choose</option>
     <option value="plus">+</option>
     <option value="minus">-</option>
     <option value="times">×</option>
     <option value="divide">÷</option>
-  </select></td><td><input type="number" name="calc2" id="calc2"></input></td></tr>
+  </select>
+  <label for="calc2">Choose a second number below.</label>
+  <input type="number" name="calc2" id="calc2"></input>
   <input type="submit" value="Calculate">
 </form>
 <h1>
   Instructions:
 </h1>
 <p>
-  <img src="https://pixy.org/download/1314323/" width="14px" height="14px" />WARNING! Your calculations will not save when you download your notes, and your notes will not save when you calculate something.
+  <img src="https://pixy.org/download/1314323/" width="50px" height="250px" style="align:middle" />
+</p>
+<p style="align=middle">
+  WARNING! Your calculations will not save when you download your notes, and your notes will not save when you calculate something.<br/>
 </p>
 <p>
   For decimals, remember how many digits are after the point. Then remove the decimal point. After that, type in the integer into the calculator spot. Then divide the result by 10<sup>(insert number of digits after the point here)</sup>. 
