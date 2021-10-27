@@ -11,30 +11,30 @@
   <body><a href="/Links/" title="Go back to the main page.">«Go back</a>
 <h1 title="Take notes in this section.">Notes</h1>
 <form onsubmit="download(this['name'].value, this['text'].value)">
-    <label for="name">Choose a filename below (for example: math_notes.txt).</label>
-    <input type="text" name="name" value="math_notes.txt" id="txtForm" title="Put the content of the file here."><label for="txtA">Put the content of the file below.</label><textarea rows=3 cols=50 name="text" id="txtA" title="Put notes here.">Put text here.
+    <label for="txtForm" title"Choose a filename below.">Choose a filename below (for example: math_notes.txt).</label>
+    <input type="text" name="txtForm" value="math_notes.txt" id="txtForm" title="Put the content of the file here."><label for="txtA" title="Put the content of the file below.">Put the content of the file below.</label><textarea rows=3 cols=50 name="text" id="txtA" title="Put notes here.">Put text here.
 
 
       Thank you for using my website!</textarea>
   <input type="submit" value="Download" title="Download the file.">
 </form>
-<h1>Calculator</h1>
+<h1 title="Perform your calculations in this section.">Calculator</h1>
 <form onsubmit="calculate()">
-  <label for="calc1">Choose a first number below.</label>
+  <label for="calc1" title="Choose a first number below.">Choose a first number below.</label>
   <input type="number" name="calc1" id="calc1" title="Choose a first number.">
-  <label for="operation">Choose an operation below.</label>
+  <label for="operation" title="Choose an operation below.">Choose an operation below.</label>
   <select name="operation" id="operation" title="Choose an operation.">
-    <option value="choose" title="Choose">Choose</option>
+    <option value="choose" title="Choose (default)">Choose</option>
     <option value="plus" title="Addition">+</option>
     <option value="minus" title="Subtraction">-</option>
     <option value="times" title="Multiplication">×</option>
     <option value="divide" title="Division">÷</option>
   </select>
-  <label for="calc2">Choose a second number below.</label>
+  <label for="calc2" title="Choose a second number below.">Choose a second number below.</label>
   <input type="number" name="calc2" id="calc2" title="Choose a second number."></input>
   <input type="submit" value="Calculate" title="Calculate the result.">
 </form>
-<h1>
+<h1 title="This section tells you how to use this page.">
   Instructions:
 </h1>
 <p><center>
@@ -45,7 +45,22 @@
 </p>
 <p title="INSTRUCIONS">
   For decimals,
-  <ol><li>remember how many digits are after the point.</li><li>Then remove the decimal point.</li><li>After that, type in the integer into the calculator spot.</li><li>Then divide the result by 10<sup>(insert number of digits after the point here)</sup>.</li></ol> 
+  <ol>
+    <li title="Remember how many digits are after the point.">Remember how many digits are after the point.</li>
+    <li title="Then remove the decimal point.">Then remove the decimal point.</li>
+    <li title="After that, type in the integer into the calculation section.">After that, type in the integer into the calculator spot.</li>
+    <li title="Then divide the result by 10^(insert number of digits after the decimal point here).">Then divide the result by 10<sup>(insert number of digits after the point here)</sup>.</li>
+  </ol>
+</p>
+<p title="An example of the previous instructions.">
+  Example:
+  <ul>
+    <li title="In this example, we are solving 12345 × 67890.">1.2345 × 67890</li>
+    <li title="Remove the decimal point.">12345 × 67890</li>
+    <li title="This is the result we get so far."> = 838102050</li>
+    <li title="Divide this result by 10^4 or 10000."><sup>838102050</sup>&frasl<sub>10000</sub></li>
+    <li title="This gives us 83810.2050."> = 83810.2050</li>
+  </ul>
 </p>
   </body>
 </html>
