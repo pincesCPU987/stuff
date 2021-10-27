@@ -37,15 +37,6 @@ a:active {
   color: #ffffff;
 }
 
-th,td
-    {
-      padding: 1px;
-      background-color: black;
-      border:1px solid white;
-      color:#0000ff;
-    }
-table {
-  background-color: black;
-  border:1px solid white;
-  color:#0000ff;
+label {
+  color: #0000ff;
 }
