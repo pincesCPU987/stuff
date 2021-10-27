@@ -12,20 +12,20 @@
 <h1>Notes</h1>
 <form onsubmit="download(this['name'].value, this['text'].value)">
   <table>
-    <tr><th>Choose a filename below (for example: math_notes.txt).</th><th>Put the content of the file below.</th></tr>
-    <tr><td><input type="text" name="name" value="math_notes.txt" id="txtForm"></td><td><textarea rows=3 cols=50 name="text" id="txtA">Put text here.
+    <label for="name">Choose a filename below (for example: math_notes.txt).</label>
+    <input type="text" name="name" value="math_notes.txt" id="txtForm"><label for="txtA">Put the content of the file below.</label><textarea rows=3 cols=50 name="text" id="txtA" alt="Put notes here.">Put text here.
 
 
       Thank you for using my website!</textarea></td></tr>
   
-  </table><input type="submit" value="Download">
+  </table><input type="submit" value="Download" alt="Download the file.">
 </form>
 <h1>Calculator</h1>
 <form onsubmit="calculate()">
   <label for="calc1">Choose a first number below.</label>
-  <input type="number" name="calc1" id="calc1">
+  <input type="number" name="calc1" id="calc1" alt="Choose a first number.">
   <label for="operation">Choose an operation below.</label>
-  <select name="operation" id="operation">
+  <select name="operation" id="operation" alt="Choose an operation.">
     <option value="choose">Choose</option>
     <option value="plus">+</option>
     <option value="minus">-</option>
@@ -33,19 +33,19 @@
     <option value="divide">÷</option>
   </select>
   <label for="calc2">Choose a second number below.</label>
-  <input type="number" name="calc2" id="calc2"></input>
-  <input type="submit" value="Calculate">
+  <input type="number" name="calc2" id="calc2" alt="Choose a second number."></input>
+  <input type="submit" value="Calculate" alt="Calculate the result.">
 </form>
 <h1>
   Instructions:
 </h1>
 <p>
-  <img src="https://pixy.org/download/1314323/" width="50px" height="50px" align="middle" />
+  <img src="https://pixy.org/download/1314323/" width="50px" height="50px" align="middle" alt="WARNING!!!!!!! Your stuff will not save when you do something."/>
 </p>
-<p align="middle">
+<p align="middle" alt="WARNING!!!!!!! Your stuff will not save when you do something.">
   WARNING! Your calculations will not save when you download your notes, and your notes will not save when you calculate something.<br/>
 </p>
-<p>
+<p alt="INSTRUCIONS">
   For decimals, remember how many digits are after the point. Then remove the decimal point. After that, type in the integer into the calculator spot. Then divide the result by 10<sup>(insert number of digits after the point here)</sup>. 
 </p>
   </body>
