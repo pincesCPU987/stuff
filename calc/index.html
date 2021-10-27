@@ -13,40 +13,41 @@
 <form onsubmit="download(this['name'].value, this['text'].value)">
   <table>
     <label for="name">Choose a filename below (for example: math_notes.txt).</label>
-    <input type="text" name="name" value="math_notes.txt" id="txtForm"><label for="txtA">Put the content of the file below.</label><textarea rows=3 cols=50 name="text" id="txtA" alt="Put notes here.">Put text here.
+    <input type="text" name="name" value="math_notes.txt" id="txtForm" title="Put the content of the file here."><label for="txtA">Put the content of the file below.</label><textarea rows=3 cols=50 name="text" id="txtA" title="Put notes here.">Put text here.
 
 
       Thank you for using my website!</textarea>
   
-  </table><input type="submit" value="Download" alt="Download the file.">
+  </table><input type="submit" value="Download" title="Download the file.">
 </form>
 <h1>Calculator</h1>
 <form onsubmit="calculate()">
   <label for="calc1">Choose a first number below.</label>
-  <input type="number" name="calc1" id="calc1" alt="Choose a first number.">
+  <input type="number" name="calc1" id="calc1" title="Choose a first number.">
   <label for="operation">Choose an operation below.</label>
-  <select name="operation" id="operation" alt="Choose an operation.">
-    <option value="choose">Choose</option>
-    <option value="plus">+</option>
-    <option value="minus">-</option>
-    <option value="times">×</option>
-    <option value="divide">÷</option>
+  <select name="operation" id="operation" title="Choose an operation.">
+    <option value="choose" title="Choose">Choose</option>
+    <option value="plus" title="Addition">+</option>
+    <option value="minus" title="Subtraction">-</option>
+    <option value="times" title="Multiplication">×</option>
+    <option value="divide" title="Division">÷</option>
   </select>
   <label for="calc2">Choose a second number below.</label>
-  <input type="number" name="calc2" id="calc2" alt="Choose a second number."></input>
-  <input type="submit" value="Calculate" alt="Calculate the result.">
+  <input type="number" name="calc2" id="calc2" title="Choose a second number."></input>
+  <input type="submit" value="Calculate" title="Calculate the result.">
 </form>
 <h1>
   Instructions:
 </h1>
 <p>
-  <img src="https://pixy.org/download/1314323/" width="50px" height="50px" align="middle" alt="WARNING!!!!!!! Your stuff will not save when you do something."/>
+  <img src="https://pixy.org/download/1314323/" width="50px" height="50px" align="middle" title="WARNING!!!!!!! Your stuff will not save when you do something."/>
 </p>
-<p align="middle" alt="WARNING!!!!!!! Your stuff will not save when you do something.">
+<p align="middle" title="WARNING!!!!!!! Your stuff will not save when you do something.">
   WARNING! Your calculations will not save when you download your notes, and your notes will not save when you calculate something.<br/>
 </p>
-<p alt="INSTRUCIONS">
-  For decimals, remember how many digits are after the point. Then remove the decimal point. After that, type in the integer into the calculator spot. Then divide the result by 10<sup>(insert number of digits after the point here)</sup>. 
+<p title="INSTRUCIONS">
+  For decimals,
+  <ol><li>remember how many digits are after the point.</li><li>Then remove the decimal point.</li><li>After that, type in the integer into the calculator spot.</li><li>Then divide the result by 10<sup>(insert number of digits after the point here)</sup>.</li></ol> 
 </p>
   </body>
 </html>
