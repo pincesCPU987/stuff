@@ -41,6 +41,10 @@ label {
   color: #0000ff;
 }
 
-ol,li {
+ol {
+  color: #0000ff;
+}
+
+li {
   color: #0000ff;
 }
