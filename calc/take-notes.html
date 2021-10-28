@@ -7,14 +7,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <script>
-    function closeWindow(){
-      if(confirm("Do you really want to close? You will lose your notes.")){
-        alert("Goodbye!");
-        window.close();
-      } else {
-        window.location.href = "/Links/calc/take-notes.html";
-      }
-    }
+    var formSubmitting = false;
+    var setFormSubmitting = function() { formSubmitting = true; };
+    
+    window.onload = function() {
+      window.addEventListener("beforeunload", function (e) {
+        if (formSubmitting) {
+          return undefined;
+        }
+        
+        var confirmationMessage = 'It looks like you have been editing something. ' + 'If you leave before saving, your changes will be lost.';
+        
+        return confirmationMessage;
+      });
+    };
   </script>
   <script src="/Links/calc/calc.js"></script>
 </head>
@@ -28,5 +34,4 @@
 Thank you for using my website!</textarea>
     <input type="submit" value="Download" title="Download the file.">
   </form>
-  <a href="javascript:closeWindow()">Close this window</a>
 </body>
