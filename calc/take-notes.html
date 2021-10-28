@@ -8,8 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <script src="/Links/calc/calc.js">
     function closeWindow(){
-      var q = confirm("Do you really want to close? You will lose your notes.");
-      if(q){
+      if(confirm("Do you really want to close? You will lose your notes.")){
         alert("Goodbye!");
         window.close();
       } else {
@@ -27,5 +26,5 @@
 Thank you for using my website!</textarea>
     <input type="submit" value="Download" title="Download the file.">
   </form>
-  <button onclick="closeWindow();">Close this window</button>
+  <a href="#" onclick="closeWindow()">Close this window</button>
 </body>
