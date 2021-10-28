@@ -10,17 +10,15 @@
     var formSubmitting = false;
     var setFormSubmitting = function() { formSubmitting = true; };
     
-    function() {
-      window.addEventListener("beforeunload", function (e) {
-        if (formSubmitting) {
-          return undefined;
-        }
-        
-        var confirmationMessage = 'It looks like you have been editing something. ' + 'If you leave before saving, your changes will be lost.';
-        
-        return confirmationMessage;
-      });
-    };
+    window.addEventListener("beforeunload", function (e) {
+      if (formSubmitting) {
+        return undefined;
+      }
+      
+      var confirmationMessage = 'It looks like you have been editing something. ' + 'If you leave before saving, your changes will be lost.';
+      
+      return confirmationMessage;
+    });
   </script>
   <script src="/Links/calc/calc.js"></script>
 </head>
