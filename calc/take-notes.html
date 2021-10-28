@@ -7,18 +7,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <script>
-    var formSubmitting = false;
-    var setFormSubmitting = function() { formSubmitting = true; };
-    
-    window.addEventListener("beforeunload", function (e) {
-      if (formSubmitting) {
-        return undefined;
+    window.onbeforeunload = function() {
+      var Ans = confirm("Are you sure you want change page!");
+      if(Ans==true){
+        return true;
+      } else {
+        return false;
       }
-      
-      var confirmationMessage = 'It looks like you have been editing something. ' + 'If you leave before saving, your changes will be lost.';
-      
-      return confirmationMessage;
-    });
+    }
   </script>
   <script src="/Links/calc/calc.js"></script>
 </head>
