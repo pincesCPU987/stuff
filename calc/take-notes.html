@@ -10,7 +10,7 @@
     var formSubmitting = false;
     var setFormSubmitting = function() { formSubmitting = true; };
     
-    window.onload = function() {
+    function() {
       window.addEventListener("beforeunload", function (e) {
         if (formSubmitting) {
           return undefined;
