@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <script src="/Links/calc/calc.js">
+  <script>
     function closeWindow(){
       if(confirm("Do you really want to close? You will lose your notes.")){
         alert("Goodbye!");
@@ -15,6 +15,7 @@
         window.location.href = "/Links/calc/take-notes.html";
       }
   </script>
+  <script src="/Links/calc/calc.js"></script>
 </head>
 <body>
   <h1 title="Take notes in this section.">Notes</h1>
@@ -26,5 +27,5 @@
 Thank you for using my website!</textarea>
     <input type="submit" value="Download" title="Download the file.">
   </form>
-  <a href="#" onclick="closeWindow()">Close this window</a>
+  <a href="javascript:closeWindow()">Close this window</a>
 </body>
