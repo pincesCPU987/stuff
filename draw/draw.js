@@ -68,7 +68,7 @@
     }
     
     function erase() {
-        var m = confirm("Want to clear");
+        var m = confirm("Do you want to clear the image?");
         if (m) {
             ctx.clearRect(0, 0, w, h);
             document.getElementById("canvasimg").style.display = "none";
