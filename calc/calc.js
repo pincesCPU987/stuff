@@ -1,4 +1,5 @@
 function download(filename, text) {
+  event.preventDefault();
   var pom = document.createElement('a');
   pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + 
 
@@ -13,6 +14,7 @@ encodeURIComponent(text));
   document.body.removeChild(pom);
 }
 function calculate(){
+  event.preventDefault();
   var calc1val = document.getElementById("calc1");
   var calc2val = document.getElementById("calc2");
   var oper = document.getElementById("operation");
