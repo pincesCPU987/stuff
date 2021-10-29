@@ -21,7 +21,7 @@
     }
     function doc_keyUp(e) {
       // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
-      if (e.ctrlKey && e.shiftKey && e.enterKey) {
+      if (e.ctrlKey && e.keyCode === 13) {
         // call your function to do the thing
         document.getElementById("myForm").submit();
       }
