@@ -7,25 +7,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <script>
-    window.onbeforeunload = function() {
-      var txtForm = document.getElementById("txtForm");
-      var txtA = document.getElementById("txtA");
-      if(txtForm.value != "math_notes.txt" || txtA.value != "Put text here."){
-        var Ans = confirm("Are you sure you want change page!");
-        if(Ans==true){
-          return true;
-        } else {
-          return false;
-        }
-      }
-    }
-    function doc_keyUp(e) {
-      // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
-      if (e.ctrlKey && e.keyCode === 13) {
-        // call your function to do the thing
-        document.getElementById("buttonD").click();
-      }
-    }
+function doc_keyUp(e) {
+// this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
+if (e.ctrlKey && e.keyCode === 13) {
+// call your function to do the thing
+document.getElementById("buttonD").click();
+}
+}
 // register the handler 
 document.addEventListener('keyup', doc_keyUp, false);
   </script>
