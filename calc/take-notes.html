@@ -23,7 +23,7 @@
       // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
       if (e.ctrlKey && e.keyCode === 13) {
         // call your function to do the thing
-        document.getElementById("myForm").submit();
+        document.getElementById("buttonD").click();
       }
     }
 // register the handler 
@@ -36,6 +36,6 @@ document.addEventListener('keyup', doc_keyUp, false);
   <form onsubmit="download(this['txtForm'].value, this['text'].value)" id="myForm">
     <label for="txtForm" title"Choose a filename below.">Choose a filename below (for example: math_notes.txt).</label>
     <input type="text" name="txtForm" value="math_notes.txt" id="txtForm" title="Choose a filename here."><label for="txtA" title="Put the content of the file below.">Put the content of the file below.</label><textarea style="box-sizing:border-box;max-width:95%;max-height:70%;" rows="1000" cols="1000" name="text" id="txtA" title="Put notes here.">Put text here.</textarea>
-    <input type="submit" value="Download" title="Download the file.">
+    <input type="submit" value="Download" title="Download the file." id="buttonD">
   </form>
 </body>
