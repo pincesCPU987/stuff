@@ -24,15 +24,41 @@
   </select>
   <label for="calc2" title="Choose a second number below.">Choose a second number below.</label>
   <input type="number" name="calc2" id="calc2" title="Choose a second number." step="any" placeholder="This field is required." required></input>
-  <input type="submit" value="Calculate" title="Calculate the result.">
-  <input type="button" onclick="document.getElementById('cForm').reset()" value="Reset">
+  <input type="submit" value="Calculate" title="Calculate the result." id="buttonD">
+  <input type="button" onclick="document.getElementById('cForm').reset()" value="Reset" id="buttonR">
 </form>
 <h1 title="This section tells you how to use this page.">
   Instructions:
 </h1>
 <p title="Instructions">
   Fill out all fields and hit enter.<br/>
-  Unfortunately, <span style="font-weight:900">adding</span> decimals and/or negatives does not work.
+  Unfortunately, <strong>adding</strong> decimals and/or negatives does not work.
+  </p>
+  <p title="This subsection tells you how to calculate using the keyboard.">
+    How to Calculate using the Keyboard:
+  </p>
+  <p>
+    <ol>
+      <li title="1. Enter your calculations.">
+        Enter your calculations.
+      </li>
+      <li title="2. Press Ctrl + U.">
+        Press Ctrl + U.
+      </li>
   </p>
   </body>
+<script>
+      function doc_keyUp(e) {
+        if (e.ctrlKey && e.keyCode === 13) {
+          document.getElementById("buttonD").click();
+        }
+      }
+      document.addEventListener('keyup', doc_keyUp, false);
+      function keyReset(e) {
+        if (e.ctrlKey && e.e.shiftKey && e.keyCode === 13) {
+          document.getElementById("buttonR").click();
+        }
+      }
+  document.addEventListener('keyup', keyReset, false);
+    </script>
 </html>
