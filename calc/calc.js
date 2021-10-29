@@ -18,7 +18,7 @@ function calculate(){
   var calc1val = document.getElementById("calc1");
   var calc2val = document.getElementById("calc2");
   var oper = document.getElementById("operation");
-  if(oper.value == "choose"){
+  if(oper.value == ""){
     alert("Please choose an operation.");
   } else if(oper.value == "plus"){
     var answer = calc1val.value + calc2val.value;
