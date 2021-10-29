@@ -14,15 +14,16 @@
       }
     }
     document.addEventListener('keyup', doc_keyUp, false);
-    document.getElementById('textbox').addEventListener('keydown', function(e) {
+    function tabMaster(e) {
       if (e.key == 'Tab') {
         e.preventDefault();
         var start = this.selectionStart;
         var end = this.selectionEnd;
-        this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
-        this.selectionStart = this.selectionEnd = start + 1;
+        this.value = this.value.substring(0, start) + "    " + this.value.substring(end);
+        this.selectionStart = this.selectionEnd = start + 2;
       }
-    });
+    }
+    document.getElementById('textbox').addEventListener('keydown', tabMaster, true);
   </script>
   <script src="/Links/calc/calc.js"></script>
 </head>
