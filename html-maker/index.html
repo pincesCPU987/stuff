@@ -7,6 +7,14 @@
 <script language="Javascript" src="/Links/html-maker/html-maker.js">
 
 </script>
+<script>
+function doc_keyUp(e) {
+        if (e.ctrlKey && e.keyCode === 13) {
+          document.getElementById("buttonD").click();
+        }
+      }
+      document.addEventListener('keyup', doc_keyUp, false);
+</script>
 </head>
 <body>
   <a href="/Links/">«Go Back</a>
@@ -19,8 +27,14 @@
 
 
 Thank you for using my website!</textarea>
-  <input type="submit" value="Download">
+  <input type="submit" value="Download" id="buttonD">
 </form>
   <button onclick="window.location.reload()">Reload</button>
+  <p>Quick Tip:</p>
+  <p>
+    <ul><li>
+      Press Ctrl + Enter to download the file.
+      </li></ul>
+  </p>
   </body>
 </html>
