@@ -13,7 +13,7 @@
     <p><a href="/Links/calc/take-notes.html" target="_blank">Take Notes»</a></p>
 <form onsubmit="calculate()">
   <label for="calc1" title="Choose a first number below.">Choose a first number below.</label>
-  <input type="number" name="calc1" id="calc1" title="Choose a first number.">
+  <input type="number" name="calc1" id="calc1" title="Choose a first number." step="any">
   <label for="operation" title="Choose an operation below.">Choose an operation below.</label>
   <select name="operation" id="operation" title="Choose an operation.">
     <option value="choose" title="Choose (default)">Choose</option>
@@ -23,7 +23,7 @@
     <option value="divide" title="Division">÷</option>
   </select>
   <label for="calc2" title="Choose a second number below.">Choose a second number below.</label>
-  <input type="number" name="calc2" id="calc2" title="Choose a second number."></input>
+  <input type="number" name="calc2" id="calc2" title="Choose a second number." step="any"></input>
   <input type="submit" value="Calculate" title="Calculate the result.">
 </form>
 <h1 title="This section tells you how to use this page.">
