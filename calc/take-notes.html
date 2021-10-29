@@ -1,27 +1,70 @@
-<head>
-  <title>
-    Take notes on your calculations.
-  </title>
-  <link rel="stylesheet" href="/Links/calc/calc.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <script src="/Links/calc/want-leave.js"></script>
-  <script>
-    function doc_keyUp(e) {
-      if (e.ctrlKey && e.keyCode === 13) {
-        document.getElementById("buttonD").click();
+<html>
+  <head>
+    <title>
+      Take notes on your calculations.
+    </title>
+    <link rel="stylesheet" href="/Links/calc/calc.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="/Links/calc/want-leave.js"></script>
+    <script>
+      function doc_keyUp(e) {
+        if (e.ctrlKey && e.keyCode === 13) {
+          document.getElementById("buttonD").click();
+        }
       }
+      document.addEventListener('keyup', doc_keyUp, false);
+    </script>
+    <script src="/Links/calc/calc.js"></script>
+  </head>
+  <body>
+    <h1 title="Take notes in this section.">Notes</h1>
+    <form onsubmit="download(this['txtForm'].value, this['text'].value)" id="myForm">
+      <label for="txtForm" title="Choose a filename below.">Choose a filename below (for example: math_notes.txt).</label>
+      <input type="text" name="txtForm" value="math_notes.txt" id="txtForm" title="Choose a filename here."><label for="txtA" title="Put the content of the file below.">Put the content of the file below.</label><textarea style="box-sizing:border-box;max-width:95%;max-height:70%;" rows="1000" cols="1000" name="text" id="txtA" title="Put notes here.">Put text here.</textarea>
+      <input type="submit" value="Download" title="Download the file." id="buttonD">
+    </form>
+    <h1 title="This section tells you how to use the text box.">
+      Instructions
+    </h1>
+    <p title="This subsection tells you how to type a Tab character.">
+      How to Type a Tab Character in Google Chrome®:
+    </p>
+    <p title="SUBINSTRUCTIONS 1">
+      <ol>
+        <li>
+          Press Ctrl + Shift + U.
+        </li>
+        <li>
+          Press 9.
+        </li>
+        <li>
+          Press Space or Enter.
+        </li>
+      </ol>
+    </p>
+    <p title="This subsection tells you how to submit using the keyboard.">
+      How to Submit Using the Keyboard:
+    </p>
+    <p>
+      <ol>
+        <li>
+          Press Ctrl + Enter.
+        </li>
+      </ol>
+    </p>
+    <p>
+      <br/><br/><br/><br/><br/><br/>
+      Thank you for using my website and I hope you had a good experience!
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      Why did you waste your time scrolling that?<br/>
+      <a href="javascript:toTop()">Back to Top!</a>
+    </p>
+  </body>
+  <script>
+    function toTop(){
+      window.scrollTo(0,0);
     }
-    document.addEventListener('keyup', doc_keyUp, false);
   </script>
-  <script src="/Links/calc/calc.js"></script>
-</head>
-<body>
-  <h1 title="Take notes in this section.">Notes</h1>
-  <form onsubmit="download(this['txtForm'].value, this['text'].value)" id="myForm">
-    <label for="txtForm" title"Choose a filename below.">Choose a filename below (for example: math_notes.txt).</label>
-    <input type="text" name="txtForm" value="math_notes.txt" id="txtForm" title="Choose a filename here."><label for="txtA" title="Put the content of the file below.">Put the content of the file below.</label><textarea style="box-sizing:border-box;max-width:95%;max-height:70%;" rows="1000" cols="1000" name="text" id="txtA" title="Put notes here.">Put text here.</textarea>
-    <input type="submit" value="Download" title="Download the file." id="buttonD">
-  </form>
-</body>
+</html>
