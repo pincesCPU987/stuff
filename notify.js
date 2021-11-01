@@ -18,7 +18,7 @@ function notifyMe(e){
    body: 'Click this notification to return to my website. Close this notifaction if you don\'t want it.',
   });
   notification.onclick = function() {
-   window.open('pincescpu987.github.io/Links/');
+   window.open('pincescpu987.github.io/Links');
   };
  }
    return null;
