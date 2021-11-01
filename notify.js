@@ -17,7 +17,7 @@ function notifyMe(e){
    icon: 'https://docs.google.com/uc?export=download&id=1Hz5g7Cyuwo49jpDI0i45BiYBlD1W-yNC',
    body: 'Click this notification to return to my website. Close this notifaction if you don\'t want it.',
   });
-  notification.onclick = function() {
+  Notification.onclick = function() {
    window.open('pincescpu987.github.io/Links/');
   };
  }
