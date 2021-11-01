@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
   Notification.requestPermission();
 });
 
-window.onbeforeunload = notifyMe;
-function notifyMe(e){
+window.onbeforeunload = leaveNot;
+function leaveNot(e){
  if (Notification.permission !== 'granted')
   Notification.requestPermission();
  else {
