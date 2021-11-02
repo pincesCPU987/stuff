@@ -25,7 +25,7 @@
   <label for="calc2" title="Choose a second number below.">Choose a second number below.</label>
   <input type="number" name="calc2" id="calc2" title="Choose a second number." step="any" placeholder="This field is required." required></input>
   <input type="submit" value="Calculate" title="Calculate the result." id="buttonD">
-  <input type="button" onclick="document.getElementById('cForm').reset()" value="Reset" id="buttonR">
+  <input type="button" onclick="if(confirm('Do you really want to reset?')){alert('Resetting...');document.getElementById('cForm').reset();} else {alert('Resetting clears the two text boxes and setts the operation box to blank. This can be done anytime.')}" value="Reset" id="buttonR">
 </form>
 <h1 title="This section tells you how to use this page.">
   Instructions:
@@ -67,7 +67,12 @@
       document.addEventListener('keyup', doc_keyUp, false);
       function keyReset(e) {
         if (e.shiftKey && e.keyCode === 13) {
-          document.getElementById("buttonR").click();
+          if(confirm("Do you really want to reset?")){
+            alert("Resetting...");
+            document.getElementById('cForm').reset();
+          } else {
+            alert("Resetting clears the two text boxes and setts the operation box to blank. This can be done anytime.")
+          }
         }
       }
   document.addEventListener('keyup', keyReset, false);
