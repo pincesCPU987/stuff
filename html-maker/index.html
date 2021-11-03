@@ -10,8 +10,7 @@
 <script>
 function doc_keyUp(e) {
         if (e.ctrlKey && e.keyCode === 13) {
-          var formN = document.getElememtById('formN');
-          formN.submit();
+          document.getElementById('buttonD').click();
         }
       }
       document.addEventListener('keyup', doc_keyUp, false);
