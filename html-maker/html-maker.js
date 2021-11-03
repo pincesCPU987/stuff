@@ -1,4 +1,4 @@
-function download(filename, text,event) {
+function downl(filename, text,event) {
   event.preventDefault();
   var pom = document.createElement('a');
   pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + 
