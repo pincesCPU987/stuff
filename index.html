@@ -10,6 +10,7 @@
     <title>Stuff</title><link rel="icon" type="image/png" href="https://docs.google.com/uc?export=download&id=1Hz5g7Cyuwo49jpDI0i45BiYBlD1W-yNC">
   </head>
   <body>
+    <p id="top">p</p>
     <h1 style="color:rgb(255,0,0)">
       Stuff
     </h1>
@@ -97,9 +98,10 @@
         Reload
       </button>
     <p class="bigBr"></p>
-      <button id="fixedbutton1" class="locButtons" onclick="window.location.href = '#games'">Games</button>
-      <button id="fixedbutton2" class="locButtons" onclick="window.location.href = '#google'">Google</button>
-      <button id="fixedbutton3" class="locButtons" onclick="window.location.href = '#other'">Other Sites</button>
+      <button id="fixedbutton4" class="locButtons" onclick="window.location.href = '#other'">Other Sites</button>
+      <button id="fixedbutton1" class="locButtons" onclick="window.location.href = '#top'">To top!</button>
+      <button id="fixedbutton2" class="locButtons" onclick="window.location.href = '#games'">Games</button>
+    <buttin id="fixedbutton3" class="locButtons" onclick="window.location.href = '#google'">Google</button>
     </p>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
     <link rel="stylesheet" href="/Links/style.css">
@@ -132,22 +134,28 @@ function notifyMe(title,txxt) {
 }
       </script><style>#fixedbutton1 {
     position: fixed;
-    bottom: 80px;
+    bottom: 120px;
     right: 0px;
     padding: 5px;
 }
     #fixedbutton2 {
       position: fixed;
-      bottom: 40px;
+      bottom: 80px;
       right: 0px;
       padding: 5px;
     }
     #fixedbutton3 {
       position: fixed;
-      bottom: 0px;
+      bottom: 40px;
       right: 0px;
       padding: 5px;
     }
+  #fixedbutton4 {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 5px;
+  }
     .locButtons {
       color: white;
       background-color: #00f;
