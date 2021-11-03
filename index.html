@@ -13,7 +13,7 @@
     <h1 style="color:rgb(255,0,0)">
       Stuff
     </h1>
-    <h3 style="color:rgb(0,255,0)">
+    <h3 style="color:rgb(0,255,0)" id="games">
       Games
     </h3>
     <p style="color:rgb(0,0,255)">
@@ -47,7 +47,7 @@
       <a href="https://sites.google.com/site/boredschoolrightnow/games/t-rex-game" target="_blank">here</a>
       to play the regular dinosaur game.
     </p>
-    <h3 style="color:rgb(0,255,0)">
+    <h3 style="color:rgb(0,255,0)" id="google">
       Google
     </h3>
     <p style="color:rgb(0,0,255)">
@@ -70,7 +70,7 @@
       <a href="https://www.google.com/maps/@41.3296616,-75.539315,15z?hl=en&authuser=0" target="_blank">here</a>
       to go to Google Maps.
     </p>
-    <h1 style="color:rgb(255,0,0)">
+    <h1 style="color:rgb(255,0,0)" id="other">
       Other Sites
     </h1>
     <p style="color:#0000ff">What do you want to do?</p>
@@ -94,9 +94,9 @@
       <button onClick="loady();">
         Reload
       </button>
-      <button id="fixedbutton1" class="locButtons">Games</button>
-      <button id="fixedbutton2" class="locButtons">Google</button>
-      <button id="fixedbutton3" class="locButtons">Other Sites</button>
+      <button id="fixedbutton1" class="locButtons" onclick="window.location.href = '#games'">Games</button>
+      <button id="fixedbutton2" class="locButtons" onclick="window.location.href = '#google'">Google</button>
+      <button id="fixedbutton3" class="locButtons" onclick="window.location.href = '#other'">Other Sites</button>
     </p>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
     <link rel="stylesheet" href="/Links/style.css">
