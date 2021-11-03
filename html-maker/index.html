@@ -19,7 +19,7 @@ function doc_keyUp(e,event) {
 <body>
   <a href="/Links/">«Go Back</a>
 <h1>HTML Maker</h1>
-<form onsubmit="download(this['name'].value, this['text'].value)">
+<form onsubmit="event. preventDefault();downl(this['name'].value, this['text'].value)">
   <label for="txtForm" id="formN">Choose a filename below (for example: file.html).</label>
   <input type="text" name="name" value="file.html" id="txtForm">
   <label for="txtA">Put the content of the file below.</label>
