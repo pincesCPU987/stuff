@@ -170,8 +170,10 @@ function notifyMe(title,txxt) {
 </style>
     <!--<script src="/Links/notify.js">
       
-    </script>--><div class="mydiv" oncontextmenu="return false;"></div>
-<script>window.oncontextmenu = (e) => {
+    </script>--><div class="mydiv" oncontextmenu="return false;"></div><p>
+  Hello
+</p>
+<script>oncontextmenu = (e) => {
   e.preventDefault()
   let menu = document.createElement("div")
   menu.id = "ctxmenu"
@@ -185,17 +187,17 @@ function notifyMe(title,txxt) {
   background:black;
   color: white;
   cursor: pointer;
-  border: 1px white solid;
+  border: 1px white solid
 }
 
 #ctxmenu > p {
   padding: 0 1rem;
-  margin: 0;
+  margin: 0
 }
 
 #ctxmenu > p:hover {
   background: white;
-  color: black;
+  color: black
 }</style><script>function fallbackCopyTextToClipboard(text) {
   var textArea = document.createElement("textarea");
   textArea.value = text;
@@ -238,5 +240,5 @@ function copyTextToClipboard(text) {
     }
     return text;
 }
-  </script></body>
+</script></body>
 </html>
