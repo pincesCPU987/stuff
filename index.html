@@ -171,7 +171,7 @@ function notifyMe(title,txxt) {
     <!--<script src="/Links/notify.js">
       
     </script>--><div class="mydiv" oncontextmenu="return false;"></div>
-<script>oncontextmenu = (e) => {
+<script>window.oncontextmenu = (e) => {
   e.preventDefault()
   let menu = document.createElement("div")
   menu.id = "ctxmenu"
