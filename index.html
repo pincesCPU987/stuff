@@ -173,12 +173,12 @@ function notifyMe(title,txxt) {
     </script>--><div class="mydiv" oncontextmenu="return false;"></div><p>
   Hello
 </p>
-<script>oncontextmenu = (e) => {
+<script>oncontextmenu = function(e){
   e.preventDefault();
   let menu = document.createElement("div");
   menu.id = "ctxmenu";
   menu.style = 'top:${e.pageY-10}px;left:${e.pageX-40}px';
-  menu.onmouseleave = () => ctxmenu.outerHTML = '';
+  menu.onmouseleave = function(){ctxmenu.outerHTML = '';}
   menu.innerHTML = "<p onclick=\"copyTextToClipboard(getSelectedText())\">Copy</p><p>Option2</p><p>Option3</p><p>Option4</p><p onclick='alert(`Thank you!`)'>Upvote</p>";
   document.body.appendChild(menu);
 }
