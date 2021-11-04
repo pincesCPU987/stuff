@@ -174,13 +174,13 @@ function notifyMe(title,txxt) {
   Hello
 </p>
 <script>oncontextmenu = (e) => {
-  e.preventDefault()
-  let menu = document.createElement("div")
-  menu.id = "ctxmenu"
-  menu.style = 'top:${e.pageY-10}px;left:${e.pageX-40}px'
-  menu.onmouseleave = () => ctxmenu.outerHTML = ''
-  menu.innerHTML = "<p onclick=\"copyTextToClipboard(getSelectedText())\">Copy</p><p>Option2</p><p>Option3</p><p>Option4</p><p onclick='alert(`Thank you!`)'>Upvote</p>"
-  document.body.appendChild(menu)
+  e.preventDefault();
+  let menu = document.createElement("div");
+  menu.id = "ctxmenu";
+  menu.style = 'top:${e.pageY-10}px;left:${e.pageX-40}px';
+  menu.onmouseleave = () => ctxmenu.outerHTML = '';
+  menu.innerHTML = "<p onclick=\"copyTextToClipboard(getSelectedText())\">Copy</p><p>Option2</p><p>Option3</p><p>Option4</p><p onclick='alert(`Thank you!`)'>Upvote</p>";
+  document.body.appendChild(menu);
 }
 </script><style>#ctxmenu {
   position: fixed;
