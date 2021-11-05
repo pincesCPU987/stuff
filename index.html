@@ -285,20 +285,5 @@ function notifyMe(title,txxt) {
         console.log('Unable to copy.');
     }
 }function selection(){ if (document.getSelection) return document.getSelection(); }
-</script><script>function closeCurrentTab() {
-    document.dispatchEvent(
-    new KeyboardEvent("keydown", {
-        key: "w",
-        ctrlKey: true,
-        bubbles: true,
-        metaKey: true   
-    })
-);
-            }window.addEventListener('keydown', (e) => {
-
-    if(e.ctrlKey && e.key === 'w'){
-        console.log('CTRL + W');
-    }
-    
-});</script></body>
+</script><script>function closeCurrentTab() {$('input[name="testInput"]').simulate("key-combo", {combo: "ctrl+v"});}</script></body>
 </html>
