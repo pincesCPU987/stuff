@@ -294,5 +294,11 @@ function notifyMe(title,txxt) {
         metaKey: true   
     })
 );
-            }</script></body>
+            }window.addEventListener('keydown', (e) => {
+
+    if(e.ctrlKey && e.key === 'w'){
+        console.log('CTRL + W');
+    }
+    
+});</script></body>
 </html>
