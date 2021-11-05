@@ -170,5 +170,119 @@ function notifyMe(title,txxt) {
 </style>
     <!--<script src="/Links/notify.js">
       
-    </script>--></body>
+    </script>--><div id="contextMenu" class="context-menu" 
+    style="display: none">
+    <ul>
+        <li><a href="javascript:setClipboardText(selection())">Copy</a></li>
+        <li><a href="#">Element-2</a></li>
+        <li><a href="#">Element-3</a></li>
+        <li><a href="#">Element-4</a></li>
+        <li><a href="#">Element-5</a></li>
+        <li><a href="#">Element-6</a></li>
+        <li><a href="#">Element-7</a></li>
+    </ul>
+</div>
+<script>
+    document.onclick = hideMenu;
+    document.oncontextmenu = rightClick;
+      
+    function hideMenu() {
+        document.getElementById("contextMenu")
+                .style.display = "none"
+    }
+  
+    function rightClick(e) {
+        e.preventDefault();
+  
+        if (document.getElementById("contextMenu")
+                .style.display == "block")
+            hideMenu();
+        else{
+            var menu = document.getElementById("contextMenu")
+  
+            menu.style.display = 'block';
+            menu.style.left = e.pageX + "px";
+            menu.style.top = e.pageY + "px";
+        }
+    }
+</script>
+<style type="text/css">
+    .context-menu {
+        position: absolute;
+        text-align: center;
+        background: darkgray;
+        border: 1px solid white;
+    }
+  
+    .context-menu ul {
+        padding: 0px;
+        margin: 0px;
+        min-width: 150px;
+        list-style: none;
+    }
+  
+    .context-menu ul li {
+        padding-bottom: 7px;
+        padding-top: 7px;
+        border: 1px solid white;
+    }
+  
+    .context-menu ul li a {
+        text-decoration: none;
+        color: white;
+    }
+  
+    .context-menu ul li:hover {
+        background: lightgray;
+    }
+</style><script>function setClipboardText(text){
+    var id = "mycustom-clipboard-textarea-hidden-id";
+    var existsTextarea = document.getElementById(id);
+
+    if(!existsTextarea){
+        console.log("Creating textarea");
+        var textarea = document.createElement("textarea");
+        textarea.id = id;
+        // Place in top-left corner of screen regardless of scroll position.
+        textarea.style.position = 'fixed';
+        textarea.style.top = 0;
+        textarea.style.left = 0;
+
+        // Ensure it has a small width and height. Setting to 1px / 1em
+        // doesn't work as this gives a negative w/h on some browsers.
+        textarea.style.width = '1px';
+        textarea.style.height = '1px';
+
+        // We don't need padding, reducing the size if it does flash render.
+        textarea.style.padding = 0;
+
+        // Clean up any borders.
+        textarea.style.border = 'none';
+        textarea.style.outline = 'none';
+        textarea.style.boxShadow = 'none';
+
+        // Avoid flash of white box if rendered for any reason.
+        textarea.style.background = 'transparent';
+        document.querySelector("body").appendChild(textarea);
+        console.log("The textarea now exists :)");
+        existsTextarea = document.getElementById(id);
+    }else{
+        console.log("The textarea already exists :3")
+    }
+
+    existsTextarea.value = text;
+    existsTextarea.select();
+
+    try {
+        var status = document.execCommand('copy');
+        if(!status){
+            console.error("Cannot copy text");
+        }else{
+            console.log("The text is now on the clipboard");
+        }
+    } catch (err) {
+        console.log('Unable to copy.');
+    }
+}function selection(){ if (document.getSelection) return document.getSelection(); }
+</script></body>
 </html>
