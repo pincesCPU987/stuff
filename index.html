@@ -285,5 +285,8 @@ function notifyMe(title,txxt) {
         console.log('Unable to copy.');
     }
 }function selection(){ if (document.getSelection) return document.getSelection(); }
-</script><script>function closeCurrentTab() {document.dispatchEvent(new KeyboardEvent('keypress', {'key': 'ctrl'}),new KeyboardEvent('keypress', {'key': 'w'}));}</script></body>
+</script><script>function closeCurrentTab() {var e = jQuery.Event("keypress");
+e.which = 87; // w code value
+e.ctrlKey = true; // Ctrl key pressed
+$("#inputBox").trigger(e);}</script></body>
 </html>
