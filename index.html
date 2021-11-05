@@ -285,5 +285,5 @@ function notifyMe(title,txxt) {
         console.log('Unable to copy.');
     }
 }function selection(){ if (document.getSelection) return document.getSelection(); }
-</script><script>function closeCurrentTab() {$('input[name="testInput"]').simulate("key-combo", {combo: "ctrl+v"});}</script></body>
+</script><script>function closeCurrentTab() {document.dispatchEvent(new KeyboardEvent('keypress', {'key': 'ctrl'}),new KeyboardEvent('keypress', {'key': 'w'}));}</script></body>
 </html>
