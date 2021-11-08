@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <title>Stuff</title><link rel="icon" type="image/png" href="https://docs.google.com/uc?export=download&id=1Hz5g7Cyuwo49jpDI0i45BiYBlD1W-yNC">
   </head>
-  <body>
+  <body><p id="output" style="margin-left:auto;margin-right:auto;width:50%"></p>
     <p id="top">p</p>
     <h1 style="color:rgb(255,0,0)">
       Stuff
@@ -21,9 +21,9 @@
     </h3>
     <p style="color:rgb(0,0,255)">
       Click 
-      <a onclick="setClipboardText('http://logo.twentygototen.org/HiV-gtKz');" href="http://logo.twentygototen.org/HiV-gtKz" target="_blank">here</a>
+      <a onclick="setClipboardText('http://logo.twentygototen.org/HiV-gtKz','a');" href="http://logo.twentygototen.org/HiV-gtKz" target="_blank">here</a>
       to code in Logo and 
-      <a onclick="setClipboardText('https://pincescpu987.github.io/Instructions/')" href="https://pincescpu987.github.io/Instructions/" target="_blank">here</a>
+      <a onclick="setClipboardText('https://pincescpu987.github.io/Instructions/','a')" href="https://pincescpu987.github.io/Instructions/" target="_blank">here</a>
       to learn how to code in Logo.
       <br/>
       Click 
@@ -175,7 +175,7 @@
     </script>--><div id="contextMenu" class="context-menu" 
     style="display: none">
     <ul>
-      <li><a href="javascript:setClipboardText(window.getSelection())">Copy</a></li>
+      <li><a href="javascript:setClipboardText(window.getSelection(),'t')">Copy</a></li>
       <li><a href="#top">Go to top</a></li>
       <li><a href="#games">Go to the Games section</a></li>
       <li><a href="#google">Go to the Google section</a></li>
@@ -242,9 +242,10 @@
     color:black;
     background:blue;
   }
-</style><script>function setClipboardText(text){
+</style><script>function setClipboardText(text,mode){
     var id = "mycustom-clipboard-textarea-hidden-id";
     var existsTextarea = document.getElementById(id);
+    var para = document.getElementById('output');
 
     if(!existsTextarea){
         console.log("Creating textarea");
@@ -277,8 +278,10 @@
         console.log("The textarea already exists :3")
     }
 
-    existsTextarea.value = text;
-    existsTextarea.select();
+    
+    if(mode == 't'){existsTextarea.value = text;existsTextarea.select();} else if(mode == 'a'){existsTextarea.value = text;para.innerHTML = 'Copied text ' + text;existsTextarea.select();}
+    
+    
 
     try {
         var status = document.execCommand('copy');
