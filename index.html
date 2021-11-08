@@ -21,9 +21,9 @@
     </h3>
     <p style="color:rgb(0,0,255)">
       Click 
-      <a href="http://logo.twentygototen.org/HiV-gtKz" target="_blank">here</a>
+      <a onclick="setClipboardText('http://logo.twentygototen.org/HiV-gtKz');" href="http://logo.twentygototen.org/HiV-gtKz" target="_blank">here</a>
       to code in Logo and 
-      <a href="https://pincescpu987.github.io/Instructions/" target="_blank">here</a>
+      <a onclick="setClipboardText('https://pincescpu987.github.io/Instructions/')" href="https://pincescpu987.github.io/Instructions/" target="_blank">here</a>
       to learn how to code in Logo.
       <br/>
       Click 
@@ -175,7 +175,7 @@
     </script>--><div id="contextMenu" class="context-menu" 
     style="display: none">
     <ul>
-      <li><a href="javascript:setClipboardText()">Copy</a></li>
+      <li><a href="javascript:setClipboardText(window.getSelection())">Copy</a></li>
       <li><a href="#top">Go to top</a></li>
       <li><a href="#games">Go to the Games section</a></li>
       <li><a href="#google">Go to the Google section</a></li>
@@ -277,7 +277,7 @@
         console.log("The textarea already exists :3")
     }
 
-    existsTextarea.value = window.getSelection();
+    existsTextarea.value = text;
     existsTextarea.select();
 
     try {
