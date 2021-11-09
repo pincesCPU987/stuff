@@ -279,7 +279,8 @@
         console.log("The textarea already exists :3")
     }
 
-    document.cookie = 'textCopy=' + text + ', ' + mode;
+    document.cookie = 'textCopy=' + text;
+    document.cookie = 'mode=' + mode;
     setPara('new');
     
     
@@ -294,17 +295,33 @@
     } catch (err) {
         console.log('Unable to copy.');
     }
-}function setPara(mod){var para = document.getElementById('output');var cook = document.cookie;
-  if(mod == '')if(cook != ''){
-    var txt = cook.split(', ');
-    if(txt[1] == 'a'){
-      var msg = 'link';
-    } else if(txt[1] == 't'){
-      var msg = 'text';
+}
+  function setPara(mod){var para = document.getElementById('output');var cook = document.cookie;
+    if(mod == 'new'){
+      var txt = cook.split('; ');
+      if(txt[1] == 'mode=a'){
+        var msg = 'link';
+      } else if(txt[1] == 'mode=t'){
+        var msg = 'text';
+      }
+      var txtLoad = txt[0].replace('textCopy=','');
+      para.innerHTML = 'Copied \'' + msg + txtLoad + '\'.';
+    } else if(mod == 'load'){
+      var txt = cook.split('; ');
+      if(txt[1] == 'mode=a'){
+        var msg = 'link';
+      } else if(txt[1] == 'mode=t'){
+        var msg = 'text';
+      }
+      var txtLoad = txt[0].replace('textCopy=','');
+      if(document.cookie != ''){
+        para.innerHTML = 'Nothing copied.';
+      } else {
+        para.innerHTML = 'Copied \'' + msg + txtLoad + '\'.';
+      }
     }
-    para.innerHTML = 'Copied \'' + msg + txt[0] + '\'.';
-  } else {
-    para.innerHTML = 'Nothing copied.';
   }
-                   }</script></body>
+  window.onload = function () {
+    setPara('load');
+}</script></body>
 </html>
