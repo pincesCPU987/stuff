@@ -296,25 +296,24 @@
         console.log('Unable to copy.');
     }
 }
-  function setPara(mod){var para = document.getElementById('output');var cook = document.cookie;
-    if(document.cookie.indexOf("textCopy") > 0){
+  function setPara(mod){var para = document.getElementById('output');var cook = document.cookie;var txt = cook.split('; ');var sample = txt[1].split('=');
+    if(sample.indexOf("textCopy") > 0){
       if(mod == 'new'){
-        var txt = cook.split('; ');
-        if(txt[1] == 'mode=a'){
+        if(txt[2] == 'mode=a'){
           var msg = 'link ';
-        } else if(txt[1] == 'mode=t'){
+        } else if(txt[2] == 'mode=t'){
           var msg = 'text ';
         }
-        var txtLoad = txt[0].replace('textCopy=','');
+        var txtLoad = txt[1].replace('textCopy=','');
         para.innerHTML = 'Copied \'' + msg + txtLoad + '\'.';
       } else if(mod == 'load'){
         var txt = cook.split('; ');
-        if(txt[1] == 'mode=a'){
+        if(txt[2] == 'mode=a'){
           var msg = 'link ';
-        } else if(txt[1] == 'mode=t'){
+        } else if(txt[2] == 'mode=t'){
           var msg = 'text ';
         }
-        var txtLoad = txt[0].replace('textCopy=','');
+        var txtLoad = txt[1].replace('textCopy=','');
         para.innerHTML = 'Copied \'' + msg + txtLoad + '\'.';
       }
     } else {
