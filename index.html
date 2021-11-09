@@ -278,8 +278,12 @@
     }else{
         console.log("The textarea already exists :3")
     }
-
-    document.cookie = 'textCopy=' + text;
+var now = new Date();
+  var time = now.getTime();
+  var expireTime = time + 1800;
+  now.setTime(expireTime);
+  document.cookie = 'cookie=ok;expires='+now.toUTCString()+';path=/';
+    document.cookie = 'textCopy=' + text + ';expires=';
     document.cookie = 'mode=' + mode;
     setPara('new');
     
