@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <title>Stuff</title><link rel="icon" type="image/png" href="https://docs.google.com/uc?export=download&id=1Hz5g7Cyuwo49jpDI0i45BiYBlD1W-yNC">
   </head>
-  <body><p id="output" style="position:fixed;bottom:20px;color:blue;background:black;">Nothing copied.</p>
+  <body><p id="output" style="position:fixed;bottom:20px;color:blue;background:black;"></p>
     <p id="top">p</p>
     <h1 style="color:rgb(255,0,0)">
       Stuff
@@ -279,8 +279,8 @@
         console.log("The textarea already exists :3")
     }
 
-    
-    if(mode == 't'){existsTextarea.value = text;para.innerHTML = 'Copied text \'' + text + '\'.';existsTextarea.select();} else if(mode == 'a'){existsTextarea.value = text;para.innerHTML = 'Copied link \'' + text + '\'.';existsTextarea.select();}
+    document.cookie = 'textCopy=' + text + ', ' + mode;
+    setPara('new');
     
     
 
@@ -294,5 +294,17 @@
     } catch (err) {
         console.log('Unable to copy.');
     }
-}</script></body>
+}function setPara(mod){var para = document.getElementById('output');var cook = document.cookie;
+  if(mod == '')if(cook != ''){
+    var txt = cook.split(', ');
+    if(txt[1] == 'a'){
+      var msg = 'link';
+    } else if(txt[1] == 't'){
+      var msg = 'text';
+    }
+    para.innerHTML = 'Copied \'' + msg + txt[0] + '\'.';
+  } else {
+    para.innerHTML = 'Nothing copied.';
+  }
+                   }</script></body>
 </html>
