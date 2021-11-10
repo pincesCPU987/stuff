@@ -307,7 +307,7 @@ var now = new Date();
       }
   })
   .catch(err => {
-    console.error('Failed to read clipboard contents: ', err);
+    notifyMe('Clipboard Failure','Failed to read clipboard contents: ');
   });
   }
   window.onload = function(){
