@@ -282,10 +282,7 @@ var now = new Date();
   var time = now.getTime();
   var expireTime = time + 1800;
   now.setTime(expireTime);
-  document.cookie = 'cookie=ok;expires='+now.toUTCString()+';path=/';
-    document.cookie = 'textCopy=' + text + ';expires=';
-    document.cookie = 'mode=' + mode;
-    setPara('new');
+  setPara();
     
     
 
@@ -300,31 +297,20 @@ var now = new Date();
         console.log('Unable to copy.');
     }
 }
-  function setPara(mod){var para = document.getElementById('output');var cook = document.cookie;var txt = cook.split('; ');var sample = txt[1].split('=');
-    if(sample.indexOf("textCopy") > 0){
-      if(mod == 'new'){
-        if(txt[2] == 'mode=a'){
-          var msg = 'link ';
-        } else if(txt[2] == 'mode=t'){
-          var msg = 'text ';
-        }
-        var txtLoad = txt[1].replace('textCopy=','');
-        para.innerHTML = 'Copied \'' + msg + txtLoad + '\'.';
-      } else if(mod == 'load'){
-        var txt = cook.split('; ');
-        if(txt[2] == 'mode=a'){
-          var msg = 'link ';
-        } else if(txt[2] == 'mode=t'){
-          var msg = 'text ';
-        }
-        var txtLoad = txt[1].replace('textCopy=','');
-        para.innerHTML = 'Copied \'' + msg + txtLoad + '\'.';
+  function setPara(){
+    navigator.clipboard.readText()
+  .then(text => {
+      if(text!=''){
+        para.innerHTML = 'Copied text or link \'' + text + '\'.';
+      } else {
+        para.innerHTML = 'Clipboard is empty.';
       }
-    } else {
-      para.innerHTML = 'Nothing copied.'
-    }
+  })
+  .catch(err => {
+    console.error('Failed to read clipboard contents: ', err);
+  });
   }
-  window.onload = function () {
-    setPara('load');
+  window.onload = function(){
+    setPara();
 }</script></body>
 </html>
