@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>
+      Document Creator!
+    </title>
+    <script>window.onload = function(){
+        var hint;
+        var repl = 'Put HTML here or use codes provided.';
+      	var txt = document.getElementById('txt');
+        console.log('Default hint state is \'false\'');
+      }
+      var refresh = new Object();
+      refresh.textarea = function(){
+        hint = document.getElementById('check');
+        if(hint.checked){
+          if(txt.value.includes('$link$')){
+            console.log('Spawned link with hints.');
+          } else if(txt.value.includes('$p$')){
+            console.log('Spawned paragraph with hints.');
+          } else if(txt.value.includes('$h1$')){
+            console.log('Spawned large header with hints.');
+          }
+          txt.value = txt.value.replace(
+            '$link$',
+            '<a href="Put link address here.">Put link text here.</a>'
+          ).replace(
+            '$p$',
+            '<p style="color:Put color here or put \'default\'.">Put text here.</p>'
+          ).replace(
+            '$h1$',
+            '<h1 style="color:Put color here or put\'default\'.">Put text here.</h1>'
+          );
+        } else {
+          if(txt.value.includes('$link$')){
+            console.log('Spawned link without hints.');
+          } else if(txt.value.includes('$p$')){
+            console.log('Spawned paragraph without hints.');
+          } else if(txt.value.includes('$h1$')){
+            console.log('Spawned large header without hints.');
+          }
+          txt.value = txt.value.replace(
+            '$link$',
+            '<a href=""></a>'
+          ).replace(
+            '$p$',
+            '<p style="color:default"></p>'
+          ).replace(
+            '$h1$',
+            '<h1 style="color:default"></h1>'
+          );
+        }
+      }
+      refresh.checkbox = function(){
+        hint = document.getElementById('check');
+        if(hint.checked){
+          console.log('Set hints to \'true\'.');
+        } else {
+          console.log('Set hints to \'false\'.');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" id="check" onclick="refresh.checkbox()"><label for="check">Hints</label>
+    <textarea id="txt" oninput="refresh.textarea()" rows="20" cols="70">Put HTML here or use codes provided.</textarea>
+  </body>
+</html>
