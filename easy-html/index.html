@@ -65,6 +65,6 @@
     <input type="checkbox" id="check" onclick="refresh.checkbox()"><label for="check">Hints</label>
     <textarea id="txt" oninput="refresh.textarea()" rows="20" cols="70">Put HTML here or use codes provided.</textarea>
     <input type="text" value="Untitled basic file" id="name">
-    <input type="button" value="Download" onclick="var name=document.getElementById('name');downl">
+    <input type="button" value="Download" onclick="var name=document.getElementById('name');var txt=document.getElementById('txt');downl(name.value+'.html',txt.value);">
   </body>
 </html>
