@@ -61,6 +61,9 @@
           console.log('Set hints to \'false\'.');
         }
       }
+      var frame = document.getElementById('frame');
+      var dataURI = 'data:text/html,' + encodeURIComponent(txt.value);
+      frame.src = dataURI;
     </script>
     <script src="/Links/html-maker/html-maker.js"></script>
   </head>
@@ -70,6 +73,7 @@
       <textarea id="txt" oninput="refresh.textarea()" rows="20" cols="70">Put HTML here or use codes provided.</textarea>
       <input type="text" value="Untitled basic file" id="name">
       <input type="submit" value="Download">
+      <iframe id="frame"></iframe>
     </form>
   </body>
 </html>
