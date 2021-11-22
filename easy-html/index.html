@@ -64,6 +64,7 @@
       var frame = document.getElementById('frame');
       var dataURI = 'data:text/html,' + encodeURIComponent(txt.value);
       frame.src = dataURI;
+      frame.contentWindow.location.reload();
     </script>
     <script src="/Links/html-maker/html-maker.js"></script>
   </head>
