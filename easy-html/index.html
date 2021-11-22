@@ -65,7 +65,7 @@
     <script src="/Links/html-maker/html-maker.js"></script>
   </head>
   <body>
-    <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(' ','-').toLowerCase()+'.html',this['txt'].value);">
+    <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(/\ /g,'-').toLowerCase()+'.html',this['txt'].value);">
       <input type="checkbox" id="check" onclick="refresh.checkbox()"><label for="check">Hints</label>
       <textarea id="txt" oninput="refresh.textarea()" rows="20" cols="70">Put HTML here or use codes provided.</textarea>
       <input type="text" value="Untitled basic file" id="name">
