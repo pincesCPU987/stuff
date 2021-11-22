@@ -294,7 +294,7 @@ var now = new Date();
             console.log("The text is now on the clipboard");
         }
     } catch (err) {
-        console.log('Unable to copy.');
+        console.error('Unable to copy.');
     }
 }
   function setPara(){
@@ -307,7 +307,7 @@ var now = new Date();
       }
   })
   .catch(err => {
-    console.error('Clipboard failure: Failed to read clipboard contents.');
+    console.error('Clipboard failure');console.warning('Failed to read clipboard contents.');
   });
   }
   window.onload = function(){
