@@ -1,5 +1,7 @@
 ::webkit-scrollbar {
   width:21px;
+}
+::webkit-scrollbar-track {
   border: 10px solid black;
   background-color:#0f0;
 }
