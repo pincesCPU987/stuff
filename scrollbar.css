@@ -13,7 +13,7 @@
 }
 ::-webkit-scrollbar-thumb {
   border-radius:12px;
-  width:21px;
+  min-width:21px;
   min-height:21px;
   background-color:#00f;
 }
