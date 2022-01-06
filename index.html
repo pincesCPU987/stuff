@@ -9,7 +9,32 @@
     <meta charset="utf-8">
     <title>Stuff</title><link rel="icon" type="image/png" href="https://docs.google.com/uc?export=download&id=1dF6UeOHqZzmjCcX7X23gDocVytqQIuf2">
   </head>
-  <body><p id="output" style="position:fixed;bottom:20px;color:blue;background:black;"></p>
+  <body><div style="position:fixed;"><nav class="navigation-bar">
+    <img class="logo" src="https://docs.google.com/uc?export=download&id=1d8WX6LigByShDpc-3D3exBPMbHqoy5oH">
+    <a href="#top">To top</a>
+    <a href="#games">Games</a>
+    <a href="#google">Google</a>
+    <a href="#other">Other sites</a>
+        </nav></div><style>.navigation-bar {
+    width: 100%;  /* i'm assuming full width */
+    height: 80px; /* change it to desired width */
+    background-color: red; /* change to desired color */
+}
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 15px;    /* if you want it vertically middle of the navbar. */
+}
+.navigation-bar > a {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    height: 80px;        /* if you want it to take the full height of the bar */
+    line-height: 80px;    /* if you want it vertically middle of the navbar */
+}</style><p id="output" style="position:fixed;bottom:20px;color:blue;background:black;"></p>
     <p id="top">p</p>
     <h1 style="color:rgb(255,0,0)">
       Stuff
