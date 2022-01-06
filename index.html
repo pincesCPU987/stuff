@@ -222,9 +222,8 @@
         if (document.getElementById("contextMenu")
                 .style.display == "block")
             hideMenu();
-        else{
-            var menu = document.getElementById("contextMenu")
-  e.preventDefault();
+        else{ e.preventDefault();
+            var menu = document.getElementById("contextMenu");
             menu.style.display = 'block';
             menu.style.left = e.pageX + "px";
             menu.style.top = e.pageY + "px";
