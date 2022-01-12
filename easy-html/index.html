@@ -62,7 +62,7 @@
         }
       }
       var frame = document.getElementById('frame');
-      var dataURI = 'data:text/html,base64' + encodeURIComponent(txt.value);
+      var dataURI = 'data:text/html,base64' + atob(txt.value);
       frame.src = dataURI;
       frame.contentWindow.location.reload();
     </script>
