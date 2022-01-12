@@ -71,11 +71,11 @@
   </head>
   <body>
     <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(/\ /g,'-').toLowerCase()+'.html',this['txt'].value);">
-      <input type="checkbox" id="check" onclick="refresh.checkbox();fframe()"><label for="check">Hints</label>
-      <textarea id="txt" oninput="refresh.textarea();fframe()" rows="20" cols="70">Put HTML here or use codes provided.</textarea>
-      <input type="text" value="Untitled basic file" id="name">
-      <input type="submit" value="Download">
-      <iframe id="frame"></iframe>
+      <input type="checkbox" id="check" onclick="refresh.checkbox();fframe()"><label for="check">Hints</label><br>
+      <textarea id="txt" oninput="refresh.textarea();fframe()" rows="20" cols="70">Put HTML here or use codes provided.</textarea><br>
+      <input type="text" value="Untitled basic file" id="name"><br>
+      <input type="submit" value="Download"><br>
+      <iframe id="frame" width="100%" height="100%"></iframe>
     </form>
   </body>
   <link rel="stylesheet" href="/Links/scrollbar.css">
