@@ -63,8 +63,8 @@
       }
       function fframe(){
       var frame = document.getElementById('frame');
-      var dataURI = 'data:text/html;base64,' + btoa(txt.value);
-      frame.href = dataURI;
+      var dataURI = 'data:text/html;base64,' + encodeURIComponent(txt.value);
+      frame.src = dataURI;
       
       }</script>
     <script src="/Links/html-maker/html-maker.js"></script>
