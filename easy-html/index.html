@@ -63,7 +63,7 @@
       }
       function fframe(){
       var frame = document.getElementById('frame');
-      var dataURI = 'data:text/html;base64,' + atob(txt.value);
+      var dataURI = 'data:text/html;base64,' + btoa(txt.value);
       frame.href = dataURI;
       
       }</script>
