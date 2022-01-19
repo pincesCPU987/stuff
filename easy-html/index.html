@@ -77,6 +77,35 @@
       <input type="submit" value="Download"><br>
       <iframe id="frame" width="100%" height="100%"></iframe>
     </form>
+    <!DOCTYPE html>
+<html>
+  
+<head>
+    <title>Read Text File</title>
+</head>
+  
+<body>
+    <input type="file" name="inputfile"
+            id="inputfile">
+    <br>
+   
+    
+      
+    <script type="text/javascript">
+        document.getElementById('inputfile')
+            .addEventListener('change', function() {
+              
+            var fr=new FileReader();
+            fr.onload=function(){
+                document.getElementById('txt').value=fr.result;
+            }
+              
+            fr.readAsText(this.files[0]);
+        })
+    </script>
+</body>
+  
+</html>
   </body>
   <link rel="stylesheet" href="/Links/scrollbar.css">
 </html>
