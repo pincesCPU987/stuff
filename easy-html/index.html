@@ -71,24 +71,14 @@
   </head>
   <body>
     <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(/\ /g,'-').toLowerCase()+'.html',this['txt'].value);">
+      <input type="file" name="inputfile" id="inputfile"><label for="inputfile">Choose a file to upload (Input the name of the file you want to save in the text box indicated.).</label>
       <input type="checkbox" id="check" onclick="refresh.checkbox();fframe()"><label for="check">Hints</label><br>
       <textarea id="txt" oninput="refresh.textarea();fframe()" rows="20" cols="70">Put HTML here or use codes provided.</textarea><br>
       <input type="text" value="Untitled basic file" id="name"><br>
       <input type="submit" value="Download"><br>
       <iframe id="frame" width="100%" height="100%"></iframe>
     </form>
-    <!DOCTYPE html>
-<html>
-  
-<head>
-    <title>Read Text File</title>
-</head>
-  
-<body>
-    <input type="file" name="inputfile"
-            id="inputfile">
-    <br>
-   
+    
     
       
     <script type="text/javascript">
@@ -103,9 +93,7 @@
             fr.readAsText(this.files[0]);
         })
     </script>
-</body>
-  
-</html>
+
   </body>
   <link rel="stylesheet" href="/Links/scrollbar.css">
 </html>
