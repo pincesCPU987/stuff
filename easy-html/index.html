@@ -61,7 +61,7 @@
           console.log('Set hints to \'false\'.');
         }
       }
-      refresh.frame = function(){
+      function refreshFrame(){
       var frame = document.getElementById('frame');
       var dataURI = 'data:text/html;base64,' + btoa(txt.value);
       frame.src = dataURI;
@@ -91,7 +91,7 @@
             }
               
             fr.readAsText(this.files[0]);
-          refresh.frame()
+          refreshFrame()
         })
     </script>
 
