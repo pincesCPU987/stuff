@@ -88,10 +88,11 @@
             var fr=new FileReader();
             fr.onload=function(){
                 document.getElementById('txt').value=fr.result;
+              refreshFrame();
             }
               
             fr.readAsText(this.files[0]);
-          refreshFrame()
+          
         })
     </script>
 
