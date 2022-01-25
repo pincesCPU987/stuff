@@ -61,9 +61,9 @@
           console.log('Set hints to \'false\'.');
         }
       }
-      function fframe(){
+      refresh.frame = function(){
       var frame = document.getElementById('frame');
-      var dataURI = 'data:text/html;meta-charset,' + encodeURIComponent(txt.value);
+      var dataURI = 'data:text/html;base64,' + btoa(txt.value);
       frame.src = dataURI;
       
       }</script>
@@ -91,6 +91,7 @@
             }
               
             fr.readAsText(this.files[0]);
+          refresh.frame()
         })
     </script>
 
