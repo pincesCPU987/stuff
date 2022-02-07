@@ -1,23 +1,25 @@
 <html>
+
   <head>
     <title>
       Document Creator!
     </title>
-    <script>window.onload = function(){
+    <script>
+      window.onload = function() {
         var hint;
         var repl = 'Put HTML here or use codes provided.';
-      	var txt = document.getElementById('txt');
+        var txt = document.getElementById('txt');
         console.log('Default hint state is \'false\'');
       }
       var refresh = new Object();
-      refresh.textarea = function(){
+      refresh.textarea = function() {
         hint = document.getElementById('check');
-        if(hint.checked){
-          if(txt.value.includes('$link$')){
+        if (hint.checked) {
+          if (txt.value.includes('$link$')) {
             console.log('Spawned link with hints.');
-          } else if(txt.value.includes('$p$')){
+          } else if (txt.value.includes('$p$')) {
             console.log('Spawned paragraph with hints.');
-          } else if(txt.value.includes('$h1$')){
+          } else if (txt.value.includes('$h1$')) {
             console.log('Spawned large header with hints.');
           }
           txt.value = txt.value.replace(
@@ -31,11 +33,11 @@
             '<h1 style="color:Put color here or put\'default\'.">Put text here.</h1>'
           );
         } else {
-          if(txt.value.includes('$link$')){
+          if (txt.value.includes('$link$')) {
             console.log('Spawned link without hints.');
-          } else if(txt.value.includes('$p$')){
+          } else if (txt.value.includes('$p$')) {
             console.log('Spawned paragraph without hints.');
-          } else if(txt.value.includes('$h1$')){
+          } else if (txt.value.includes('$h1$')) {
             console.log('Spawned large header without hints.');
           }
           txt.value = txt.value.replace(
@@ -53,49 +55,71 @@
           );
         }
       }
-      refresh.checkbox = function(){
+      refresh.checkbox = function() {
         hint = document.getElementById('check');
-        if(hint.checked){
+        if (hint.checked) {
           console.log('Set hints to \'true\'.');
         } else {
           console.log('Set hints to \'false\'.');
         }
       }
-      refresh.frame = function(){
-      var frame = document.getElementById('frame');
-      var dataURI = 'data:text/html;base64,' + btoa(txt.value);
-      frame.src = dataURI;
-      
-      }</script>
+      refresh.frame = function() {
+        var frame = document.getElementById('frame');
+        var dataURI = 'data:text/html;base64,' + btoa(txt.value);
+        frame.src = dataURI;
+
+      }
+
+    </script>
     <script src="/Links/html-maker/html-maker.js"></script>
   </head>
+
   <body>
     <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(/\ /g,'-').toLowerCase()+'.html',this['txt'].value);">
       <input type="file" name="inputfile" id="inputfile" accept="text/*"><label for="inputfile">Choose a file to upload (Input the name of the file you want to save in the text box indicated.).</label>
       <input type="checkbox" id="check" onclick="refresh.checkbox();refresh.frame()"><label for="check">Hints</label><br>
-      <textarea id="txt" oninput="refresh.textarea();refresh.frame()" rows="20" cols="70">Put HTML here or use codes provided.</textarea><br>
+      <textarea id="txt" oninput="refresh.textarea();refresh.frame()" style="width:100%;height:100%;" wrap="off">Put HTML here or use codes provided.</textarea><br>
       <input type="text" value="Untitled basic file" id="name"><br>
       <input type="submit" value="Download"><br>
       <iframe id="frame" width="100%" height="100%"></iframe>
     </form>
-    
-    
-      
-    <script type="text/javascript">
-        document.getElementById('inputfile')
-            .addEventListener('change', function() {
-              
-            var fr=new FileReader();
-            fr.onload=function(){
-                document.getElementById('txt').value=fr.result;
-              refresh.frame();
-            }
-              
-            fr.readAsText(this.files[0]);
-          
-        })
-    </script>
 
+
+
+    <script type="text/javascript">
+      document.getElementById('inputfile')
+        .addEventListener('change', function() {
+
+          var fr = new FileReader();
+          fr.onload = function() {
+            document.getElementById('txt').value = fr.result;
+            refresh.frame();
+          }
+
+          fr.readAsText(this.files[0]);
+
+        })
+
+    </script>
+    <script>
+      document.getElementById('txt').addEventListener('keydown', function(e) {
+        if (e.key == 'Tab') {
+          e.preventDefault();
+          var start = this.selectionStart;
+          var end = this.selectionEnd;
+
+          // set textarea value to: text before caret + tab + text after caret
+          this.value = this.value.substring(0, start) +
+            "  " + this.value.substring(end);
+
+          // put caret at right position again
+          this.selectionStart =
+            this.selectionEnd = start + 2;
+        }
+      });
+
+    </script>
   </body>
   <link rel="stylesheet" href="/Links/scrollbar.css">
+
 </html>
