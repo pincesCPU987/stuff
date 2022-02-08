@@ -76,6 +76,8 @@
         }
       }
   document.addEventListener('keyup', keyReset, false);
-    </script>
+    countVis('main');
+      document.getElementById('counts').innerHTML = 'You visited this site ' + localStorage.getItem('visitmainSite') + ' times.';
+</script>
 <link rel="stylesheet" href="/Links/scrollbar.css">
 </html>
