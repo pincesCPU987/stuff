@@ -384,10 +384,8 @@
       </script>
     <script src="/Links/store.js"></script>
     <script>
-      window.onload = function(){
-        countVis('main');
-        document.getElementById('counts').innerHTML = 'You visited this site ' + localStorage.getItem('visitMainSite') + ' times.'
-      }
+      countVis('main');
+      document.getElementById('counts').innerHTML = 'You visited this site ' + localStorage.getItem('visitMainSite') + ' times.'
     </script>
     </body>
   <link href="/Links/scrollbar.css" rel="stylesheet">
