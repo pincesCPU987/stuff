@@ -2,13 +2,7 @@
 <html lang="en">
 
   <head>
-    <script type="text/javascript">
-      var alerts = ['Hold the Esc key to skip these alerts. (Hold because there are multiple.)', 'Hello!', 'This is a website that I made just for fun.', 'Feel free to check it out!', 'Thanks for visiting...', '...and have fun!']
-      for (var i = 0; i < alerts.length; i++) {
-        alert(alerts[i]);
-      };
-
-    </script>
+    
     <meta charset="utf-8">
     <title>Stuff</title>
     <link rel="icon" href="/Links/icon.png" type="image/png">
@@ -386,6 +380,14 @@
     <script>
       countVis('main');
       document.getElementById('counts').innerHTML = 'You visited this site ' + localStorage.getItem('visitmainSite') + ' times.';
+    </script>
+    <script type="text/javascript">
+      var alerts = ['Hold the Esc key to skip these alerts. (Hold because there are multiple.)', 'Hello!', 'This is a website that I made just for fun.', 'Feel free to check it out!', 'Thanks for visiting...', '...and have fun!']
+      if(Number(localStorage.getItem('visitmainSite')) < 2){
+        for (var i = 0; i < alerts.length; i++) {
+          alert(alerts[i]);
+        }
+      }
     </script>
     </body>
   <link href="/Links/scrollbar.css" rel="stylesheet">
