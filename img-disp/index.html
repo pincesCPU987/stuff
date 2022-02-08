@@ -16,7 +16,8 @@
     }
           window.onload = function(){
               if(localStorage.getItem('imgDispFile')){
-                  
+                  var image = document.getElementById('output');
+                  image.src = localStorage.getItem('imgDispFile');
               }
           }
 }</script>
