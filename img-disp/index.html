@@ -15,13 +15,13 @@
         window.location = "window.location.href";
     }
         }
-          window.onload = function(){
+          
               if(localStorage.getItem('imgDispFile')){
                   var image = document.getElementById('output');
                   image.src = localStorage.getItem('imgDispFile');
               }
-          }
-      var loadFile = function(event) {
+          
+      function loadFile(event) {
   var image = document.getElementById('output');
   var fileSrc = URL.createObjectURL(event.target.files[0]);
   localStorage.setItem('imgDispFile', fileSrc)
