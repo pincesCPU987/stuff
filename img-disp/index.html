@@ -1,7 +1,7 @@
 <head>
     <title>File Display</title><link rel="icon" type="image/png" href="/Links/icon.png">
     <script>alert("This is where you can display images.");</script></head><body onunload="con()"><p><a href="/Links/#other">«Go back</a></p>
-<h1>Image display</h1><p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"></p>
+<h1>Image display</h1><p><input type="file" accept="image/*" name="image" id="file"></p>
 <p><label for="file">Upload Image</label></p>
        <p><img id="output" /></p><div id="container"></div>
 </body>
@@ -21,12 +21,18 @@
                   image.src = localStorage.getItem('imgDispFile');
               }
           
-      function loadFile(event) {
-  var image = document.getElementById('output');
-  var fileSrc = URL.createObjectURL(event.target.files[0]);
-  localStorage.setItem('imgDispFile', String(fileSrc));
-  image.src = String(localStorage.getItem('imgDispFile'));
-}
+  window.addEventListener('load', function() {
+  document.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+          var img = document.querySelector('output');
+          img.onload = () => {
+              URL.revokeObjectURL(img.src);  // no longer needed, free memory
+          }
+
+          img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+      }
+  });
+});
 </script>
 <link rel="stylesheet" href="/Links/img-disp/img-disp.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
