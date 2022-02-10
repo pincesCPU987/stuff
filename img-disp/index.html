@@ -24,8 +24,8 @@
       function loadFile(event) {
   var image = document.getElementById('output');
   var fileSrc = URL.createObjectURL(event.target.files[0]);
-  localStorage.setItem('imgDispFile', fileSrc)
-  image.src = String(localStorage.getItem('imgDispFile'))
+  localStorage.setItem('imgDispFile', String(fileSrc));
+  image.src = String(localStorage.getItem('imgDispFile'));
 }
 </script>
 <link rel="stylesheet" href="/Links/img-disp/img-disp.css">
