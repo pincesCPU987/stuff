@@ -28,8 +28,8 @@
           img.onload = () => {
               URL.revokeObjectURL(img.src);  // no longer needed, free memory
           }
-
-          img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+localStorage.setItem('fileSrcVal', URL.createObjectURL(this.files[0]))
+          img.src = localStorage.getItem('fileSrcVal'); // set src to blob url
       }
   });
 });
