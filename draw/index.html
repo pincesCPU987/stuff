@@ -1,7 +1,7 @@
 <head>
   <title>Drawing</title>
   <link rel="stylesheet" href="/Links/scrollbar.css"><link rel="stylesheet" href="/Links/draw/draw.css"><link rel="icon" type="image/png" href="/Links/icon.png">
-<script>alert("This is my drawing page.");alert("I am very proud of it.");alert("Draw anything you like, and then hit save.");alert("Have fun!")</script></head>
+</head>
 <body onload="init()" onunload="con()">
         <canvas id="can" width="1000" height="700" style="position:absolute;top:10%;left:10%;border:2px solid;border-color:#000000;"></canvas>
         <div style="position:absolute;top:200px;left:1200px;">Choose Color</div>
@@ -30,4 +30,5 @@
     }
     }</script>
   <script src="/Links/store.js"></script>
-  <script></script>
+  <script>countVis('draw')</script>
+<script>if(localStorage.getItem('countdrawSite') == '1'){alert("This is my drawing page.");alert("I am very proud of it.");alert("Draw anything you like, and then hit save.");alert("Have fun!")}</script>
