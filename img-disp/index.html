@@ -32,7 +32,7 @@
       output.src = dataURL;
     };
     reader.readAsDataURL(input.files[0]);
-     document.title = input.value;
+     document.title = input.value.split('C:\\fakepath\\').join('');
   };
       var loadAudio = function(file) {
     var input = file.target;
@@ -44,6 +44,7 @@
       output.src = dataURL;
     };
     reader.readAsDataURL(input.files[0]);
+          document.title = input.value.split('C:\\fakepath\\').join('');
   };
       var loadVideo = function(file) {
     var input = file.target;
@@ -55,6 +56,7 @@
       output.src = dataURL;
     };
     reader.readAsDataURL(input.files[0]);
+          document.title = input.value.split('C:\\fakepath\\').join('');
   };
 </script>
 <link rel="stylesheet" href="/Links/img-disp/img-disp.css">
