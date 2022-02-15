@@ -32,7 +32,7 @@
       output.src = dataURL;
     };
     reader.readAsDataURL(input.files[0]);
-     document.title = input.value.split('C:\\fakepath\\').join('');
+     
   };
       var loadAudio = function(file) {
     var input = file.target;
@@ -44,7 +44,7 @@
       output.src = dataURL;
     };
     reader.readAsDataURL(input.files[0]);
-          document.title = input.value.split('C:\\fakepath\\').join('');
+          
   };
       var loadVideo = function(file) {
     var input = file.target;
@@ -56,8 +56,11 @@
       output.src = dataURL;
     };
     reader.readAsDataURL(input.files[0]);
-          document.title = input.value.split('C:\\fakepath\\').join('');
+          
   };
+      function isPlaying(audElem) { return !audElem.paused; }
+      var Img = document.getElementById('fileImg');var Aud = document.getElementById('fileAud');var Vid = document.getElementById('fileVid')
+      setInterval(function(){if(isPlaying(Img)){document.title = Img.value.split('C:\\fakepath\\').join('');} else if(isPlaying(Aud)){document.title = Aud.value.split('C:\\fakepath\\').join('');} else if(isPlaying(Vid)){document.title = Vid.value.split('C:\\fakepath\\').join('');}}, 1000)
 </script>
 <link rel="stylesheet" href="/Links/img-disp/img-disp.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
