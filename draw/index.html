@@ -1,6 +1,6 @@
 <head>
   <title>Drawing</title>
-  <link rel="stylesheet" href="/Links/scrollbar.css"><link rel="stylesheet" href="/Links/draw/draw.css"><link rel="icon" type="image/png" href="/Links/icon.png">
+  <link rel="stylesheet" href="/stuff/scrollbar.css"><link rel="stylesheet" href="draw.css"><link rel="icon" type="image/png" href="/stuff/icon.png">
 </head>
 <body onload="init()" onunload="con()">
         <canvas id="can" width="1000" height="700" style="position:absolute;top:10%;left:10%;border:2px solid;border-color:#000000;"></canvas>
@@ -14,21 +14,10 @@
         <div style="position:absolute;top:430px;left:1200px;width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
         <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
         <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:700px;left:1200;">
-  <p><a href="/Links/#other">«Go back</a></p>
+  <p><a href="/stuff/#other">«Go back</a></p>
   <h1>
     Drawing
   </h1><p>To download, right click the image and click 'Save image as...' or similar.</p>
- <script src="/Links/draw/draw.js">
-    function con() {
-    var answer = confirm("Do you want to check out other stuff(or continue doing what you are doing)? You might not be in the same position as you are now.")
-    if (answer){
-
-        alert("bye");
-    }
-    else{
-        window.location = "window.location.href";
-    }
-    }</script>
-  <script src="/Links/store.js"></script>
-  <script>countVis('draw')</script>
-<script>if(localStorage.getItem('visitdrawSite') == '1'){alert("This is my drawing page.");alert("I am very proud of it.");alert("Draw anything you like, and then hit save.");alert("Have fun!")}</script>
+ <script src="draw.js"></script>
+  <script src="/stuff/store.js"></script>
+  <script>countVis('draw');if(localStorage.getItem('visitdrawSite') == '1'){alert("This is my drawing page.");alert("I am very proud of it.");alert("Draw anything you like, and then hit save.");alert("Have fun!")}</script>
