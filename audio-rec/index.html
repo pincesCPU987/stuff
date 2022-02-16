@@ -34,7 +34,7 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
       }
     };
     // start recording with 1 second time between receiving 'ondataavailable' events
-    document.getElementById('start').onclick = recorder.start(0);
+    document.getElementById('start').onclick = recorder.start(1000);
     // setTimeout to stop recording after 4 seconds
     
         // this will trigger one final 'ondataavailable' event and set recorder state to 'inactive'
