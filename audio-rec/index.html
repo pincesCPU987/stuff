@@ -1,44 +1,43 @@
-<script>// appends an audio element to playback and download recording
-function createAudioElement(blobUrl) {
-    const downloadEl = document.createElement('a');
-    downloadEl.style = 'display: block';
-    downloadEl.innerHTML = 'download';
-    downloadEl.download = 'audio.webm';
-    downloadEl.href = blobUrl;
-    const audioEl = document.createElement('audio');
-    audioEl.controls = true;
-    const sourceEl = document.createElement('source');
-    sourceEl.src = blobUrl;
-    sourceEl.type = 'audio/webm';
-    audioEl.appendChild(sourceEl);
-    document.body.appendChild(audioEl);
-    document.body.appendChild(downloadEl);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <audio id="audio" controls></audio>
+    <button name="record">record</button>
+    <button name="stop">stop</button>
+</body>
+    <script>
+    var btnStart = document.querySelector('button[name="record"]');
+    var btnStop = document.querySelector('button[name="stop"]');
+    var audio = document.querySelector('#audio');
+    btnStart.addEventListener('click', async () => {
+        let stream = await navigator.mediaDevices.getUserMedia({audio: true, video: false});
+        let mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.start();
+        let chunks = [];
+        mediaRecorder.ondataavailable = (e)=>{
+             chunks.push(e.data);
+        }
+        //function to catch error
+        mediaRecorder.onerror = (e)=>{
+             alert(e.error);
+        }
 
-// request permission to access audio stream
-navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
-    // store streaming data chunks in array
-    const chunks = [];
-    // create media recorder instance to initialize recording
-    const recorder = new MediaRecorder(stream);
-    // function to be called when data is received
-    recorder.ondataavailable = e => {
-      // add stream data to chunks
-      chunks.push(e.data);
-      // if recorder is 'inactive' then recording has finished
-      if (recorder.state == 'inactive') {
-          // convert stream data chunks to a 'webm' audio format as a blob
-          const blob = new Blob(chunks, { type: 'audio/webm' });
-          // convert blob to URL so it can be assigned to a audio src attribute
-          createAudioElement(URL.createObjectURL(blob));
-      }
-    };
-    recorder.start(1000);
-    // start recording with 1 second time between receiving 'ondataavailable' events
-    document.getElementById('start').onclick = recorder.start(1000);
-    // setTimeout to stop recording after 4 seconds
-    
-        // this will trigger one final 'ondataavailable' event and set recorder state to 'inactive'
-    document.getElementById('stop').onclick = recorder.stop();
-    
-  }).catch(console.error);</script><input type="button" id="start" value="start"><input type="button" id="stop" value="stop">
+        mediaRecorder.onstop = (e)=>{
+             let blod = new Blob(chunks);
+             //create url for audio
+             let url = URL.createObjectURL(blod);
+             //pass url into audio tag
+             audio.src = url;
+        }
+        btnStop.addEventListener('click',()=>{
+             mediaRecorder.stop();
+        })
+    })
+</script>
+</html>
