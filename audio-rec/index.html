@@ -10,35 +10,97 @@
 <body>
     <h1>Audio recorder</h1>
     <audio id="audio" controls></audio>
-    <button name="record">record</button>
-    <button name="stop">stop</button>
+    <button name="recordAud">record</button>
+    <button name="stopAud">stop</button>
+    <h1>Video recorder</h1>
+    <video id="video" controls></audio>
+    <button name="recordVid">record</button>
+    <button name="stopVid">stop</button>
+<h1>AV recorder</h1>
+    <video id="video" controls></audio>
+    <button name="recordAV">record</button>
+    <button name="stopAV">stop</button>
 </body>
     <script>
-    var btnStart = document.querySelector('button[name="record"]');
-    var btnStop = document.querySelector('button[name="stop"]');
+    var btnAudStart = document.querySelector('button[name="recordAud"]');
+    var btnAudStop = document.querySelector('button[name="stop"Aud]');
     var audio = document.querySelector('#audio');
-    btnStart.addEventListener('click', async () => {
+    btnAudStart.addEventListener('click', async () => {
         let stream = await navigator.mediaDevices.getUserMedia({audio: true, video: false});
-        let mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.start();
+        let mediaAud = new MediaRecorder(stream);
+        mediaAud.start();
         let chunks = [];
-        mediaRecorder.ondataavailable = (e)=>{
+        mediaAud.ondataavailable = (e)=>{
              chunks.push(e.data);
         }
         //function to catch error
-        mediaRecorder.onerror = (e)=>{
+        mediaAud.onerror = (e)=>{
              alert(e.error);
         }
 
-        mediaRecorder.onstop = (e)=>{
+        mediaAud.onstop = (e)=>{
              let blod = new Blob(chunks);
              //create url for audio
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
              audio.src = url;
         }
-        btnStop.addEventListener('click',()=>{
-             mediaRecorder.stop();
+        btnAudStop.addEventListener('click',()=>{
+             mediaAud.stop();
+        })
+    })
+        var btnVidStart = document.querySelector('button[name="recordVid"]');
+    var btnVidStop = document.querySelector('button[name="stopVid"]');
+    var video = document.querySelector('#video');
+    btnVidStart.addEventListener('click', async () => {
+        let stream = await navigator.mediaDevices.getUserMedia({audio: false, video: true});
+        let mediaVid = new MediaRecorder(stream);
+        mediaVid.start();
+        let chunks = [];
+        mediaVid.ondataavailable = (e)=>{
+             chunks.push(e.data);
+        }
+        //function to catch error
+        mediaVid.onerror = (e)=>{
+             alert(e.error);
+        }
+
+        mediaVid.onstop = (e)=>{
+             let blod = new Blob(chunks);
+             //create url for audio
+             let url = URL.createObjectURL(blod);
+             //pass url into audio tag
+             video.src = url;
+        }
+        btnVidStop.addEventListener('click',()=>{
+             mediaVid.stop();
+        })
+    })
+        var btnAVStart = document.querySelector('button[name="recordAV"]');
+    var btnAVStop = document.querySelector('button[name="stopAV"]');
+    var AV = document.querySelector('#AV');
+    btnAVStart.addEventListener('click', async () => {
+        let stream = await navigator.mediaDevices.getUserMedia({audio: true, video: true});
+        let mediaAV = new MediaRecorder(stream);
+        mediaAV.start();
+        let chunks = [];
+        mediaAV.ondataavailable = (e)=>{
+             chunks.push(e.data);
+        }
+        //function to catch error
+        mediaAV.onerror = (e)=>{
+             alert(e.error);
+        }
+
+        mediaAV.onstop = (e)=>{
+             let blod = new Blob(chunks);
+             //create url for audio
+             let url = URL.createObjectURL(blod);
+             //pass url into audio tag
+             video.src = url;
+        }
+        btnAVStop.addEventListener('click',()=>{
+             mediaAV.stop();
         })
     })
 </script>
