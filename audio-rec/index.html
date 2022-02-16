@@ -33,6 +33,7 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
           createAudioElement(URL.createObjectURL(blob));
       }
     };
+    recorder.start(1000);
     // start recording with 1 second time between receiving 'ondataavailable' events
     document.getElementById('start').onclick = recorder.start(1000);
     // setTimeout to stop recording after 4 seconds
