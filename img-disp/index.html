@@ -66,9 +66,9 @@
       countVis('disp');
       function setS(){
           if(localStorage.getItem('visitdispSite') != '1'){
-              alert("This is where you can display images.");return 's'
+              return 's'
           } else {
-              return ''
+              alert("This is where you can display images.");return ''
           }
       }
       document.getElementById('countPara').innerHTML = 'You have visited this site ' + localStorage.getItem('visitdispSite') + ' time' + setS() + '.'
