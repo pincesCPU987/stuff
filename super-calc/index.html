@@ -1,1 +1,202 @@
 
+<head>
+  <style>
+    body {
+      background-color:#333;
+    }
+    h1 {
+      color:white;
+    }
+    .buttons {
+      position:absolute;
+      width:50px;
+      height:50px;
+      border-radius:50px;
+      border:none;
+      background-color:#ddd;
+      font-weight:900;
+    }
+    #buttns {
+      position:relative;
+      background-color:#666;
+      width:325px;
+      height:400px;
+      border-radius:25px;
+    }
+    #nine {
+      bottom:100px;
+      right:100px;
+    }
+    #zero {
+      bottom: 25px;
+      right:175px
+    }
+    #seven {
+      bottom:100px;
+      left:25px;
+    }
+    #eight {
+      bottom: 100px;
+      right:175px;
+    }
+    #cl {
+      background-color:#aaa;
+      right:25px;
+      top:25px;
+    }
+    #eq {
+      background-color:#aaa;
+      bottom:25px;
+      right:100px;
+    }
+    #six {
+      bottom:175px;
+      right:100px;
+    }
+    #five {
+      bottom:175px;
+      right:175px;
+    }
+    #four {
+      bottom:175px;
+      left:25px;
+    }
+    #three {
+      right:100px;
+      bottom:250px;
+    }
+    #two {
+      right:175px;
+      bottom:250px;
+    }
+    #one {
+      left:25px;
+      bottom:250px;
+    }
+    #pl {
+      bottom:25px;
+      right:25px;
+      background-color:#aaa;
+    }
+    #mi {
+      bottom:100px;
+      right:25px;
+      background-color:#aaa;
+    }
+    #ti {
+      bottom:175px;
+      right:25px;
+      background-color:#aaa;
+    }
+    #di {
+      bottom:250px;
+      right:25px;
+      background-color:#aaa;
+    }
+    #txt {
+      position:absolute;
+      height:50px;
+      top:25px;
+      width:200px;
+      left:25px;
+      font-weight:900;
+      background-color:#555;
+      color:white;
+      border:3px solid grey;
+      border-radius:50px;
+      padding:25px;
+    }
+    #po {
+      bottom:25px;
+      left:25px;
+      background-color:#aaa;
+    }
+  </style>
+  <script id="main">
+    var sqrt = Math.sqrt;
+    var pi = Math.PI;
+    var power = Math.pow;
+    var calc,result;
+    function write(input){var output = document.getElementById('txt');output.value = output.value + input}
+    function cleer(){var output = document.getElementById('txt');output.value = '';}
+    function equals(){var output = document.getElementById('txt');calc = output.value;result = eval(calc.replace("Not a real number!", "NaN"));output.value = result.toString().replace("NaN", "Not a real number!");}
+    function factorialize(num) {
+  if (num < 0){
+    return -1;
+  } else if (num == 0){
+      return 1;
+  } else {
+      return (num * factorialize(num - 1));
+  }
+}
+    function square(num){
+      return power(num,2)
+    }
+    var fact = factorialize;
+    var sq = square;
+  </script>
+  <script>
+    function onKeyDown() {
+    var key = window.event.keyCode;
+
+    // If the user has pressed enter
+    if (key == 13) {
+       var buttonn = document.getElementById('eq');buttonn.click();
+    return false;
+    }
+    else {
+    return true;
+    }
+}
+</script>
+  <style>p {color:white;}</style>
+</head>
+<body>
+  <h1>
+    Calculator
+  </h1>
+  <div id="buttns">
+    <input type="text" id="txt" onkeypress="onKeyDown()">
+    <input type="button" value="1" id="one" onclick="write(1)" class="buttons">
+    <input type="button" value="2" id="two" onclick="write(2)" class="buttons">
+    <input type="button" value="3" id="three" onclick="write(3)" class="buttons">
+    <input type="button" value="4" id="four" onclick="write(4)" class="buttons">
+    <input type="button" value="5" id="five" onclick="write(5)"class="buttons">
+    <input type="button" value="6" id="six" onclick="write(6)" class="buttons">
+    <input type="button" value="7" id="seven" onclick="write(7)" class="buttons">
+    <input type="button" value="8" id="eight" onclick="write(8)" class="buttons">
+    <input type="button" value="9" id="nine" onclick="write(9)" class="buttons">
+    <input type="button" value="0" id="zero" onclick="write(0)" class="buttons">
+    <input type="button" value="+" id="pl" onclick="write('+')" class="buttons">
+    <input type="button" value="-" id="mi" onclick="write('-')" class="buttons">
+    <input type="button" value="*" id="ti" onclick="write('*')" class="buttons">
+    <input type="button" value="/" id="di" onclick="write('/')" class="buttons">
+    <input type="button" value="=" id="eq" onclick="equals()" class="buttons">
+    <input type="button" value="C" id="cl" onclick="cleer()" class="buttons">
+    <input type="button" value="." id="po" onclick="write('.')" class="buttons">
+  </div>
+  <h1>
+    Instructions
+  </h1>
+  <p>
+    Use 'pi' to use the constant pi.
+  </p>
+  <p>
+    Use 'sqrt(number)' to take square roots.<br>
+  </p>
+  <p>
+    Use 'power(base,exponent)' to raise numbers to a power.<br>
+  </p>
+  <p>
+    Use 'sq(number)' to square numbers.
+  </p>
+  <p>
+    Use 'result' to pull out the last result. This will not work properly if you just loaded the page.
+  </p>
+  <p>
+    To use scientific notation, use for example: '4e+3' for big numbers and '4e-3' for small numbers. These specific ones will return 4000 and 0.004. The numbers can change to anything needed.
+  </p>
+  <p>
+    To find a factorial such as 9!, use fact(integer). If the number is not an integer, it won't work.
+  </p>
+</body>
