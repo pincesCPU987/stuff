@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Calculator with TXT Notes download</title><link rel="icon" type="image/png" href="/Links/icon.png"/><link rel="preconnect" href="https://fonts.googleapis.com">
+  <head><title>Calculator with TXT Notes download</title><link rel="icon" type="image/png" href="/stuff/icon.png"/><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/Links/calc/calc.css">
-<script language="Javascript" src="/Links/calc/calc.js">
+<link rel="stylesheet" href="calc.css">
+<script language="Javascript" src="calc.js">
 
 </script>
 </head>
-  <body><a href="/Links/#other" title="Go back to the main page.">«Go back</a>
+  <body><a href="/stuff/#other" title="Go back to the main page.">«Go back</a>
 <h1 title="Perform your calculations in this section.">Calculator</h1>
     <p id="counts" style="color:#00f;"></p>
-    <p><a href="/Links/calc/take-notes.html" target="_blank">Take Notes»</a></p>
+    <p><a href="take-notes.html" target="_blank">Take Notes»</a></p>
 <form onsubmit="calculate()" id="cForm">
   <label for="calc1" title="Choose a first number below.">Choose a first number below.</label>
   <input type="number" name="calc1" id="calc1" title="Choose a first number." step="any" placeholder="This field is required." required>
@@ -59,7 +59,7 @@
     </ol>
   </p>
   </body>
-<script src="/Links/store.js"></script>
+<script src="/stuff/store.js"></script>
 <script>
       function doc_keyUp(e) {
         if (e.ctrlKey && e.keyCode === 13) {
@@ -81,5 +81,5 @@
     countVis('calc');
       document.getElementById('counts').innerHTML = 'You visited this site ' + localStorage.getItem('visitcalcSite') + ' times.';
 </script>
-<link rel="stylesheet" href="/Links/scrollbar.css">
+<link rel="stylesheet" href="/stuff/scrollbar.css">
 </html>
