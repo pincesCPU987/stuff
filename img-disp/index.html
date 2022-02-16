@@ -1,6 +1,6 @@
 <head>
     <title>File Display</title><link rel="icon" type="image/png" href="/stuff/icon.png">
-    <script>alert("This is where you can display images.");</script></head><body onunload="con()"><p><a href="/stuff/#other">«Go back</a></p>
+    </head><body onunload="con()"><p><a href="/stuff/#other">«Go back</a></p>
         <p id="countPara"></p>
         <h1>Image display</h1><p><input type="file" accept="image/*" name="image" id="fileImg" onchange="loadImage(event)"></p>
 <p><label for="fileImg">Upload Image</label></p>
@@ -66,7 +66,7 @@
       countVis('disp');
       function setS(){
           if(localStorage.getItem('visitdispSite') != '1'){
-              return 's'
+              alert("This is where you can display images.");return 's'
           } else {
               return ''
           }
