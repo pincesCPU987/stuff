@@ -12,14 +12,17 @@
     <audio id="audio" controls></audio>
     <button name="recordAud">record</button>
     <button name="stopAud">stop</button>
+    <p><a id="downloadAud">Download</a></p>
     <h1>Video recorder</h1>
     <video id="video" controls></video>
     <button name="recordVid">record</button>
     <button name="stopVid">stop</button>
+    <p><a id="downloadVid">Download</a></p>
 <h1>AV recorder</h1>
     <video id="AV" controls></video>
     <button name="recordAV">record</button>
     <button name="stopAV">stop</button>
+    <p><a id="downloadAV">Download</a></p>
 </body>
     <script>
     var btnAudStart = document.querySelector('button[name="recordAud"]');
@@ -44,6 +47,9 @@
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
              audio.src = url;
+            var downloadAud = document.querySelector('#downloadAud');
+            downloadAud.href = url;
+            downloadAud.download = 'recordedAudio.mp3';
         }
         btnAudStop.addEventListener('click',()=>{
              mediaAud.stop();
@@ -71,6 +77,9 @@
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
              video.src = url;
+            var downloadVid = document.querySelector('#downloadVid');
+            downloadVid.href = url;
+            downloadVid.download = 'recordedVideo.webm';
         }
         btnVidStop.addEventListener('click',()=>{
              mediaVid.stop();
@@ -97,7 +106,10 @@
              //create url for audio
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
-             video.src = url;
+             AV.src = url;
+            var downloadAV = document.querySelector('#downloadAV');
+            downloadAV.href = url;
+            downloadAV.download = 'recordedAV.webm';
         }
         btnAVStop.addEventListener('click',()=>{
              mediaAV.stop();
