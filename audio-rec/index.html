@@ -23,7 +23,7 @@
 </body>
     <script>
     var btnAudStart = document.querySelector('button[name="recordAud"]');
-    var btnAudStop = document.querySelector('button[name="stop"Aud]');
+    var btnAudStop = document.querySelector('button[name="stopAud"]');
     var audio = document.querySelector('#audio');
     btnAudStart.addEventListener('click', async () => {
         let stream = await navigator.mediaDevices.getUserMedia({audio: true, video: false});
