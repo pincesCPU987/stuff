@@ -12,28 +12,19 @@
     <audio id="audio" controls></audio>
     <button name="recordAud">record</button>
     <button name="stopAud">stop</button>
-    <p><button id="downloadAud" onclick="">Download</button></p>
+    <p><a id="downloadAud">Download</a></p>
     <h1>Video recorder</h1>
     <video id="video" controls></video>
     <button name="recordVid">record</button>
     <button name="stopVid">stop</button>
-    <p><button id="downloadVid" onclick="">Download</button></p>
+    <p><a id="downloadVid">Download</a></p>
 <h1>AV recorder</h1>
     <video id="AV" controls></video>
     <button name="recordAV">record</button>
     <button name="stopAV">stop</button>
-    <p><button id="downloadAV" onclick="">Download</button></p>
+    <p><a id="downloadAV">Download</a></p>
 </body>
     <script>
-                function download(url,name) {
-  var a = document.createElement('a');
-  a.href = url;
-  a.innerHTML = 'Nothing to see here...';
-  a.download = name;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
     var btnAudStart = document.querySelector('button[name="recordAud"]');
     var btnAudStop = document.querySelector('button[name="stopAud"]');
     var audio = document.querySelector('#audio');
@@ -57,7 +48,8 @@
              //pass url into audio tag
              audio.src = url;
             var downloadAud = document.querySelector('#downloadAud');
-            downloadAud.onclick = "download(" + url + ",'recordedAudio.mp3');";
+            downloadAud.href = url;
+            downloadAud.download = 'recordedAudio.mp3';
         }
         btnAudStop.addEventListener('click',()=>{
              mediaAud.stop();
@@ -86,7 +78,8 @@
              //pass url into audio tag
              video.src = url;
             var downloadVid = document.querySelector('#downloadVid');
-            downloadVid.onclick = "download(" + url + ",'recordedVideo.webm');";
+            downloadVid.href = url;
+            downloadVid.download = 'recordedVideo.webm';
         }
         btnVidStop.addEventListener('click',()=>{
              mediaVid.stop();
@@ -115,7 +108,8 @@
              //pass url into audio tag
              AV.src = url;
             var downloadAV = document.querySelector('#downloadAV');
-            downloadAV.onclick = "download(" + url + ",'recordedAV.webm');";
+            downloadAV.href = url;
+            downloadAV.download = 'recordedAV.mp3';
         }
         btnAVStop.addEventListener('click',()=>{
              mediaAV.stop();
