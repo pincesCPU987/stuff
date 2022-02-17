@@ -25,6 +25,15 @@
     <p><button id="downloadAV" onclick="">Download</button></p>
 </body>
     <script>
+                function download(url,name) {
+  var a = document.createElement('a');
+  a.href = url;
+  a.innerHTML = 'Nothing to see here...'
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
     var btnAudStart = document.querySelector('button[name="recordAud"]');
     var btnAudStop = document.querySelector('button[name="stopAud"]');
     var audio = document.querySelector('#audio');
@@ -112,14 +121,5 @@
              mediaAV.stop();
         })
     })
-        function download(url,name) {
-  const a = document.createElement('a');
-  a.href = url;
-  a.innerHTML = 'Nothing to see here...'
-  a.download = name;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
 </script>
 </html>
