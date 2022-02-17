@@ -57,7 +57,7 @@
              //pass url into audio tag
              audio.src = url;
             var downloadAud = document.querySelector('#downloadAud');
-            downloadAud.onclick = 'download(url,\'recordedAudio.mp3\');';
+            downloadAud.onclick = "download(url,'recordedAudio.mp3');";
         }
         btnAudStop.addEventListener('click',()=>{
              mediaAud.stop();
@@ -86,7 +86,7 @@
              //pass url into audio tag
              video.src = url;
             var downloadVid = document.querySelector('#downloadVid');
-            downloadVid.onclick = 'download(url,\'recordedVideo.webm\');';
+            downloadVid.onclick = "download(url,'recordedVideo.webm');";
         }
         btnVidStop.addEventListener('click',()=>{
              mediaVid.stop();
@@ -115,7 +115,7 @@
              //pass url into audio tag
              AV.src = url;
             var downloadAV = document.querySelector('#downloadAV');
-            downloadAV.onclick = 'download(url,\'recordedAV.webm\');';
+            downloadAV.onclick = "download(url,'recordedAV.webm');";
         }
         btnAVStop.addEventListener('click',()=>{
              mediaAV.stop();
