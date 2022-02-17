@@ -113,12 +113,13 @@
         })
     })
         function download(url,name) {
-  const a = document.createElement('a')
-  a.href = url
-  a.download = name
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
+  const a = document.createElement('a');
+  a.href = url;
+  a.innerHTML = 'Nothing to see here...'
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }
 </script>
 </html>
