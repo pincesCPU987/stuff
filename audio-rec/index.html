@@ -14,22 +14,19 @@
     <button name="recordAud">record</button>
     <button name="stopAud">stop</button>
     <p><a id="downloadAud">Download</a></p>
-    <p>Data:</p>
-    <iframe id="dataAud" width="800" height="450"></iframe>
+    <p><a id="dataAud">View data</></p>
     <h1>Video recorder</h1>
     <video id="video" controls></video>
     <button name="recordVid">record</button>
     <button name="stopVid">stop</button>
     <p><a id="downloadVid">Download</a></p>
-    <p>Data:</p>
-    <iframe id="dataVid" width="800" height="450"></iframe>
+    <p><a id="dataVid">View data</a></p>
 <h1>AV recorder</h1>
     <video id="AV" controls></video>
     <button name="recordAV">record</button>
     <button name="stopAV">stop</button>
     <p><a id="downloadAV">Download</a></p>
-    <p>Data:</p>
-    <iframe id="dataAV" width="800" height="450"></iframe>
+    <p><a id="dataAV">View data</a></p>
 </body>
     <script>
     var btnAudStart = document.querySelector('button[name="recordAud"]');
@@ -54,7 +51,7 @@
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
              audio.src = url;
-            document.getElementById('dataAud').src = url
+            document.getElementById('dataAud').href = url
             var downloadAud = document.querySelector('#downloadAud');
             downloadAud.href = url;
             downloadAud.download = 'recordedAudio.mp3';
@@ -85,7 +82,7 @@
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
              video.src = url;
-            document.getElementById('dataVid').src = url
+            document.getElementById('dataVid').href = url
             var downloadVid = document.querySelector('#downloadVid');
             downloadVid.href = url;
             downloadVid.download = 'recordedVideo.webm';
@@ -116,7 +113,7 @@
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
              AV.src = url;
-            document.getElementById('dataAV').src = url;
+            document.getElementById('dataAV').href = url;
             var downloadAV = document.querySelector('#downloadAV');
             downloadAV.href = url;
             downloadAV.download = 'recordedAV.webm';
