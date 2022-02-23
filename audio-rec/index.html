@@ -42,7 +42,7 @@
         let chunks = [];
         mediaAud.ondataavailable = (e)=>{
              chunks.push(e.data);
-            document.getElementById('dataAud').innerHTML = chunks;
+            document.getElementById('dataAud').innerHTML = new Blob(chunks);;
         }
         //function to catch error
         mediaAud.onerror = (e)=>{
@@ -73,7 +73,7 @@
         let chunks = [];
         mediaVid.ondataavailable = (e)=>{
              chunks.push(e.data);
-            document.getElementById('dataVid').innerHTML = chunks;
+            document.getElementById('dataVid').innerHTML = new Blob(chunks);;
         }
         //function to catch error
         mediaVid.onerror = (e)=>{
@@ -104,7 +104,7 @@
         let chunks = [];
         mediaAV.ondataavailable = (e)=>{
              chunks.push(e.data);
-            document.getElementById('dataAV').innerHTML = chunks;
+            document.getElementById('dataAV').innerHTML = new Blob(chunks);;
         }
         //function to catch error
         mediaAV.onerror = (e)=>{
