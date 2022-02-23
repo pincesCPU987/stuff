@@ -14,16 +14,22 @@
     <button name="recordAud">record</button>
     <button name="stopAud">stop</button>
     <p><a id="downloadAud">Download</a></p>
+    <p>Data:</p>
+    <p id="dataAud"></p>
     <h1>Video recorder</h1>
     <video id="video" controls></video>
     <button name="recordVid">record</button>
     <button name="stopVid">stop</button>
     <p><a id="downloadVid">Download</a></p>
+    <p>Data:</p>
+    <p id="dataVid"></p>
 <h1>AV recorder</h1>
     <video id="AV" controls></video>
     <button name="recordAV">record</button>
     <button name="stopAV">stop</button>
     <p><a id="downloadAV">Download</a></p>
+    <p>Data:</p>
+    <p id="dataAV"></p>
 </body>
     <script>
     var btnAudStart = document.querySelector('button[name="recordAud"]');
@@ -36,6 +42,7 @@
         let chunks = [];
         mediaAud.ondataavailable = (e)=>{
              chunks.push(e.data);
+            document.getElementById('dataAud').innerHTML = chunks;
         }
         //function to catch error
         mediaAud.onerror = (e)=>{
@@ -66,6 +73,7 @@
         let chunks = [];
         mediaVid.ondataavailable = (e)=>{
              chunks.push(e.data);
+            document.getElementById('dataVid').innerHTML = chunks;
         }
         //function to catch error
         mediaVid.onerror = (e)=>{
@@ -96,6 +104,7 @@
         let chunks = [];
         mediaAV.ondataavailable = (e)=>{
              chunks.push(e.data);
+            document.getElementById('dataAV').innerHTML = chunks;
         }
         //function to catch error
         mediaAV.onerror = (e)=>{
