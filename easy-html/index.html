@@ -75,6 +75,7 @@
   </head>
 
   <body>
+    <p><a href="/stuff/">«Go back</a></p>
     <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(/\ /g,'-').toLowerCase()+'.html',this['txt'].value);">
       <input type="file" name="inputfile" id="inputfile" accept="text/*"><label for="inputfile">Choose a file to upload (Input the name of the file you want to save in the text box indicated.).</label>
       <input type="checkbox" id="check" onclick="refresh.checkbox();refresh.frame()"><label for="check">Hints</label><br>
@@ -92,7 +93,7 @@
 
           var fr = new FileReader();
           fr.onload = function() {
-            document.getElementById('txt').value = fr.result;
+            document.getEledmentById('txt').value = fr.result;
             refresh.frame();
           }
 
