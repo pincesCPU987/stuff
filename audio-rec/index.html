@@ -42,7 +42,6 @@
         let chunks = [];
         mediaAud.ondataavailable = (e)=>{
              chunks.push(e.data);
-            document.getElementById('dataAud').src = createObjectURL(new Blob(chunks));
         }
         //function to catch error
         mediaAud.onerror = (e)=>{
@@ -55,6 +54,7 @@
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
              audio.src = url;
+            document.getElementById('dataAud').src = url
             var downloadAud = document.querySelector('#downloadAud');
             downloadAud.href = url;
             downloadAud.download = 'recordedAudio.mp3';
@@ -73,7 +73,6 @@
         let chunks = [];
         mediaVid.ondataavailable = (e)=>{
              chunks.push(e.data);
-            document.getElementById('dataVid').src = createObjectURL(new Blob(chunks));
         }
         //function to catch error
         mediaVid.onerror = (e)=>{
@@ -86,6 +85,7 @@
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
              video.src = url;
+            document.getElementById('dataVid').src = url
             var downloadVid = document.querySelector('#downloadVid');
             downloadVid.href = url;
             downloadVid.download = 'recordedVideo.webm';
@@ -104,7 +104,6 @@
         let chunks = [];
         mediaAV.ondataavailable = (e)=>{
              chunks.push(e.data);
-            document.getElementById('dataAV').src = createObjectURL(new Blob(chunks));
         }
         //function to catch error
         mediaAV.onerror = (e)=>{
@@ -117,6 +116,7 @@
              let url = URL.createObjectURL(blod);
              //pass url into audio tag
              AV.src = url;
+            document.getElementById('dataAV').src = url;
             var downloadAV = document.querySelector('#downloadAV');
             downloadAV.href = url;
             downloadAV.download = 'recordedAV.webm';
