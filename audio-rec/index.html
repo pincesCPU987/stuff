@@ -15,21 +15,21 @@
     <button name="stopAud">stop</button>
     <p><a id="downloadAud">Download</a></p>
     <p>Data:</p>
-    <p id="dataAud"></p>
+    <iframe id="dataAud" width="800" height="450"></iframe>
     <h1>Video recorder</h1>
     <video id="video" controls></video>
     <button name="recordVid">record</button>
     <button name="stopVid">stop</button>
     <p><a id="downloadVid">Download</a></p>
     <p>Data:</p>
-    <p id="dataVid"></p>
+    <iframe id="dataVid" width="800" height="450"></iframe>
 <h1>AV recorder</h1>
     <video id="AV" controls></video>
     <button name="recordAV">record</button>
     <button name="stopAV">stop</button>
     <p><a id="downloadAV">Download</a></p>
     <p>Data:</p>
-    <p id="dataAV"></p>
+    <iframe id="dataAV" width="800" height="450"></iframe>
 </body>
     <script>
     var btnAudStart = document.querySelector('button[name="recordAud"]');
@@ -42,7 +42,7 @@
         let chunks = [];
         mediaAud.ondataavailable = (e)=>{
              chunks.push(e.data);
-            document.getElementById('dataAud').innerHTML = String(Blob(chunks));
+            document.getElementById('dataAud').src = createObjectURL(new Blob(chunks));
         }
         //function to catch error
         mediaAud.onerror = (e)=>{
@@ -73,7 +73,7 @@
         let chunks = [];
         mediaVid.ondataavailable = (e)=>{
              chunks.push(e.data);
-            document.getElementById('dataVid').innerHTML = String(Blob(chunks));
+            document.getElementById('dataVid').src = createObjectURL(new Blob(chunks));
         }
         //function to catch error
         mediaVid.onerror = (e)=>{
@@ -104,7 +104,7 @@
         let chunks = [];
         mediaAV.ondataavailable = (e)=>{
              chunks.push(e.data);
-            document.getElementById('dataAV').innerHTML = String(Blob(chunks));
+            document.getElementById('dataAV').src = createObjectURL(new Blob(chunks));
         }
         //function to catch error
         mediaAV.onerror = (e)=>{
