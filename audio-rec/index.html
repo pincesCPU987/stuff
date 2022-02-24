@@ -129,9 +129,6 @@ if (navigator.mediaDevices.getUserMedia) {
     .then(function (stream) {
       var video = document.querySelector('#mirror');
       video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log(err0r);
     });
 }
 </script>
