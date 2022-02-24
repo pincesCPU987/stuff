@@ -123,7 +123,7 @@
              mediaAV.stop();
         })
     })
-        var video = document.getElementById('mirror');
+        var video = document.querySelector('#mirror');
 if (navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(function (stream) {
