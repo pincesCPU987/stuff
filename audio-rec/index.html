@@ -27,6 +27,7 @@
     <button name="stopAV">stop</button>
     <p><a id="downloadAV" target="_blank">Download</a></p>
     <p><a id="dataAV" target="_blank">View data</a></p>
+    <video autoplay="true" id="videoElement" style="transform:rotateY(180deg);position:fixed;right:10px;margin:auto;">
 </body>
     <script>
     var btnAudStart = document.querySelector('button[name="recordAud"]');
@@ -122,5 +123,16 @@
              mediaAV.stop();
         })
     })
+        var video = document.querySelector("#videoElement");
+var video = document.getElementById('mirror');
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
 </script>
 </html>
