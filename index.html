@@ -423,7 +423,8 @@
 /* Add some content at the bottom of the video/page */
 .content {
   position: fixed;
-  bottom: 0;
+  height:100%;
+  top:0px;
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   width: 100%;
@@ -433,7 +434,7 @@
     <script>
       function setVideoSrc(source){
         var video = document.querySelector('#myVideo');
-        video.src = source;
+        video.src = 'videos/' + source;
       }
     </script>
     </body>
