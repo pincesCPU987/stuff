@@ -427,6 +427,61 @@
           video.src = formattedSource;
         }
       }
+      var top = document.querySelector('#top')
+      var games = document.querySelector('#games');
+      var google = document.querySelector('#google');
+      var other = document.querySelector('#other');
+      var mygames = document.querySelector('#mygames');
+      function showTop(){
+        var top = document.querySelector('#top')
+        var games = document.querySelector('#games');
+        var google = document.querySelector('#google');
+        var other = document.querySelector('#other');
+        var mygames = document.querySelector('#mygames');
+        setVideoSrc('');
+        top.style.display = 'block';
+        games.style.display = google.style.display = other.style.display = mygames.style.display = 'none';
+      }
+      function showGames(){
+        var top = document.querySelector('#top')
+        var games = document.querySelector('#games');
+        var google = document.querySelector('#google');
+        var other = document.querySelector('#other');
+        var mygames = document.querySelector('#mygames');
+        setVideoSrc('');
+        games.style.display = 'block';
+        top.style.display = google.style.display = other.style.display = mygames.style.display = 'none';
+      }
+      function showGoogle(){
+        var top = document.querySelector('#top')
+        var games = document.querySelector('#games');
+        var google = document.querySelector('#google');
+        var other = document.querySelector('#other');
+        var mygames = document.querySelector('#mygames');
+        setVideoSrc('');
+        google.style.display = 'block';
+        games.style.display = top.style.display = other.style.display = mygames.style.display = 'none';
+      }
+      function showOther(){
+        var top = document.querySelector('#top')
+        var games = document.querySelector('#games');
+        var google = document.querySelector('#google');
+        var other = document.querySelector('#other');
+        var mygames = document.querySelector('#mygames');
+        setVideoSrc('');
+        other.style.display = 'block';
+        games.style.display = google.style.display = top.style.display = mygames.style.display = 'none';
+      }
+      function showMyGames(){
+        var top = document.querySelector('#top')
+        var games = document.querySelector('#games');
+        var google = document.querySelector('#google');
+        var other = document.querySelector('#other');
+        var mygames = document.querySelector('#mygames');
+        setVideoSrc('');
+        mygames.style.display = 'block';
+        games.style.display = google.style.display = other.style.display = top.style.display = 'none';
+      }
     </script>
     </body>
   <link href="scrollbar.css" rel="stylesheet">
