@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <video autoplay muted loop id="myVideo">
+    <video autoplay muted id="myVideo">
   <source src="" type="video/mpeg">
 </video><div class="content">
     <div style="position:fixed;top:0px;left:0px;width:100%;">
@@ -434,7 +434,10 @@
     <script>
       function setVideoSrc(source){
         var video = document.querySelector('#myVideo');
-        video.src = 'videos/' + source;
+        var formattedSource = 'videos/' + source;
+        if(video.src != formattedSource){
+          video.src = formattedSource;
+        }
       }
     </script>
     </body>
