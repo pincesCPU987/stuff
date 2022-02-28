@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <video autoplay muted loop id="myVideo">
+  <source src="" type="video/mpeg">
+</video><div class="content">
     <div style="position:fixed;top:0px;left:0px;width:100%;">
       <nav class="navigation-bar">
         <img class="logo" width="50" height="50" src="icon.png" type="image/png" />
@@ -51,15 +54,14 @@
       }
 
     </style>
-    <p id="output" style="position:fixed;bottom:20px;color:blue;background:black;"></p>
-    <p id="top">p</p><br><br><br>
+    <div id="top"><br><br><br><br><br>
     <h1 style="color:rgb(255,0,0)">
       Stuff
     </h1>
     <p style="color:#0f0;">Tip: There are two right click menus. Right-click twice to use your default one.</p>
     <p id="counts" style="color:#0f0;"></p>
-    <p class="bigBr">p</p>
-    <p id="games">p</p><br><br><br>
+    </div>
+    <div id="games"><p id="games">p</p><br><br><br>
     <h3 style="color:rgb(0,255,0)">
       Games
     </h3>
@@ -70,17 +72,23 @@
       <a onclick="setClipboardText('https://pincescpu987.github.io/Instructions/','a')" href="https://pincescpu987.github.io/redirect/?to=https:%2F%2Fpincescpu987%2Egithub%2Eio%2FInstructions%2F&from=https:%2F%2Fpincescpu987%2Egithub%2Eio%2FLinks%2F%23games&newtab=true">here</a>
       to learn how to code in Logo.
       <br />
-      Click
-      <a onclick="setClipboardText('https://dinoswords.gg','a')" href="https://dinoswords.gg" target="_blank">here</a>
-      to play Dino Swords.
+      <span>
+        Click
+        <a onclick="setClipboardText('https://dinoswords.gg','a')" href="https://dinoswords.gg" target="_blank">here</a>
+        to play Dino Swords.
+      </span>
       <br />
+      <span>
       Click
       <a onclick="setClipboardText('https://www.abcya.com/','a')" href="https://www.abcya.com/" target="_blank">here</a>
       to go to ABCYA.
+      </span>
       <br />
+      <span onmouseover="spinFunc()">
       Click
       <a onclick="setClipboardText('https://www.google.com/search?q=fidget+spinner','a')" href="https://www.google.com/search?q=fidget+spinner" target="_blank">here</a>
       to use a spinner.
+      </span>
       <br />
       Click
       <a onclick="setClipboardText('https://blockly.games/','a')" href="https://blockly.games/" target="_blank">here</a>
@@ -94,8 +102,8 @@
       <a onclick="setClipboardText('https://sites.google.com/site/boredschoolrightnow/games/t-rex-game','a')" href="https://sites.google.com/site/boredschoolrightnow/games/t-rex-game" target="_blank">here</a>
       to play the regular dinosaur game.
     </p>
-    <p class="bigBr">p</p>
-    <p id="google">p</p><br><br><br>
+    </div>
+    <div id="google"><br><br><br><br><br>
     <h3 style="color:rgb(0,255,0)">
       Google
     </h3>
@@ -120,8 +128,8 @@
       <a onclick="setClipboardText('https://www.google.com/maps/','a')" href="https://www.google.com/maps/" target="_blank">here</a>
       to go to Google Maps.
     </p>
-    <p class="bigBr">p</p>
-    <p id="other">p</p><br><br><br>
+    </div>
+    <div id="other"><br><br><br><br><br>
     <h3 style="color:rgb(0,255,0)">
       Other Sites
       </h3>
@@ -145,8 +153,8 @@
         <br />
         I want to <a href="super-calc/">calculate</a> with my best calculator.
       </p>
-    <p class="bigBr">p</p>
-    <p id="mygames">p</p><br><br><br>
+    </div>
+    <div id="mygames"><br><br><br><br><br>
     <h3 style="color:rgb(0,255,0)">
       My Games
       </h3>
@@ -158,7 +166,8 @@
         <button onClick="loady();">
           Reload
         </button></p>
-      <p class="bigBr">p</p>
+    </div>
+    </div>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
       <link rel="stylesheet" href="style.css">
       <script src="main.js">
@@ -402,6 +411,26 @@
         }
       }
     </script>
+    <style>
+    #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+    </style>
+    <script></script>
     </body>
   <link href="scrollbar.css" rel="stylesheet">
 
