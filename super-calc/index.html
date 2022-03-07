@@ -122,43 +122,6 @@
       background-color:white;
     }
   </style>
-  <script>
-    var sqrt = Math.sqrt;
-    var pi = Math.PI;
-    var power = Math.pow;
-    var calc,result;
-    function write(input){var output = document.getElementById('txt');output.value = output.value + input}
-    function cleer(){var output = document.getElementById('txt');output.value = '';}
-    function equals(){var output = document.getElementById('txt');calc = output.value;result = eval(calc.replace("Not a real number!", "NaN"));output.value = result.toString().replace("NaN", "Not a real number!");}
-    function factorialize(num) {
-  if (num < 0){
-    return -1;
-  } else if (num == 0){
-      return 1;
-  } else {
-      return (num * factorialize(num - 1));
-  }
-}
-    function square(num){
-      return power(num,2)
-    }
-    var fact = factorialize;
-    var sq = square;
-  </script>
-  <script>
-    function onKeyDown() {
-    var key = window.event.keyCode;
-
-    // If the user has pressed enter
-    if (key == 13) {
-       var buttonn = document.getElementById('eq');buttonn.click();
-    return false;
-    }
-    else {
-    return true;
-    }
-}
-</script>
   <style>p {color:white;}</style>
 </head>
 <body>
@@ -210,4 +173,41 @@
   <p>
     To find a factorial such as 9!, use fact(integer). If the number is not an integer, it won't work.
   </p>
+    <script>
+    var sqrt = Math.sqrt;
+    var pi = Math.PI;
+    var power = Math.pow;
+    var calc,result;
+    function write(input){var output = document.getElementById('txt');output.value = output.value + input}
+    function cleer(){var output = document.getElementById('txt');output.value = '';}
+    function equals(){var output = document.getElementById('txt');calc = output.value;result = eval(calc.replace("Not a real number!", "NaN"));output.value = result.toString().replace("NaN", "Not a real number!");}
+    function factorialize(num) {
+  if (num < 0){
+    return -1;
+  } else if (num == 0){
+      return 1;
+  } else {
+      return (num * factorialize(num - 1));
+  }
+}
+    function square(num){
+      return power(num,2)
+    }
+    var fact = factorialize;
+    var sq = square;
+  </script>
+  <script>
+    function onKeyDown() {
+    var key = window.event.keyCode;
+
+    // If the user has pressed enter
+    if (key == 13) {
+       var buttonn = document.getElementById('eq');buttonn.click();
+    return false;
+    }
+    else {
+    return true;
+    }
+}
+</script>
 </body>
