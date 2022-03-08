@@ -131,23 +131,23 @@
   </h1>
   <div id="buttns">
     <input type="text" id="txt" onkeypress="onKeyDown()">
-    <input type="button" value="1" id="one" onclick="write(1)" class="buttons">
-    <input type="button" value="2" id="two" onclick="write(2)" class="buttons">
-    <input type="button" value="3" id="three" onclick="write(3)" class="buttons">
-    <input type="button" value="4" id="four" onclick="write(4)" class="buttons">
-    <input type="button" value="5" id="five" onclick="write(5)"class="buttons">
-    <input type="button" value="6" id="six" onclick="write(6)" class="buttons">
-    <input type="button" value="7" id="seven" onclick="write(7)" class="buttons">
-    <input type="button" value="8" id="eight" onclick="write(8)" class="buttons">
-    <input type="button" value="9" id="nine" onclick="write(9)" class="buttons">
-    <input type="button" value="0" id="zero" onclick="write(0)" class="buttons">
-    <input type="button" value="+" id="pl" onclick="write('+')" class="buttons">
-    <input type="button" value="-" id="mi" onclick="write('-')" class="buttons">
-    <input type="button" value="*" id="ti" onclick="write('*')" class="buttons">
-    <input type="button" value="/" id="di" onclick="write('/')" class="buttons">
+    <input type="button" value="1" id="one" onclick="writeTxt(1)" class="buttons">
+    <input type="button" value="2" id="two" onclick="writeTxt(2)" class="buttons">
+    <input type="button" value="3" id="three" onclick="writeTxt(3)" class="buttons">
+    <input type="button" value="4" id="four" onclick="writeTxt(4)" class="buttons">
+    <input type="button" value="5" id="five" onclick="writeTxt(5)"class="buttons">
+    <input type="button" value="6" id="six" onclick="writeTxt(6)" class="buttons">
+    <input type="button" value="7" id="seven" onclick="writeTxt(7)" class="buttons">
+    <input type="button" value="8" id="eight" onclick="writeTxt(8)" class="buttons">
+    <input type="button" value="9" id="nine" onclick="writeTxt(9)" class="buttons">
+    <input type="button" value="0" id="zero" onclick="writeTxt(0)" class="buttons">
+    <input type="button" value="+" id="pl" onclick="writeTxt('+')" class="buttons">
+    <input type="button" value="-" id="mi" onclick="writeTxt('-')" class="buttons">
+    <input type="button" value="*" id="ti" onclick="writeTxt('*')" class="buttons">
+    <input type="button" value="/" id="di" onclick="writeTxt('/')" class="buttons">
     <input type="button" value="=" id="eq" onclick="equals()" class="buttons">
     <input type="button" value="C" id="cl" onclick="cleer()" class="buttons">
-    <input type="button" value="." id="po" onclick="write('.')" class="buttons">
+    <input type="button" value="." id="po" onclick="writeTxt('.')" class="buttons">
   </div>
   <h1>
     Instructions
@@ -178,7 +178,7 @@
     var pi = Math.PI;
     var power = Math.pow;
     var calc,result;
-    function write(input){var output = document.getElementById('txt');output.value = output.value + input}
+    function writeTxt(input){var output = document.getElementById('txt');output.value = output.value + input}
     function cleer(){var output = document.getElementById('txt');output.value = '';}
     function equals(){var output = document.getElementById('txt');calc = output.value;result = eval(calc.replace("Not a real number!", "NaN"));output.value = result.toString().replace("NaN", "Not a real number!");}
     function factorialize(num) {
