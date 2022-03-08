@@ -1,9 +1,18 @@
 body {
-    font-family: 'Press Start 2P';
-    font-size: 15px;
-    background-color: #000000;
+  font-family: 'Press Start 2P';
+  font-size: 15px;
+  background-color: #000000;
 }
 a {color: #ff6400;font-weight: normal;text-decoration: none;}
 a:visited {color: #ff6400;font-weight: bold;text-decoration: none;}
 a:hover {color: #ff6400;font-weight: normal;text-decoration: underline;}
 a:active {color: #ffffff;font-weight: bold;text-decoration: underline;}
+p {
+  color:#00f;
+}
+h1 {
+  color:#f00;
+}
+h3 {
+  color:#0f0;
+}
