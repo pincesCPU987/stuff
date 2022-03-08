@@ -1,2 +1,9 @@
 <iframe width="100%" height="100%" id="output"></iframe>
-<button></button>
+<button onclick="refreshFrame()">Refresh</button>
+<script>
+  function refreshFrame(){
+    var code = window.opener.document.getElementById('txt').value;
+    var output = document.getElementById('output');
+    output.src = 'data:text/html;base64,' + btoa(code);
+  }
+</script>
