@@ -1,6 +1,6 @@
 <title>Results</title>
 <iframe width="100%" height="100%" id="output"></iframe>
-<button onclick="refreshFrame()">Refresh</button>
+<button onclick="refreshFrame()" id="button">Refresh</button>
 <script>
   function refreshFrame(){
     var code = window.opener.document.getElementById('txt').value;
@@ -8,3 +8,10 @@
     output.src = 'data:text/html;base64,' + btoa(code);
   }
 </script>
+<style>
+  #button{
+    position:fixed;
+    top:10px;
+    right:10px;
+  }
+</style>
