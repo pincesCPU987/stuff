@@ -79,7 +79,7 @@
     <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(/\ /g,'-').toLowerCase()+'.html',this['txt'].value);">
       <input type="file" name="inputfile" id="inputfile" accept="text/*"><label for="inputfile">Choose a file to upload (Input the name of the file you want to save in the text box indicated.).</label><br>
       <input type="checkbox" id="check" onclick="refresh.checkbox();refresh.frame()"><label for="check">Hints</label><br>
-      <textarea id="txt" oninput="refresh.textarea();" style="width:100%;height:100%;" wrap="off">Put HTML here or use codes provided.</textarea><br>
+      <textarea id="txt" oninput="refresh.textarea();" style="width:100%;height:100%;font-family:'Press Start 2P', cursive;" wrap="off">Put HTML here or use codes provided.</textarea><br>
       <input type="text" value="Untitled basic file" id="name"><br>
       <input type="submit" value="Download"><br>
       <script>var disp;</script>
