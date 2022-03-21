@@ -34,6 +34,8 @@
 
             // Handle fileupload
             document.getElementById("fileinput").addEventListener("change", function(event){
+                var output = document.querySelector('#output').innerHTML;
+                output.innerHTML = ''
                 for(var i = 0;i < event.target.files.length;i++){
                   let file = event.target.files[i];
 
@@ -42,7 +44,7 @@
 
                 readFileAsText(file).then((fileContent) => {
                     // Print file content on the console
-                    document.querySelector('#output').innerHTML = document.querySelector('#output').innerHTML + '<br>' + file.name +' is ' + fileContent.length + ' bytes';
+                    output = output.innerHTML + file.name +' is ' + fileContent.length + ' bytes.' + '<br>';
                 });
                 }
             }, false);
