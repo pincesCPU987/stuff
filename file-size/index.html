@@ -1,0 +1,52 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+    <body>
+        <label>Select a file to read from your system:</label>
+        <input type="file" id="fileinput" multiple/>
+
+        <script>
+            /**
+             *  Simple JavaScript Promise that reads a file as text.
+             **/
+            function readFileAsText(file){
+                return new Promise(function(resolve,reject){
+                    let fr = new FileReader();
+
+                    fr.onload = function(){
+                        resolve(fr.result);
+                    };
+
+                    fr.onerror = function(){
+                        reject(fr);
+                    };
+
+                    fr.readAsText(file);
+                });
+            }
+
+            // Handle fileupload
+            document.getElementById("fileinput").addEventListener("change", function(event){
+                for(var i = 0;i < event.target.files.length;i++){
+                  let file = event.target.files[i];
+
+                // Abort file reading if no file was selected
+                if(!file) return;
+
+                readFileAsText(file).then((fileContent) => {
+                    // Print file content on the console
+                    document.querySelector('#output').innerHTML = document.querySelector('#output').innerHTML + '<br>' + file.name +' is ' + fileContent.length + ' bytes';
+                });
+                }
+            }, false);
+        </script>
+      <p id="output"></p>
+    </body>
+</html>
