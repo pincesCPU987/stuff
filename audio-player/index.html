@@ -6,10 +6,10 @@
     <p>
       <a href="/stuff/">«Go back</a>
     </p>
-    <input type="file" id="file" onchange="update()"><br/>
+    <input accept="audio/*" type="file" multiple id="file" onchange="update()"><br/>
     <audio controls id="output">HTML audio is not supported on your device.</audio>
-    <input type="button" id="prev" value="«" onclick="">
-    <input type="button" id="next" value="»" onclick="">
+    <input type="button" id="prev" value="«" onclick="prev()">
+    <input type="button" id="next" value="»" onclick="next()">
     <script>
       var file = document.querySelector('#file');
       var output = document.querySelector('#output');
@@ -21,8 +21,9 @@
           fr.readAsText(file.files[i]);
         }
         fr.onload = function(){
-          blobs.push(new Blob([fr.result]));
-          output.src = blobs[0]
+          var obj = new Blob([fr.result]);
+          blobs.push(obj);
+          output.src = blobs[0];
         }
       }
       function prev(){
@@ -32,7 +33,7 @@
         }
       }
       function next(){
-        if(audioIndex > 0){
+        if(audioIndex < blobs.length){
           audioIndex++;
           output.src = blobs[audioIndex]
         }
