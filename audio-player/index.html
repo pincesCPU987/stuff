@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Audio Player</title>
+  </head>
+  <body>
+    <p>
+      <a href="/stuff/">«Go back</a>
+    </p>
+    <input type="file" id="file" onchange="update()"><br/>
+    <audio controls id="output">HTML audio is not supported on your device.</audio>
+    <input type="button" id="prev" value="«" onclick="">
+    <input type="button" id="next" value="»" onclick="">
+    <script>
+      var file = document.querySelector('#file');
+      var output = document.querySelector('#output');
+      var audioIndex = 0;
+      var blobs = []
+      function update(){
+        for(var i = 0;i < file.files.length;i++){
+          var fr = new FileReader();
+          fr.readAsText(file.files[i]);
+        }
+        fr.onload = function(){
+          blobs.push(new Blob([fr.result]));
+          output.src = blobs[0]
+        }
+      }
+      function prev(){
+        if(audioIndex > 0){
+          audioIndex--;
+          output.src = blobs[audioIndex]
+        }
+      }
+      function next(){
+        if(audioIndex > 0){
+          audioIndex++;
+          output.src = blobs[audioIndex]
+        }
+      }
+    </script>
+  </body>
+</html>
