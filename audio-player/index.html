@@ -6,7 +6,7 @@
     <p>
       <a href="/stuff/">«Go back</a>
     </p>
-    <input accept="audio/*" type="file" multiple id="file" onchange="update()"><br/>
+    <input type="file" accept="audio/*,video/*" name="audio" id="fileAud" multiple onchange="loadAudio(event)">
     <audio controls type="audio/mpeg" id="output">HTML audio is not supported on your device.</audio>
     <input type="button" id="prev" value="«" onclick="prev()">
     <input type="button" id="next" value="»" onclick="next()">
