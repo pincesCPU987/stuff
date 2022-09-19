@@ -15,17 +15,19 @@
       var output = document.querySelector('#output');
       var audioIndex = 0;
       var blobs = []
-      function update(){
-        for(var i = 0;i < file.files.length;i++){
-          var fr = new FileReader();
-          fr.readAsText(file.files[i]);
+      var update = function(file) {
+    var input = file.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      blobs.push(dataURL);
+      output.src = blobs[0]
+    };
+        for(var i = 0;i < input;i++){
+          reader.readAsDataURL(input.files[i]);
         }
-        fr.onload = function(){
-          var obj = new Blob([fr.result]);
-          blobs.push(obj);
-          output.src = blobs[0];
-        }
-      }
+  };
       function prev(){
         if(audioIndex > 0){
           audioIndex--;
