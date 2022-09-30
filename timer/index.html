@@ -41,7 +41,7 @@
       var min = 0;
       var hou = 0;
       var flg = false;
-      setInterval(function(){if(flg){sec++;if(sec > 59){sec = 0;min++;if(min > 59){min = 0;hou++;}}}},1000);
+      setInterval(function(){if(flg){mil++;if(mil > 999){sec++;if(sec > 59){sec = 0;min++;if(min > 59){min = 0;hou++;}}}}},1000);
       var d = new Date()
       function curDate(){
         if(String(d.getDate()).split('')[String(d.getDate()).split('').length - 1] == '1'){
@@ -115,4 +115,7 @@
           return 'December';
         }
       }
-      setInterval(function(){currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + d.getFullYear(); currenttime.innerHTML = d.getHours() + ':' + d.getMinutes + ':' + d.getSeconds() + '.' + d.getMilliseconds()},1);
+      setInterval(function(){currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + d.getFullYear(); currenttime.innerHTML = d.getHours() + ':' + d.getMinutes + ':' + d.getSeconds()},1000);
+    </script>
+  </body>
+</html>
