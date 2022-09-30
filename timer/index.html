@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <title>Timer</title>
+  </head>
+  <body>
+    <div class="divs" id="current">
+      <p id="currentdate"></p>
+      <p id="currenttime"></p>
+    </div>
+    <div class="divs" id="stopwatch">
+      <p id="timerdisp">00:00:00.000</p>
+      <input type="button" class="stopbuttons" id="stopwatchstart" value="Start">
+      <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop">
+    </div>
+    <style>
+      .divs {
+        background-color:#cccccc;
+        position:absolute;
+      }
+      #currentdate {
+        font-size:30px;
+      }
+      #currenttime {
+        font-size:18px;
+      }
+      .stopbuttons {
+        height:50px;
+        border-radius:25px;
+        border:none;
+        background-color:#aaaaaa;
+        font-color:#000000;
+      }
+    </style>
+    <script>
+      var currentdate = document.querySelector('#currentdate');
+      var currenttime = document.querySelector('#currenttime');
+      var stopwatchstart = document.querySelector('#stopwatchstart');
+      var stopwatchstop = document.querySelector('#stopwatchstop');
+      var mil = 0;
+      var sec = 0;
+      var min = 0;
+      var hou = 0;
+      var flg = false;
+      stopwatchstart.addEventListener('click',function(){
+        flg = true;
+      });
+      stopwatchstop.addEventListener('click',function(){
+        flg = false;
+      });
+      setInterval(function(){if(flg){mil++;if(mil > 999){mil = 0;sec++;if(sec > 59){sec = 0;min++;if(min > 59){min = 0;hou++;}}}}},1);
+      var d = new Date()
+      function curDate(){
+        if(String(d.getDate()).split('')[String(d.getDate()).split('').length - 1] == '1'){
+          return d.getDate() + 'st';
+        } else if(String(d.getDate()).split('')[String(d.getDate()).split('').length - 1] == '2'){
+          return d.getDate() + 'nd';
+        } else if(String(d.getDate()).split('')[String(d.getDate()).split('').length - 1] == '3'){
+          return d.getDate() + 'rd';
+        } else {
+          return d.getDate() + 'th';
+        }
+      }
+      function curDWeek(){
+        if(d.getDay() == 0){
+          return 'Sunday';
+        }
+        if(d.getDay() == 1){
+          return 'Monday';
+        }
+        if(d.getDay() == 2){
+          return 'Tuesday';
+        }
+        if(d.getDay() == 3){
+          return 'Wednesday';
+        }
+        if(d.getDay() == 4){
+          return 'Thursday';
+        }
+        if(d.getDay() == 5){
+          return 'Friday';
+        }
+        if(d.getDay() == 6){
+          return 'Saturday';
+        }
+      }
+      function curMonth(){
+        if(d.getMonth() = 0){
+          return 'January';
+        }
+        if(d.getMonth() = 1){
+          return 'February';
+        }
+        if(d.getMonth() = 2){
+          return 'March';
+        }
+        if(d.getMonth() = 3){
+          return 'April';
+        }
+        if(d.getMonth() = 4){
+          return 'May';
+        }
+        if(d.getMonth() = 5){
+          return 'June';
+        }
+        if(d.getMonth() = 6){
+          return 'July';
+        }
+        if(d.getMonth() = 7){
+          return 'August';
+        }
+        if(d.getMonth() = 8){
+          return 'September';
+        }
+        if(d.getMonth() = 9){
+          return 'October';
+        }
+        if(d.getMonth() = 10){
+          return 'November';
+        }
+        if(d.getMonth() = 11){
+          return 'December';
+        }
+      }
+      setInterval(function(){currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + d.getFullYear(); currenttime.innerHTML = d.getHours() + ':' + d.getMinutes + ':' + d.getSeconds() + '.' + d.getMilliseconds()},1);
