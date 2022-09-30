@@ -9,7 +9,7 @@
     </div>
     <div class="divs" id="stopwatch">
       <p id="timerdisp">00:00:00.000</p>
-      <input type="button" class="stopbuttons" id="stopwatchstart" value="Start" onclick="flg = true">
+      <input type="button" class="stopbuttons" id="stopwatchstart" value="Start">
       <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop" onclick="flg = false">
     </div>
     <style>
@@ -36,12 +36,48 @@
       var currenttime = document.querySelector('#currenttime');
       var stopwatchstart = document.querySelector('#stopwatchstart');
       var stopwatchstop = document.querySelector('#stopwatchstop');
+      var timerdisp = document.querySelector('#timerdisp')
       var mil = 0;
       var sec = 0;
       var min = 0;
       var hou = 0;
       var flg = false;
-      setInterval(function(){if(flg){mil++;if(mil > 999){sec++;if(sec > 59){sec = 0;min++;if(min > 59){min = 0;hou++;}}}}},1000);
+      setInterval(update,1000);
+      function update(){
+        if(flg){
+          mil++;
+          if(mil > 999){
+            mil = 0;
+            sec++;
+            if(sec > 59){
+              sec = 0;
+              min++;
+              if(min > 59){
+                min = 0;
+                hou++;
+              }
+            }
+          }
+        }
+        if(hou < 10){
+          hou = '0' + String(hou)
+        }
+        if(min < 10){
+          min = '0' + String(min)
+        }
+        if(sec < 10){
+          sec = '0' + String(sec)
+        }
+        if(mil < 100){
+          mil = '0' + String(mil)
+          if(mil < 10){
+            mil = '0' + mil
+          }
+        }
+        timerdisp.innerHTML = hou + ':' + min + ':' + sec + '.' + mil
+      }
+      stopwatchstop.addEventListener('click',function(){flg = false;});
+      stopwatchstart.addEventListener('click',function(){flg = true;});
       var d = new Date()
       function curDate(){
         if(String(d.getDate()).split('')[String(d.getDate()).split('').length - 1] == '1'){
