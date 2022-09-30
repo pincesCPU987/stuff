@@ -9,8 +9,8 @@
     </div>
     <div class="divs" id="stopwatch">
       <p id="timerdisp">00:00:00.000</p>
-      <input type="button" class="stopbuttons" id="stopwatchstart" value="Start">
-      <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop">
+      <input type="button" class="stopbuttons" id="stopwatchstart" value="Start" onclick="flg = true">
+      <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop" onclick="flg = false">
     </div>
     <style>
       .divs {
@@ -41,12 +41,6 @@
       var min = 0;
       var hou = 0;
       var flg = false;
-      stopwatchstart.addEventListener('click',function(){
-        flg = true;
-      });
-      stopwatchstop.addEventListener('click',function(){
-        flg = false;
-      });
       setInterval(function(){if(flg){mil++;if(mil > 999){mil = 0;sec++;if(sec > 59){sec = 0;min++;if(min > 59){min = 0;hou++;}}}}},1);
       var d = new Date()
       function curDate(){
