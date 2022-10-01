@@ -8,7 +8,7 @@
       <p id="currenttime"></p>
     </div>
     <div class="divs" id="stopwatch">
-      <p id="timerdisp">00:00:00.000</p>
+      <p id="timerdisp">00:00:00.00</p>
       <input type="button" class="stopbuttons" id="stopwatchstart" value="Start">
       <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop" onclick="flg = false">
     </div>
@@ -37,25 +37,29 @@
       var stopwatchstart = document.querySelector('#stopwatchstart');
       var stopwatchstop = document.querySelector('#stopwatchstop');
       var timerdisp = document.querySelector('#timerdisp')
-      var mil = 0;
+      var cen = 0;
       var sec = 0;
       var min = 0;
       var hou = 0;
       var flg = false;
-      setInterval(updateDisp,1000);
+      setInterval(updateDisp,100);
       function updateDisp(){
-        mil = Number(mil)
+        cen = Number(cen)
         sec = Number(sec)
         min = Number(min)
         hou = Number(hou)
         if(flg){
-          sec++;
-          if(sec > 59){
-            sec = 0;
-            min++;
-            if(min > 59){
-              min = 0;
-              hou++;
+          cen++;
+          if(cen > 99){
+            cen = 0;
+            sec++;
+            if(sec > 59){
+              sec = 0;
+              min++;
+              if(min > 59){
+                min = 0;
+                hou++;
+              }
             }
           }
         }
@@ -145,7 +149,7 @@
           return 'December';
         }
       }
-      setInterval(function(){currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + d.getFullYear(); currenttime.innerHTML = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()},1000);
+      setInterval(function(){currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + d.getFullYear(); currenttime.innerHTML = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()},1);
     </script>
   </body>
 </html>
