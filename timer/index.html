@@ -3,43 +3,57 @@
     <title>Timer</title>
   </head>
   <body>
-    <div class="divs" id="current">
-      <p id="currentdate"></p>
-      <p id="currenttime"></p>
+    <div class="parents" id="currentparent">
+      <div class="divs" id="current">
+        <p id="currentdate"></p>
+        <p id="currenttime"></p>
+      </div>
     </div>
-    <div class="divs" id="stopwatch">
-      <p id="timerdisp">00:00:00.00</p>
-      <input type="button" class="stopbuttons" id="stopwatchstart" value="Start">
-      <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop" onclick="flg = false">
+    <div class="parents" id="timerparent">
+      <div class="divs" id="stopwatch">
+        <p id="timerdisp">00:00:00.00</p>
+        <input type="button" class="stopbuttons" id="stopwatchstart" value="Start">
+        <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop" onclick="flg = false">
+      </div>
     </div>
     <style>
       .divs {
+        border-radius:50px;
         background-color:#cccccc;
-        position:fixed;
-        width:48%;
-        margin:1%;
-        height:98%;
+        position:relative;
       }
-      #current {
+      .parents {
+        position:fixed;
+        width:47%;
+        height:97%;
+      }
+      #currentparent {
         left:1%;
         top:1%;
       }
-      #stopwatch {
+      #timerparent {
         right:1%;
         top:1%;
       }
       #currentdate {
         font-size:30px;
+        text-align:center;
       }
       #currenttime {
         font-size:18px;
+        text-align:center;
       }
       .stopbuttons {
         height:50px;
         border-radius:25px;
         border:none;
         background-color:#aaaaaa;
-        font-color:#000000;
+        text-color:#000000;
+      }
+      #stopwatchstart {
+        position:relative;
+        bottom:15px;
+        height:50px;
       }
     </style>
     <script>
@@ -83,7 +97,10 @@
         if(sec < 10){
           sec = '0' + String(sec)
         }
-        timerdisp.innerHTML = hou + ':' + min + ':' + sec + '.' + mil
+        if(cen < 10){
+          cen = '0' + String(cen)
+        }
+        timerdisp.innerHTML = hou + ':' + min + ':' + sec + '.' + cen
       }
       stopwatchstop.addEventListener('click',function(){flg = false;});
       stopwatchstart.addEventListener('click',function(){flg = true;});
