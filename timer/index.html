@@ -189,7 +189,7 @@
         var e = d.getMinutes();
         var f = d.getSeconds();
         currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + b;
-        currenttime.innerHTML = (c > 12 ? c - 12 : c) + ':' + e + ':' + f;
+        currenttime.innerHTML = c + ':' + e + ':' + f;
         var canvas = document.querySelector('#iiccoonn');
         var ctx = canvas.getContext('2d');
         ctx.font = '8px Arial';
