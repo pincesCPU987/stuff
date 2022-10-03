@@ -178,10 +178,12 @@
         }
       }
       function updateCur(){
-        currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + d.getFullYear();
-        currenttime.innerHTML = (d.getHours() > 12 ? d.getHours() - 12 : d.getHours()) + ':' + d.getMinutes() + ':' + d.getSeconds()
+        setInterval(function(){
+          currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + d.getFullYear();
+          currenttime.innerHTML = (d.getHours() > 12 ? d.getHours() - 12 : d.getHours()) + ':' + d.getMinutes() + ':' + d.getSeconds()
+        },3000);
       }
-      setInterval(updateCur,3000);
+      updateCur();
     </script>
   </body>
 </html>
