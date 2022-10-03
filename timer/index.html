@@ -1,10 +1,10 @@
 <html>
   <head>
     <title>Timer</title>
-    <link rel="icon" id="icon">
   </head>
   <body>
-    <canvas id="iiccoonn" style="display:none;" width="16" height="16"></canvas>
+    <link rel="icon" id="icon">
+    <canvas id="icon-canv" width="16" height="16">Sorry</canvas>
     <div class="parents" id="currentparent">
       <div class="divs" id="current">
         <p id="currentdate"></p>
@@ -190,7 +190,7 @@
         var f = d.getSeconds();
         currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + b;
         currenttime.innerHTML = c + ':' + e + ':' + f;
-        var canvas = document.querySelector('#iiccoonn');
+        var canvas = document.querySelector('#icon-canv');
         var ctx = canvas.getContext('2d');
         ctx.font = '8px Arial';
         ctx.fillText(String(c),0,0);
