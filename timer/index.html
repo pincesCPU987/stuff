@@ -14,8 +14,8 @@
     <div class="parents" id="timerparent">
       <div class="divs" id="stopwatch">
         <p id="timerdisp">00:00:00.00</p>
-        <input type="button" class="stopbuttons" id="stopwatchstart" value="Start" onclick="flg = true">
-        <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop" onclick="flg = false">
+        <input type="button" class="stopbuttons" id="stopwatchstart" value="Start">
+        <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop">
       </div>
     </div>
     <style>
@@ -109,99 +109,97 @@
       stopwatchstart.addEventListener('click',function(){flg = true;});
       var d = new Date()
       function curDate(){
-        var a = d.getDate()
-        if(String(a).split('')[String(a).split('').length - 1] == '1'){
-          return a + 'st';
-        } else if(String(a).split('')[String(a).split('').length - 1] == '2'){
-          return a + 'nd';
-        } else if(String(a).split('')[String(a).split('').length - 1] == '3'){
-          return a + 'rd';
+        var g = d.getDate()
+        if(String(g).split('')[String(g).split('').length - 1] == '1'){
+          return g + 'st';
+        } else if(String(g).split('')[String(g).split('').length - 1] == '2'){
+          return g + 'nd';
+        } else if(String(g).split('')[String(g).split('').length - 1] == '3'){
+          return g + 'rd';
         } else {
-          return a + 'th';
+          return g + 'th';
         }
       }
       function curDWeek(){
-        var a = d.getDay()
-        if(a == 0){
+        var h = d.getDay()
+        if(h == 0){
           return 'Sunday';
         }
-        if(a == 1){
+        if(h == 1){
           return 'Monday';
         }
-        if(a == 2){
+        if(h == 2){
           return 'Tuesday';
         }
-        if(a == 3){
+        if(h == 3){
           return 'Wednesday';
         }
-        if(a == 4){
+        if(h == 4){
           return 'Thursday';
         }
-        if(a == 5){
+        if(h == 5){
           return 'Friday';
         }
-        if(a == 6){
+        if(h == 6){
           return 'Saturday';
         }
       }
       function curMonth(){
-        var a = d.getMonth()
-        if(a == 0){
+        var i = d.getMonth()
+        if(i == 0){
           return 'January';
         }
-        if(a == 1){
+        if(i == 1){
           return 'February';
         }
-        if(a == 2){
+        if(i == 2){
           return 'March';
         }
-        if(a == 3){
+        if(i == 3){
           return 'April';
         }
-        if(a == 4){
+        if(i == 4){
           return 'May';
         }
-        if(a == 5){
+        if(i == 5){
           return 'June';
         }
-        if(a == 6){
+        if(i == 6){
           return 'July';
         }
-        if(a == 7){
+        if(i == 7){
           return 'August';
         }
-        if(a == 8){
+        if(i == 8){
           return 'September';
         }
-        if(a == 9){
+        if(i == 9){
           return 'October';
         }
-        if(a == 10){
+        if(i == 10){
           return 'November';
         }
-        if(a == 11){
+        if(i == 11){
           return 'December';
         }
       }
       function updateCur(){
-        setInterval(function(){
-          var b = d.getFulYear();
-          var c = d.getHours();
-          var e = d.getMinutes();
-          var f = d.getSeconds();
-          currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + b;
-          currenttime.innerHTML = (c > 12 ? c - 12 : c) + ':' + e + ':' + f;
-          var canvas = document.querySelector('#iiccoonn');
-          var ctx = canvas.getContext('2d')
-          ctx.font = '8px Arial';
-          ctx.fillText(String(c),0,0);
-          ctx.fillText(String(e),0,8);
-          var url = canvas.toDataURL();
-          var icon = document.querySelector('#icon');
-          icon.href = url
-        },1000);
+        var b = d.getFulYear();
+        var c = d.getHours();
+        var e = d.getMinutes();
+        var f = d.getSeconds();
+        currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + b;
+        currenttime.innerHTML = (c > 12 ? c - 12 : c) + ':' + e + ':' + f;
+        var canvas = document.querySelector('#iiccoonn');
+        var ctx = canvas.getContext('2d');
+        ctx.font = '8px Arial';
+        ctx.fillText(String(c),0,0);
+        ctx.fillText(String(e),0,8);
+        var url = canvas.toDataURL();
+        var icon = document.querySelector('#icon');
+        icon.href = url;
       }
-      updateCur();
+      setInterval(updateCur,1000);
     </script>
   </body>
 </html>
