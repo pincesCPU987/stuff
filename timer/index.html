@@ -12,7 +12,7 @@
     <div class="parents" id="timerparent">
       <div class="divs" id="stopwatch">
         <p id="timerdisp">00:00:00.00</p>
-        <input type="button" class="stopbuttons" id="stopwatchstart" value="Start">
+        <input type="button" class="stopbuttons" id="stopwatchstart" value="Start" onclick="flg = true">
         <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop" onclick="flg = false">
       </div>
     </div>
@@ -177,7 +177,7 @@
           return 'December';
         }
       }
-      setInterval(function(){currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + d.getFullYear(); currenttime.innerHTML = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()},1);
+      setInterval(function(){currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + d.getFullYear(); currenttime.innerHTML = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()},1000);
     </script>
   </body>
 </html>
