@@ -191,11 +191,12 @@
         currenttime.innerHTML = c + ':' + e + ':' + f;
         var canvas = document.querySelector('#icon-canv');
         var ctx = canvas.getContext('2d');
-        ctx.font = '8px Arial';
+        ctx.clearRect(0,0,canvas.width,canvas.height)
+        ctx.font = '4px Arial';
         ctx.fillText(String(c),0,0);
         ctx.fillText(String(e),0,8);
         var url = canvas.toDataURL();
-        var icon = document.querySelector('#icon');
+        var icon = document.querySelector('link[rel~=icon]');
         icon.href = url;
       }
       setInterval(updateCur,1000);
