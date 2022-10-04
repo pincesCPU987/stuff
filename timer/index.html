@@ -219,7 +219,9 @@
         	icon.href = url;
         }
       }
-      setInterval(function(){var d = new Date();updateCur(d)},1000);
+      var d = new Date();
+      updateCur(d);
+      setInterval(function(){var d = new Date();updateCur(d);},1000);
     </script>
   </body>
 </html>
