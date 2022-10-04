@@ -50,7 +50,7 @@
         border-radius:25px;
         border:none;
         background-color:#aaaaaa;
-        text-color:#000000;
+        color:#000000;
       }
       #stopwatchstart {
         position:relative;
@@ -106,8 +106,7 @@
       }
       stopwatchstop.addEventListener('click',function(){flg = false;});
       stopwatchstart.addEventListener('click',function(){flg = true;});
-      var d = new Date()
-      function curDate(){
+      function curDate(d){
         var g = d.getDate()
         if(String(g).split('')[String(g).split('').length - 1] == '1'){
           return g + 'st';
@@ -119,7 +118,7 @@
           return g + 'th';
         }
       }
-      function curDWeek(){
+      function curDWeek(d){
         var h = d.getDay()
         if(h == 0){
           return 'Sunday';
@@ -143,7 +142,7 @@
           return 'Saturday';
         }
       }
-      function curMonth(){
+      function curMonth(d){
         var i = d.getMonth()
         if(i == 0){
           return 'January';
@@ -182,24 +181,33 @@
           return 'December';
         }
       }
-      function updateCur(){
+      function updateCur(d){
         var b = d.getFullYear();
         var c = d.getHours();
         var e = d.getMinutes();
         var f = d.getSeconds();
-        currentdate.innerHTML = curDWeek() + ', ' + curMonth() + ' ' + curDate() + ', ' + b;
+        if(c < 10){
+        	c = '0' + String(c)
+        }
+        if(e < 10){
+        	e = '0' + String(e)
+        }
+        if(f < 10){
+        	f = '0' + String(f)
+        }
+        currentdate.innerHTML = curDWeek(d) + ', ' + curMonth(d) + ' ' + curDate(d) + ', ' + b;
         currenttime.innerHTML = c + ':' + e + ':' + f;
         var canvas = document.querySelector('#icon-canv');
         var ctx = canvas.getContext('2d');
         ctx.clearRect(0,0,canvas.width,canvas.height)
-        ctx.font = '4px Arial';
-        ctx.fillText(String(c),0,0);
-        ctx.fillText(String(e),0,8);
+        ctx.font = '8px Arial';
+        ctx.fillText(String(c),0,8);
+        ctx.fillText(String(e),0,16);
         var url = canvas.toDataURL("image/png");
         var icon = document.querySelector('link[rel~=icon]');
         icon.href = url;
       }
-      setInterval(updateCur,1000);
+      setInterval(function(){var d = new Date();updateCur(d)},1000);
     </script>
   </body>
 </html>
