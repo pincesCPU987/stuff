@@ -4,7 +4,7 @@
     <title>Timer</title>
   </head>
   <body>
-    <canvas id="icon-canv" width="16" height="16">Sorry</canvas>
+    <canvas id="icon-canv" width="16" height="16" style="display:none;">Sorry</canvas>
     <div class="parents" id="currentparent">
       <div class="divs" id="current">
         <p id="currentdate"></p>
@@ -46,7 +46,7 @@
         text-align:center;
       }
       .stopbuttons {
-        height:50px;
+        height:2%;
         border-radius:25px;
         border:none;
         background-color:#aaaaaa;
@@ -54,8 +54,15 @@
       }
       #stopwatchstart {
         position:relative;
-        bottom:15px;
-        height:50px;
+        bottom:1%;
+        left:1%;
+        width:97%;
+      }
+      #stopwatchstop {
+        position:relative;
+        bottom:4%;
+        left:1%;
+        width:97%;
       }
     </style>
     <script>
