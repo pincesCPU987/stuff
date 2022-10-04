@@ -206,7 +206,10 @@
         currenttime.innerHTML = c + ':' + e + ':' + f;
         var canvas = document.querySelector('#icon-canv');
         var ctx = canvas.getContext('2d');
-        ctx.clearRect(0,0,canvas.width,canvas.height)
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0,0,16,16);
+        ctx.fillStyle = '#000000';
         ctx.font = '8px Arial';
         ctx.fillText(String(c),0,8);
         ctx.fillText(String(e),0,16);
