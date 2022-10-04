@@ -233,7 +233,7 @@
         }
       }
       setInterval(function(){var d = new Date();updateCur(d);},1000);
-      setInterval(function(){document.title = curTime + ' | ' + checkValue(hou < 10,String(hou) + '0',String(hou)) + ':' + checkValue(min < 10,String(min) + '0',String(min)) + ':' + checkValue(sec < 10,String(sec) + '0',String(sec)) + '.' + cen},100)
+      setInterval(function(){document.title = curTime + ' | ' + checkValue(Number(hou) < 10,'0' + String(Number(hou)),String(Number(hou))) + ':' + checkValue(Number(min) < 10,'0' + String(Number(min)),String(Number(min))) + ':' + checkValue(Number(sec) < 10,'0' + String(Number(sec)),String(Number(sec))) + '.' + cen},100)
     </script>
   </body>
 </html>
