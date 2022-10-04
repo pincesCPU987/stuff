@@ -15,6 +15,7 @@
         <p id="timerdisp">00:00:00.00</p>
         <input type="button" class="stopbuttons" id="stopwatchstart" value="Start">
         <input type="button" class="stopbuttons" id="stopwatchstop" value="Stop">
+        <input type="button" class="stopbuttons" id="stopwatchreset" value="Reset">
       </div>
     </div>
     <style>
@@ -35,7 +36,7 @@
       }
       #timerparent {
         right:1%;
-        top:1%;
+        top:0px;
       }
       #currentdate {
         font-size:30px;
@@ -63,6 +64,12 @@
         bottom:calc(3% + 50px);
         left:1%;
         width:97%;
+      }
+      #stopwatchreset {
+        position:absolute;
+        bottom:calc(5% + 100px;);
+        left:1%;
+        width:97%
       }
       #timerdisp {
         font-family:monospace;
@@ -115,6 +122,7 @@
       }
       stopwatchstop.addEventListener('click',function(){flg = false;});
       stopwatchstart.addEventListener('click',function(){flg = true;});
+      stopwatchreset.addEventListener('click',function(){cen = 0,sec = 0,min = 0,hou = 0;flg = false;})
       function curDate(d){
         var g = d.getDate()
         if(String(g).split('')[String(g).split('').length - 1] == '1'){
