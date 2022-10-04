@@ -188,7 +188,7 @@
           return 'December';
         }
       }
-      function updateCur(d){
+      function updateCur(d,updateFavicon){
         var b = d.getFullYear();
         var c = d.getHours();
         var e = d.getMinutes();
@@ -215,12 +215,12 @@
         ctx.fillText(String(e),0,16);
         var url = canvas.toDataURL("image/png");
         var icon = document.querySelector('link[rel~=icon]');
-        if(f == '00' || f == '0' || f == 0){
+        if(f == '00' || f == '0' || f == 0 || updateFavicon){
         	icon.href = url;
         }
       }
       var d = new Date();
-      updateCur(d);
+      updateCur(d,true);
       setInterval(function(){var d = new Date();updateCur(d);},1000);
     </script>
   </body>
