@@ -4,7 +4,7 @@
   </head>
   <body>
     <textarea id="textarea" style="width:700px;height:700px;"></textarea>
-    <textarea disabled id="output" style="width:700px;height:700px;"></textarea>
+    <textarea disabled id="output" style="width:700px;height:700px;" onclick="this.select()"></textarea>
     <br>
     <input type="button" id="convertToText" value="Convert to text">
     <br>
@@ -60,7 +60,7 @@
               }
             }
           } catch(err){
-          	str = 'Error in binary code (Is it text? Are there spaces in between)'
+          	str = 'Error in binary code (Is it text? Are there spaces in between?)'
           }
         }
         output.value = str;
