@@ -45,6 +45,12 @@
         '1110':'e',
         '1111':'f'
       }
+      function byteString(n) {
+        if (n < 0 || n > 255 || n % 1 !== 0) {
+            throw new Error(n + " does not fit in a byte");
+        }
+        return ("000000000" + n.toString(2)).substr(-8)
+      }
       document.querySelector('#convertToText').addEventListener('click',function(){
         var str = '';
         var spl = text.value.split(' ');
@@ -72,7 +78,7 @@
         var byte1;
         var byte2;
         for(var i = 0; i < spl.length; i++){
-        	code = spl[i].charCodeAt().toString(2);
+        	code = byteString(spl[i].charCodeAt(0));
         	str = str + code + ' ';
         }
         output.value = str
