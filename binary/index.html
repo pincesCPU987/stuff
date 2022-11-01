@@ -4,7 +4,7 @@
   </head>
   <body>
     <textarea id="textarea" style="width:40%;height:90%;"></textarea>
-    <textarea readonly id="output" style="width:40%;height:90%;" onclick="this.select();if(confirm('Do you want to copy this text?')){navigator.clipboard.writeText(this.value);}"></textarea>
+    <textarea readonly id="output" style="width:40%;height:90%;"></textarea>
     <br>
     <input type="button" id="convertToText" value="Convert to text">
     <br>
@@ -12,6 +12,12 @@
     <script>
       var text = document.querySelector('#textarea');
       var output = document.querySelector('#output');
+      output.addEventListener('click',function(e){
+      	this.select();
+        if(confirm('Do you want to copy this text?')){
+        	document.execCommand("copy");
+        }
+      })
       text.addEventListener('keydown', function(e) {
         if (e.key == 'Tab') {
           e.preventDefault();
