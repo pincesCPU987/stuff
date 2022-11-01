@@ -3,13 +3,15 @@
     <title>Convert Binary to Text</title>
   </head>
   <body>
-    <textarea id="textarea"></textarea>
-    <textarea disabled id="output"></textarea>
+    <textarea id="textarea" style="width:700px;height:700px;"></textarea>
+    <textarea disabled id="output" style="width:700px;height:700px;"></textarea>
     <br>
-    <input type="button" id="convert">
+    <input type="button" id="convertToText" value="Convert to text">
+    <br>
+    <input type="button" id="convertToBinary" value="Convert to binary">
     <script>
-      var text = document.querySelector('#text');
-      var output = document.querySelector('#output')
+      var text = document.querySelector('#textarea');
+      var output = document.querySelector('#output');
       text.addEventListener('keydown', function(e) {
         if (e.key == 'Tab') {
           e.preventDefault();
@@ -43,19 +45,38 @@
         '1110':'e',
         '1111':'f'
       }
-      document.getElementById('convert').addEventListener('click',function(){
-        var str = '0x';
+      document.querySelector('#convertToText').addEventListener('click',function(){
+        var str = '';
         var spl = text.value.split(' ');
         var byte1;
         var byte2;
-        for(var i = 0; i < spl.length; i++){
-          byte1 = spl[i].split('')[0] + spl[i].split('')[1] + spl[i].split('')[2] + spl[i].split('')[3]
-          byte2 = spl[i].split('')[4] + spl[i].split('')[5] + spl[i].split('')[6] + spl[i].split('')[7]
-          str = str + hex[byte1] + hex[byte2];
+        if(spl.length > 0){
+          try {
+            for(var i = 0; i < spl.length; i++){
+              byte1 = spl[i].split('')[0] + spl[i].split('')[1] + spl[i].split('')[2] + spl[i].split('')[3]
+              byte2 = spl[i].split('')[4] + spl[i].split('')[5] + spl[i].split('')[6] + spl[i].split('')[7]
+              if(spl[i].length > 0){
+              	str = str + String.fromCharCode(eval('0x' + hex[byte1] + hex[byte2] + ' '));
+              }
+            }
+          } catch(err){
+          	str = 'Error in binary code (Is it text? Are there spaces in between)'
+          }
         }
-        str = eval(str);
         output.value = str;
       });
+      document.querySelector('#convertToBinary').addEventListener('click',function(){
+      	var str = '';
+        var spl = text.value.split('');
+        var code;
+        var byte1;
+        var byte2;
+        for(var i = 0; i < spl.length; i++){
+        	code = spl[i].charCodeAt().toString(2);
+        	str = str + code + ' ';
+        }
+        output.value = str
+      })
     </script>
   </body>
 </html>
