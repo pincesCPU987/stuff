@@ -4,7 +4,7 @@
   </head>
   <body>
     <textarea id="textarea" style="width:40%;height:90%;"></textarea>
-    <textarea readonly id="output" style="width:40%;height:90%;" onclick="this.select();"></textarea>
+    <textarea readonly id="output" style="width:40%;height:90%;" onclick="this.select();if(confirm('Do you want to copy this text?')){navigator.clipboard.writeText(this.value);}"></textarea>
     <br>
     <input type="button" id="convertToText" value="Convert to text">
     <br>
@@ -56,7 +56,7 @@
       }
       document.querySelector('#convertToText').addEventListener('click',function(){
         var str = '';
-        var spl = text.value.split(' ');
+        var spl = text.value.trim().split(' ');
         var byte1;
         var byte2;
         if(spl.length > 0){
