@@ -4,10 +4,13 @@
   </head>
   <body>
     <textarea id="textarea"></textarea>
+    <textarea disabled id="output"></textarea>
     <br>
     <input type="button" id="convert">
     <script>
-      document.getElementById('textarea').addEventListener('keydown', function(e) {
+      var text = document.querySelector('#text');
+      var output = document.querySelector('#output')
+      text.addEventListener('keydown', function(e) {
         if (e.key == 'Tab') {
           e.preventDefault();
           var start = this.selectionStart;
@@ -22,9 +25,37 @@
             this.selectionEnd = start + 1;
         }
       });
+      var hex = {
+        '0000':'0',
+        '0001':'1',
+        '0010':'2',
+        '0011':'3',
+        '0100':'4',
+        '0101':'5',
+        '0110':'6',
+        '0111':'7',
+        '1000':'8',
+        '1001':'9',
+        '1010':'a',
+        '1011':'b',
+        '1100':'c',
+        '1101':'d',
+        '1110':'e',
+        '1111':'f'
+      }
       document.getElementById('convert').addEventListener('click',function(){
-        
-      })
+        var str = '0x';
+        var spl = text.value.split(' ');
+        var byte1;
+        var byte2;
+        for(var i = 0; i < spl.length; i++){
+          byte1 = spl[i].split('')[0] + spl[i].split('')[1] + spl[i].split('')[2] + spl[i].split('')[3]
+          byte2 = spl[i].split('')[4] + spl[i].split('')[5] + spl[i].split('')[6] + spl[i].split('')[7]
+          str = str + hex[byte1] + hex[byte2];
+        }
+        str = eval(str);
+        output.value = str;
+      });
     </script>
   </body>
 </html>
