@@ -3,8 +3,8 @@
     <title>Convert Binary to Text</title>
   </head>
   <body>
-    <textarea id="textarea" style="width:700px;height:700px;"></textarea>
-    <textarea readonly id="output" style="width:700px;height:700px;" onclick="this.select()"></textarea>
+    <textarea id="textarea" style="width:40%;height:90%;"></textarea>
+    <textarea readonly id="output" style="width:40%;height:90%;" onclick="this.select();"></textarea>
     <br>
     <input type="button" id="convertToText" value="Convert to text">
     <br>
@@ -45,33 +45,23 @@
         '1110':'e',
         '1111':'f'
       }
-      function byteString(n) {
-        if (n < 0 || n > 255 || n % 1 !== 0) {
-            throw new Error(n + " does not fit in a byte");
-        }
-        return ("000000000" + n.toString(2)).substr(-8)
-      }
       document.querySelector('#convertToText').addEventListener('click',function(){
         var str = '';
         var spl = text.value.split(' ');
         var byte1;
         var byte2;
         if(spl.length > 0){
-          //try {
+          try {
             for(var i = 0; i < spl.length; i++){
-            var douspl = spl[i].split('')
-              byte1 = douspl[0] + douspl[1] + douspl[2] + douspl[3];
-              byte2 = douspl[4] + douspl[5] + douspl[6] + douspl[7];
+              byte1 = spl[i].split('')[0] + spl[i].split('')[1] + spl[i].split('')[2] + spl[i].split('')[3]
+              byte2 = spl[i].split('')[4] + spl[i].split('')[5] + spl[i].split('')[6] + spl[i].split('')[7]
               if(spl[i].length > 0){
-              	str = str + String.fromCharCode(eval('0x' + hex[byte1] + hex[byte2]));
+              	str = str + String.fromCharCode(eval('0x' + hex[byte1] + hex[byte2] + ' '));
               }
             }
-          /*} catch(err){
-          	str = 'Error in binary code (Is it text? Are there spaces in between?)'
-            console.error("inner", err.message);
-            console.error(err)
+          } catch(err){
+          	str = 'Error in binary code. Check that it isn\'t text. Also check that there are spaces in between.'
           }
-          */
         }
         output.value = str;
       });
@@ -82,7 +72,7 @@
         var byte1;
         var byte2;
         for(var i = 0; i < spl.length; i++){
-        	code = byteString(spl[i].charCodeAt(0));
+        	code = spl[i].charCodeAt().toString(2);
         	str = str + code + ' ';
         }
         output.value = str
