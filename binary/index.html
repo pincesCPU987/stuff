@@ -7,13 +7,37 @@
     <textarea readonly id="output" style="width:40%;height:90%;"></textarea>
     <input type="button" id="copy" value="Copy">
     <br>
+    <select id="from">
+      <option value="bin">Binary</option>
+      <option value="hex">Hexadecimal</option>
+      <option value="dec">Decimal</option>
+      <option value="oct">Octal</option>
+      <option selected value="text">Text</option>
+      <option value="base64">Base 64</option>
+    </select>
+    to
+    <select id="to">
+      <option selected value="bin">Binary</option>
+      <option value="hex">Hexadecimal</option>
+      <option value="dec">Decimal</option>
+      <option value="oct">Octal</option>
+      <option value="text">Text</option>
+      <option value="base64">Base 64</option>
+    </select>
+    <input type="button" id="convert" value="Convert">
+    <br>
     <input type="button" id="convertToText" value="Convert to text">
     <br>
     <input type="button" id="convertToBinary" value="Convert to binary">
     <script>
+    	const digit="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_";
+      toB64=x=>x.toString(2).split(/(?=(?:.{6})+(?!.))/g).map(v=>digit[parseInt(v,2)]).join("")
+      fromB64=x=>x.split("").reduce((s,v)=>s*64+digit.indexOf(v),0)
       var text = document.querySelector('#textarea');
       var output = document.querySelector('#output');
-      var copy = document.querySelector('#copy')
+      var copy = document.querySelector('#copy');
+      var to = document.querySelector('#to');
+      var from = document.querySelector('#from');
       copy.addEventListener('click',function(e){
       	output.select();
         document.execCommand('copy')
@@ -51,6 +75,7 @@
         '1110':'e',
         '1111':'f'
       }
+      var oct = [];
       function byteString(n) {
         if (n < 0 || n > 255 || n % 1 !== 0) {
             throw new Error(n + " does not fit in a byte");
@@ -60,39 +85,67 @@
       function correct(n){
       	return ("000000000" + n).substr(-8)
       }
-      document.querySelector('#convertToText').addEventListener('click',function(){
+      document.querySelector('#convert').addEventListener('click',function(){
         var str = '';
-        var spl = text.value.trim().split(' ');
+        var spl;
+        var douspl;
         var byte1;
         var byte2;
-        if(spl.length > 0){
+        if(from.value == 'bin'){
+        	spl = text.value.trim().split(' ');
           try {
-            for(var i = 0; i < spl.length; i++){
-            	spl[i] = correct(spl[i]);
-              byte1 = spl[i].split('')[0] + spl[i].split('')[1] + spl[i].split('')[2] + spl[i].split('')[3]
-              byte2 = spl[i].split('')[4] + spl[i].split('')[5] + spl[i].split('')[6] + spl[i].split('')[7]
-              if(spl[i].length > 0){
-              	str = str + String.fromCharCode(eval('0x' + hex[byte1] + hex[byte2] + ' '));
-              }
+          	for(var i = 0; i < spl.length; i++){
+            	douspl = correct(spl[i]).split('')
+              byte1 = douspl[0] + douspl[1] + douspl[2] + douspl[3];
+              byte2 = douspl[4] + douspl[5] + douspl[6] + douspl[7];
+            	str = str + eval('0x' + hex[byte1] + hex[byte2]) + ' ';
             }
           } catch(err){
-          	str = 'Error in binary code. Check that:\n\tIt isn\'t text.\n\tThere are spaces in between.\nCheck your binary for non-8-bit codes and/or text.'
+         		alert('Error: Converting from binary failed beause you probably did not input correct binary code (remember, 1s and 0s, with a space delimeter)')
+          	str = 'Error';
+          }
+        } else if(from.value == 'text'){
+        	spl = text.value.split('');
+          for(var i = 0; i < spl.length; i++){
+          	str = str + spl[i].charCodeAt() + ' ';
+          }
+        } else if(from.value == 'dec'){
+        	spl = Number(text.value.trim());
+        } else if(from.value == 'hex'){
+        	try {
+          	spl = eval('0x' + text.value.trim());
+          } catch(err){
+          	alert('Error: Converting from hexadecimal failed probably because it is not hexadecimal.')
+            str = 'Error'
+          }
+        } else if(from.value == 'oct'){
+        	spl = text.value.trim().split('');
+          if(!spl.isNaN()){
+          	for(var i = 0; i < spl.length; i++){
+            	str = Number(str) + (Number(spl[i]) * Math.pow(8,spl.length - (i + 1))) 
+            }
+          } else {
+          	alert('Error: Converting from octal failed because it is not a valid octal number');
+            str = 'Error'
+          }
+        } else if(from.value == 'base64'){
+        	spl = text.value.trim();
+          str = fromB64(spl);
+        }
+        var final = '';
+       	var newspl;
+        if(to.value == 'bin'){
+        	if(from.value == 'dec'){
+          	final = str.toString(2);
+          } else if(from.value == 'text'){
+          	newspl = str.split(' ')
+            for(var i = 0; i < newspl.length; i++){
+            	
+            }
           }
         }
         output.value = str;
       });
-      document.querySelector('#convertToBinary').addEventListener('click',function(){
-      	var str = '';
-        var spl = text.value.split('');
-        var code;
-        var byte1;
-        var byte2;
-        for(var i = 0; i < spl.length; i++){
-        	code = byteString(spl[i].charCodeAt(0));
-        	str = str + code + ' ';
-        }
-        output.value = str
-      })
     </script>
   </body>
 </html>
