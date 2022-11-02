@@ -134,14 +134,70 @@
         }
         var final = '';
        	var newspl;
-        if(to.value == 'bin'){
+        if(to.value == 'bin' & str != 'Error'){
         	if(from.value == 'dec'){
           	final = str.toString(2);
           } else if(from.value == 'text'){
           	newspl = str.split(' ')
             for(var i = 0; i < newspl.length; i++){
-            	
+            	final = final + Number(newspl[i]).toString(2) + ' ';
             }
+          } else if(from.value == 'hex'){
+          	final = Number(str).toString(2);
+          } else if(from.value == 'oct'){
+          	final = Number(str).toString(2);
+          } else if(from.value == 'base64'){
+          	final = Number(str).toString(2);
+          } else if(from.value == 'bin'){
+          	final = Number(str).toString(2);
+          }
+        } else if(to.value == 'hex' & str != 'Error'){
+        	if(from.value == 'dec'){
+          	final = Number(str).toString(16);
+          } else if(from.value == 'text'){
+          	newspl = str.split(' ');
+          	for(var i = 0; i < newspl.length; i++){
+            	final = final + Number(newspl[i]).toString(16) + ' ';
+            }
+          } else if(from.value == 'hex'){
+          	final = Number(str).toString(16);
+          } else if(from.value == 'oct'){
+          	final = Number(str).toString(16);
+          } else if(from.value == 'base64'){
+          	final = Number(str).toString(16);
+          } else if(from.value == 'bin'){
+          	final = Number(str).toString(16);
+          }
+        } else if(to.value == 'dec' & str != 'Error'){
+        	if(from.value == 'dec'){
+          	final = Number(str);
+          } else if(from.value == 'text'){
+          	alert('Sorry, I cannot convert text to a decimal.');
+          } else if(from.value == 'hex' || from.value == 'oct' || from.value == 'base64' || from.value == 'bin'){
+          	final = Number(str);
+          }
+        } else if(to.value == 'oct' & str != 'Error'){
+        	if(from.value == 'dec'){
+          	final = Number(str).toString(8);
+          } else if(from.value == 'text'){
+          	alert('Sorry, I cannot convert text to an octal.');
+          } else if(from.value == 'hex'){
+          	final = Number(str).toString(8);
+          } else if(from.value == 'oct'){
+          	final = Number(str).toString(8);
+          } else if(from.value == 'base64'){
+          	final = Number(str).toString(8);
+          } else if(from.value == 'bin'){
+          	final = Number(str).toString(8);
+          }
+        } else if(to.value == 'text'){
+        	if(from.value == 'bin' || from.value == 'hex' || from.value == 'text'){
+          newspl = str.split(' ')
+          	for(var i = 0; i < newspl.length; i++){
+            	final = final + Number(newspl[i]).fromCharCode();
+            }
+          } else {
+          	alert('Sorry, I cannot convert that to text.')
           }
         }
         output.value = str;
