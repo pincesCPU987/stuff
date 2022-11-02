@@ -85,6 +85,19 @@
       function correct(n){
       	return ("000000000" + n).substr(-8)
       }
+      function toBinary(string) {
+        const codeUnits = Uint16Array.from(
+          { length: string.length },
+          (element, index) => string.charCodeAt(index)
+        );
+        const charCodes = new Uint8Array(codeUnits.buffer);
+
+        let result = "";
+        charCodes.forEach((char) => {
+          result += String.fromCharCode(char);
+        });
+        return result;
+      }
       document.querySelector('#convert').addEventListener('click',function(){
         var str = '';
         var spl;
@@ -155,10 +168,7 @@
         	if(from.value == 'dec'){
           	final = Number(str).toString(16);
           } else if(from.value == 'text'){
-          	newspl = str.split(' ');
-          	for(var i = 0; i < newspl.length; i++){
-            	final = final + Number(newspl[i]).toString(16) + ' ';
-            }
+          	alert('Sorry, I cannot convert text to hexadecimal.')
           } else if(from.value == 'hex'){
           	final = Number(str).toString(16);
           } else if(from.value == 'oct'){
@@ -194,13 +204,25 @@
         	if(from.value == 'bin' || from.value == 'hex' || from.value == 'text'){
           newspl = str.split(' ')
           	for(var i = 0; i < newspl.length; i++){
-            	final = final + Number(newspl[i]).fromCharCode();
+            	final = final + String.fromCharCode(Number(newspl[i]));
             }
+          } else if(from.value == 'base64'){
+          	final = atob(text.value)
           } else {
           	alert('Sorry, I cannot convert that to text.')
           }
+        } else if(to.value == 'base64'){
+        	if(from.value == 'bin' || from.value == 'hex' || from.value == 'oct'){
+          	final = toB64(Number(str));
+          } else if(from.value == 'text'){
+          	final = btoa(unescape(encodeURIComponent(text.value)))
+          } else if(from.value == 'base64'){
+          	final = text.value;
+          } else {
+          	alert('Sorry, I cannot convert that to base 64.')
+          }
         }
-        output.value = str;
+        output.value = final;
       });
     </script>
   </body>
