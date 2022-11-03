@@ -6,7 +6,34 @@
   function refreshFrame(){
     var code = window.opener.document.getElementById('txt').value;
     var output = document.getElementById('output');
-    output.src = 'data:text/html;base64,' + btoa('<script>console.log = function(val) {var divId = parent.document.getElementById(\"console\");var span = parent.document.createElement(\"span\");span.innerHTML = (\'Log: <span style=\"color:black;background-color:white;border:2px solid black;\">\' + val + \'</span>\');divId.appendChild(span);};console.error = function(val){var divId = parent.document.getElementById(\"console\");var span = parent.document.createElement(\'span\');span.innerHTML = (\'Error: <span style=\"color:#330000;background-color:#ffdddd;border:2px solid #330000;\">\' + val + \'</span>\');divId.appendChild(span)}console.warn = function(val){var divId = parent.document.getElementById(\"console\");var span = parent.document.createElement(\'span\');span.innerHTML = (\'Warn: <span style=\"color:#333300;background-color:#ffffdd;border:2px solid #333300;\">\' + val + \'</span>\');divId.appendChild(span)}window.onerror = function(error){var divId = parent.document.getElementById(\'console\');var span = parent.document.createElement(\'span\');span.innerHTML = (\'Error: \' + error.name + \': \' + error.message + \' at \' + error.stack);//divId.appendChild(span);}<//script>' + code);
+    output.src = 'data:text/html;base64,' + btoa(logs.toString() + code);
+  }
+  function logs(){
+    var con = document.querySelector('#console');
+    console.log = function(val){
+      var p = document.createElement('span');
+      p.style = 'color:black;border:2px solid black;'
+      p.innerHTML = 'Log: ' + val;
+      con.appendChild(p);
+      con.appendChild(document.createElement('br'))
+    }
+    console.warn = function(val){
+      var p = document.createElement('span');
+      p.style = 'color:#333300;border:2px solid #333300;background-color:#ffffdd;'
+      p.innerHTML = 'Warn: ' + val;
+      con.appendChild(p);
+      con.appendChild(document.createElement('br'))
+    }
+    console.error = function(val){
+      var p = document.createElement('span');
+      p.style = 'color:#330000;border:2px solid #330000;background-color:#ffdddd;'
+      p.innerHTML = 'Error: ' + val;
+      con.appendChild(p)
+      con.appendChild(document.createElement('br'))
+    }
+    console.log('Hello');
+    console.warn('Bad Idea');
+    console.error('Critical Error');
   }
 </script>
 <style>
