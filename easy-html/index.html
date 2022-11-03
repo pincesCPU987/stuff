@@ -5,6 +5,26 @@
       Document Creator!
     </title>
     <script>
+      
+    </script>
+    <script src="/stuff/html-maker/html-maker.js"></script>
+  </head>
+
+  <body>
+    <p><a href="/stuff/#other">«Go back</a></p>
+    <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(/\ /g,'-').toLowerCase()+'.html',this['txt'].value);">
+      <input type="file" name="inputfile" id="inputfile" accept="text/*"><label for="inputfile">Choose a file to upload (Input the name of the file you want to save in the text box indicated.).</label><br>
+      <input type="checkbox" id="check" onclick="refresh.checkbox();refresh.frame()"><label for="check">Hints</label><br>
+      <textarea id="txt" oninput="refresh.textarea();" style="width:100%;height:100%;" wrap="off">Put HTML here or use codes provided.</textarea><br>
+      <input type="text" value="Untitled basic file" id="name"><br>
+      <input type="submit" value="Download"><br>
+      <script>var disp;</script>
+      <input type="button" value="Open in new tab" onclick="try{disp.close();}catch(err0r){console.error('Window does not exist');}disp = window.open('https://pincescpu987.github.io/stuff/easy-html/results/','_blank','width=800,height=450')">
+    </form>
+
+
+
+    <script type="text/javascript">
       var hint;
       var repl = 'Put HTML here or use codes provided.';
       var txt = document.getElementById('txt');
@@ -71,26 +91,6 @@
 
       }
 
-    </script>
-    <script src="/stuff/html-maker/html-maker.js"></script>
-  </head>
-
-  <body>
-    <p><a href="/stuff/#other">«Go back</a></p>
-    <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(/\ /g,'-').toLowerCase()+'.html',this['txt'].value);">
-      <input type="file" name="inputfile" id="inputfile" accept="text/*"><label for="inputfile">Choose a file to upload (Input the name of the file you want to save in the text box indicated.).</label><br>
-      <input type="checkbox" id="check" onclick="refresh.checkbox();refresh.frame()"><label for="check">Hints</label><br>
-      <textarea id="txt" oninput="refresh.textarea();" style="width:100%;height:100%;" wrap="off">Put HTML here or use codes provided.</textarea><br>
-      <input type="text" value="Untitled basic file" id="name"><br>
-      <input type="submit" value="Download"><br>
-      <script>var disp;</script>
-      <input type="button" value="Open in new tab" onclick="try{disp.close();}catch(err0r){console.error('Window does not exist');}disp = window.open('https://pincescpu987.github.io/stuff/easy-html/results/','_blank','width=800,height=450')">
-    </form>
-
-
-
-    <script type="text/javascript">
-      
       document.getElementById('inputfile')
         .addEventListener('change', function() {
 
@@ -104,10 +104,10 @@
 
         })
 
-    </script>
-    <script>
+      document.getElementById('txt').addEventListener('input', function(e){
+        window.localStorage.setItem('data',this.value)
+      });
       document.getElementById('txt').addEventListener('keydown', function(e) {
-        window.localStorage.setItem('data',txt.value)
         if (e.key == 'Tab') {
           e.preventDefault();
           var start = this.selectionStart;
