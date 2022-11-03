@@ -4,8 +4,29 @@
 <script>
   function refreshFrame(){
     var code = window.opener.document.getElementById('txt').value;
+    window.opener.
     var output = document.getElementById('output');
     output.src = 'data:text/html;base64,' + btoa(code);
+  }
+  var iframeWindow = document.getElementById("output").contentWindow;
+
+  iframeWindow.console.log = function(val) {
+      var divId = document.getElementById("console");
+      var span = document.createElement("span");
+      span.appendChild(document.createTextNode('Log: <span style="color:black;background-color:white;border:2px solid black;">' + val + '</span>'));
+      divId.appendChild(span);
+  };
+  iframeWindow.console.error = function(val){
+    var divId = document.getElementById("console");
+    var span = document.createElement('span');
+    span.appendChild(document.cretaeTextNode('Error: <span style="color:#330000;background-color:#ffdddd;border:2px solid #330000;">' + val + '</span>'));
+    divId.appendChild(span)
+  }
+  iframeWindow.console.warn = function(val){
+    var divId = document.getElementById("console");
+    var span = document.createElement('span');
+    span.appendChild(document.cretaeTextNode('Warn: <span style="color:#333300;background-color:#ffffdd;border:2px solid #333300;">' + val + '</span>'));
+    divId.appendChild(span)
   }
 </script>
 <style>
