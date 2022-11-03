@@ -5,12 +5,13 @@
       Document Creator!
     </title>
     <script>
-      window.onload = function() {
-        var hint;
-        var repl = 'Put HTML here or use codes provided.';
-        var txt = document.getElementById('txt');
-        console.log('Default hint state is \'false\'');
+      var hint;
+      var repl = 'Put HTML here or use codes provided.';
+      var txt = document.getElementById('txt');
+      if(window.localStorage.getItem('data')){
+        txt.value = window.localStorage.getItem('data')
       }
+      console.log('Default hint state is \'false\'');
       var refresh = new Object();
       refresh.textarea = function() {
         hint = document.getElementById('check');
@@ -106,6 +107,7 @@
     </script>
     <script>
       document.getElementById('txt').addEventListener('keydown', function(e) {
+        window.localStorage.setItem('data',txt.value)
         if (e.key == 'Tab') {
           e.preventDefault();
           var start = this.selectionStart;
