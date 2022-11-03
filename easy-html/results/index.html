@@ -8,33 +8,7 @@
     var output = document.getElementById('output');
     output.src = 'data:text/html;base64,' + btoa('<script>' + logs.toString() + '<//script>' + code);
   }
-  function logs(){
-    var con = document.querySelector('#console');
-    console.log = function(val){
-      var p = document.createElement('span');
-      p.style = 'color:black;border:2px solid black;'
-      p.innerHTML = 'Log: ' + val;
-      con.appendChild(p);
-      con.appendChild(document.createElement('br'))
-    }
-    console.warn = function(val){
-      var p = document.createElement('span');
-      p.style = 'color:#333300;border:2px solid #333300;background-color:#ffffdd;'
-      p.innerHTML = 'Warn: ' + val;
-      con.appendChild(p);
-      con.appendChild(document.createElement('br'))
-    }
-    console.error = function(val){
-      var p = document.createElement('span');
-      p.style = 'color:#330000;border:2px solid #330000;background-color:#ffdddd;'
-      p.innerHTML = 'Error: ' + val;
-      con.appendChild(p)
-      con.appendChild(document.createElement('br'))
-    }
-    console.log('Hello');
-    console.warn('Bad Idea');
-    console.error('Critical Error');
-  }
+  function logs(){var con = document.querySelector('#console');console.log = function(val){var p = document.createElement('span');p.style = 'color:black;border:2px solid black;';p.innerHTML = 'Log: ' + val;con.appendChild(p);con.appendChild(document.createElement('br'))}console.warn = function(val){var p = document.createElement('span');p.style = 'color:#333300;border:2px solid #333300;background-color:#ffffdd;';p.innerHTML = 'Warn: ' + val;con.appendChild(p);con.appendChild(document.createElement('br'))}console.error = function(val){var p = document.createElement('span');p.style = 'color:#330000;border:2px solid #330000;background-color:#ffdddd;';p.innerHTML = 'Error: ' + val;con.appendChild(p);con.appendChild(document.createElement('br'))}console.log('Hello');console.warn('Bad Idea');console.error('Critical Error');}
 </script>
 <style>
   #button{
