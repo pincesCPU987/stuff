@@ -26,9 +26,8 @@
     </select>
     <input type="button" id="convert" value="Convert">
     <br>
-    <input type="button" id="convertToText" value="Convert to text">
-    <br>
-    <input type="button" id="convertToBinary" value="Convert to binary">
+    <label for="file"><u>Choose file to generate URI</u></label>
+    <input type="file" id="file" style="display:none">
     <script>
     	const digit="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_";
       toB64=x=>x.toString(2).split(/(?=(?:.{6})+(?!.))/g).map(v=>digit[parseInt(v,2)]).join("")
@@ -215,7 +214,7 @@
         	if(from.value == 'bin' || from.value == 'hex' || from.value == 'oct'){
           	final = toB64(Number(str));
           } else if(from.value == 'text'){
-          	final = btoa(unescape(encodeURIComponent(text.value)))
+          	final = encodeb64(text.value)
           } else if(from.value == 'base64'){
           	final = text.value;
           } else {
@@ -223,6 +222,58 @@
           }
         }
         output.value = final;
+      });
+      function encodeb64(string){
+      	var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+        var spl = string.split('')
+        var bins = [];
+        var result = '';
+        var len;
+        for(var i = 0; i < spl.length; i++){
+        	bins.push(correct(String(spl[i]).charCodeAt(0).toString(2)));
+        }
+        console.log(bins)
+        bins = bins.join('');
+        len = bins.split('');
+        console.log(len)
+        console.log(len.length)
+        if(bins.split('').length % 6 != 0){
+        	bins = bins.split('');
+          for(var j = 0;j < bins.length % 6; j++){
+          	bins.push('0');
+          }
+          bins = bins.join('');
+        }
+        bins = bins.match(/.{1,6}/g);
+        console.log(bins)
+        for(var k = 0;k < bins.length;k++){
+        	result = result + chars.split('')[eval('0b' + bins[k])]
+        }
+       	result = result.split('');
+        if(result.length % 4 != 0){
+        	for(var k = 0; k < result.length % 4; k++){
+          	result.push('=');
+          }
+        }
+        result = result.join('');
+        return result;
+      }
+      function b64EncodeUnicode(str) {
+        // first we use encodeURIComponent to get percent-encoded UTF-8,
+        // then we convert the percent encodings into raw bytes which
+        // can be fed into btoa.
+        return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+          function toSolidBytes(match, p1) {
+            return String.fromCharCode(eval('0x' + p1));
+      		}
+        ));
+      }
+      document.querySelector('#file').addEventListener('change',function(e){
+        var reader = new FileReader();
+        reader.onload = function(k){
+        	output.value = reader.result;
+        }
+        reader.readAsDataURL(e.target.files[0])
       });
     </script>
   </body>
