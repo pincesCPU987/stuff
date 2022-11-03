@@ -6,33 +6,8 @@
   function refreshFrame(){
     var code = window.opener.document.getElementById('txt').value;
     var output = document.getElementById('output');
-    output.src = 'data:text/html;base64,' + btoa(code + '<script>parent.frameWindow = window<//script>');
-    var frameWindow;
-    frameWindow.console.log = function(val) {
-      var divId = document.getElementById("console");
-      var span = document.createElement("span");
-      alert('Log: <span style="color:black;background-color:white;border:2px solid black;">' + val + '</span>');
-      divId.appendChild(span);
-    };
-    frameWindow.console.error = function(val){
-      var divId = document.getElementById("console");
-      var span = document.createElement('span');
-      alert('Error: <span style="color:#330000;background-color:#ffdddd;border:2px solid #330000;">' + val + '</span>');
-      divId.appendChild(span)
-    }
-    frameWindow.console.warn = function(val){
-      var divId = document.getElementById("console");
-      var span = document.createElement('span');
-      alert('Warn: <span style="color:#333300;background-color:#ffffdd;border:2px solid #333300;">' + val + '</span>');
-      divId.appendChild(span)
-    }
-    frameWindow.onerror = function(error){
-      var divId = document.getElementById('console');
-      var span = document.createElement('span');
-      alert('Error: ' + error.name + ': ' + error.message + ' at ' + error.stack);
-      //divId.appendChild(span);
-    }
-  }  
+    output.src = 'data:text/html;base64,' + btoa('<script>console.log = function(val) {var divId = parent.document.getElementById(\"console\");var span = parent.document.createElement(\"span\");span.innerHTML = (\'Log: <span style=\"color:black;background-color:white;border:2px solid black;\">\' + val + \'</span>\');divId.appendChild(span);};console.error = function(val){var divId = parent.document.getElementById(\"console\");var span = parent.document.createElement(\'span\');span.innerHTML = (\'Error: <span style=\"color:#330000;background-color:#ffdddd;border:2px solid #330000;\">\' + val + \'</span>\');divId.appendChild(span)}console.warn = function(val){var divId = parent.document.getElementById(\"console\");var span = parent.document.createElement(\'span\');span.innerHTML = (\'Warn: <span style=\"color:#333300;background-color:#ffffdd;border:2px solid #333300;\">\' + val + \'</span>\');divId.appendChild(span)}window.onerror = function(error){var divId = parent.document.getElementById(\'console\');var span = parent.document.createElement(\'span\');span.innerHTML = (\'Error: \' + error.name + \': \' + error.message + \' at \' + error.stack);//divId.appendChild(span);}<//script>' + code);
+  }
 </script>
 <style>
   #button{
