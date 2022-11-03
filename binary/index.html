@@ -152,7 +152,7 @@
           } else if(from.value == 'text'){
           	newspl = str.split(' ')
             for(var i = 0; i < newspl.length; i++){
-            	final = final + Number(newspl[i]).toString(2) + ' ';
+            	final = final + correct(Number(newspl[i]).toString(2)) + ' ';
             }
           } else if(from.value == 'hex'){
           	final = Number(str).toString(2);
