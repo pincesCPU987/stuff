@@ -11,20 +11,25 @@
     iframeWindow.console.log = function(val) {
       var divId = document.getElementById("console");
       var span = document.createElement("span");
-      span.appendChild(document.createTextNode('Log: <span style="color:black;background-color:white;border:2px solid black;">' + val + '</span>'));
+      span.innerHTML = 'Log: <span style="color:black;background-color:white;border:2px solid black;">' + val + '</span>';
       divId.appendChild(span);
     };
     iframeWindow.console.error = function(val){
       var divId = document.getElementById("console");
       var span = document.createElement('span');
-      span.appendChild(document.cretaeTextNode('Error: <span style="color:#330000;background-color:#ffdddd;border:2px solid #330000;">' + val + '</span>'));
+      span.innerHTML = 'Error: <span style="color:#330000;background-color:#ffdddd;border:2px solid #330000;">' + val + '</span>';
       divId.appendChild(span)
     }
     iframeWindow.console.warn = function(val){
       var divId = document.getElementById("console");
       var span = document.createElement('span');
-      span.appendChild(document.cretaeTextNode('Warn: <span style="color:#333300;background-color:#ffffdd;border:2px solid #333300;">' + val + '</span>'));
+      span.innerHTML = 'Warn: <span style="color:#333300;background-color:#ffffdd;border:2px solid #333300;">' + val + '</span>';
       divId.appendChild(span)
+    }
+    iframeWindow.onerror = function(error){
+      var divId = document.getElementById('console');
+      var span = document.createElement('span');
+      spam.innerHTML = 'Error: ' + error.name + ': ' + error.message + ' at ' + error.stack
     }
   }  
 </script>
