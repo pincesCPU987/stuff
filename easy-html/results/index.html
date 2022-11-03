@@ -6,27 +6,27 @@
   function refreshFrame(){
     var code = window.opener.document.getElementById('txt').value;
     var output = document.getElementById('output');
-    output.src = 'data:text/html;base64,' + btoa(code);
-    var iframeWindow = document.getElementById("output").contentWindow;
-    iframeWindow.console.log = function(val) {
+    output.src = 'data:text/html;base64,' + btoa(code) + '<script>parent.frameWindow = window<//script>';
+    var frameWindow;
+    frameWindow.console.log = function(val) {
       var divId = document.getElementById("console");
       var span = document.createElement("span");
       alert('Log: <span style="color:black;background-color:white;border:2px solid black;">' + val + '</span>');
       divId.appendChild(span);
     };
-    iframeWindow.console.error = function(val){
+    frameWindow.console.error = function(val){
       var divId = document.getElementById("console");
       var span = document.createElement('span');
       alert('Error: <span style="color:#330000;background-color:#ffdddd;border:2px solid #330000;">' + val + '</span>');
       divId.appendChild(span)
     }
-    iframeWindow.console.warn = function(val){
+    frameWindow.console.warn = function(val){
       var divId = document.getElementById("console");
       var span = document.createElement('span');
       alert('Warn: <span style="color:#333300;background-color:#ffffdd;border:2px solid #333300;">' + val + '</span>');
       divId.appendChild(span)
     }
-    iframeWindow.onerror = function(error){
+    frameWindow.onerror = function(error){
       var divId = document.getElementById('console');
       var span = document.createElement('span');
       alert('Error: ' + error.name + ': ' + error.message + ' at ' + error.stack);
