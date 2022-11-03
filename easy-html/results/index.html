@@ -5,7 +5,6 @@
 <script>
   function refreshFrame(){
     var code = window.opener.document.getElementById('txt').value;
-    window.opener.
     var output = document.getElementById('output');
     output.src = 'data:text/html;base64,' + btoa(code);
   }
