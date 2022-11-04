@@ -118,6 +118,9 @@
           // put caret at right position again
           this.selectionStart =
             this.selectionEnd = start + 2;
+        } else if(e.key == 'F5' && e.ctrlKey){
+          e.preventDefault();
+          refreshFrame();
         }
       });
       document.body.addEventListener('keydown',function(e){
@@ -125,7 +128,13 @@
           e.preventDefault();
           refreshFrame();
         }
-      })
+      });
+      document.querySelector('#output'){
+        if(e.key == 'F5' && e.ctrlKey){
+          e.preventDefault();
+          refreshFrame();
+        }
+      }
     </script>
     <p style="background-color:white;"><iframe width="99%" height="99%" id="output"></iframe></p>
 <div id="console"></div>
