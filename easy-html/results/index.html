@@ -6,7 +6,7 @@
   function refreshFrame(){
     var code = window.opener.document.getElementById('txt').value;
     var output = document.getElementById('output');
-    output.src = 'data:text/html;meta-charset,' + encodeURIComponent(`<div id="console"></div><script> ${cons} <//script> ${code}`);
+    output.src = 'data:text/html;meta-charset,' + encodeURIComponent(`<div id="console"></div><script> ${cons} <\/script> ${code}`);
   }
   var cons = `
     var console = {};
