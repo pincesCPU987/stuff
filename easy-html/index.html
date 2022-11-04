@@ -20,7 +20,7 @@
       <input type="submit" value="Download"><br>
     </form>
 
-
+ <p style="background-color:white;"><iframe width="99%" height="99%" id="output"></iframe></p>
 
     <script type="text/javascript">
       var hint;
@@ -136,7 +136,7 @@
         }
       });
     </script>
-    <p style="background-color:white;"><iframe width="99%" height="99%" id="output"></iframe></p>
+   
 <div id="console"></div>
 <script>
   function refreshFrame(){
@@ -150,7 +150,7 @@
     console.log = function(inp){
     	var p = document.createElement('span');
       p.innerHTML = 'Log: ' + inp;
-      p.style = 'color:#ffffff;background-color:#aaaaaa;border:2px solid black;'
+      p.style = 'color:#000000;background-color:#aaaaaa;border:2px solid black;'
       div.appendChild(p);
       div.appendChild(document.createElement('br'));
     };
@@ -201,4 +201,3 @@
     }
   </style>
 </html>
- 
