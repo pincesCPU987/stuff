@@ -129,12 +129,12 @@
           refreshFrame();
         }
       });
-      document.querySelector('#output'){
+      document.querySelector('#output').addEventListener('keydown',function(){
         if(e.key == 'F5' && e.ctrlKey){
           e.preventDefault();
           refreshFrame();
         }
-      }
+      });
     </script>
     <p style="background-color:white;"><iframe width="99%" height="99%" id="output"></iframe></p>
 <div id="console"></div>
