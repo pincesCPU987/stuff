@@ -6,9 +6,32 @@
   function refreshFrame(){
     var code = window.opener.document.getElementById('txt').value;
     var output = document.getElementById('output');
-    output.src = 'data:text/html;meta-charset,' + encodeURIComponent('<div id="console"></div><script>' + logs.toString() + '<//script>' + code);
+    output.src = 'data:text/html;meta-charset,' + encodeURIComponent(`<div id="console"></div><script> ${cons} <//script> ${code}`);
   }
-  function logs(){var con = document.querySelector('#console');console.log = function(val){var p = document.createElement('span');p.style = 'color:black;border:2px solid black;';p.innerHTML = 'Log: ' + val;con.appendChild(p);con.appendChild(document.createElement('br'))}console.warn = function(val){var p = document.createElement('span');p.style = 'color:#333300;border:2px solid #333300;background-color:#ffffdd;';p.innerHTML = 'Warn: ' + val;con.appendChild(p);con.appendChild(document.createElement('br'))}console.error = function(val){var p = document.createElement('span');p.style = 'color:#330000;border:2px solid #330000;background-color:#ffdddd;';p.innerHTML = 'Error: ' + val;con.appendChild(p);con.appendChild(document.createElement('br'))}}
+  var cons = `
+    var console = {};
+    var div = document.querySelector('#console');
+    console.log = function(inp){
+    	var p = document.createElement('span');
+      p.innerHTML = 'Log: ' + inp;
+      p.style = 'color:black;background-color:white;border:2px solid black;'
+      div.appendChild(p);
+      div.appendChild(document.createElement('br'));
+    };
+    console.warn = function(inp){
+    	var p = document.createElement('span');
+      p.innerHTML = 'Warn: ' + inp;
+      p.style = 'color:#333300;background-color:#ffffaa;border:2px solid #333300;'
+      div.appendChild(p);
+      div.appendChild(document.createElement('br'));
+    };
+    console.error = function(inp){
+    	var p = document.createElement('span');
+      p.innerHTML = 'Error: ' + inp;
+      p.style = 'color:#330000;background-color:#ffaaaa;border:2px solid #330000;'
+      div.appendChild(p);
+      div.appendChild(document.createElement('br'));
+    };`
 </script>
 <style>
   #button{
