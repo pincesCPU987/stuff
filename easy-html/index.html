@@ -18,8 +18,6 @@
       <textarea id="txt" oninput="refresh.textarea();" style="width:100%;height:100%;" wrap="off">Put HTML here or use codes provided.</textarea><br>
       <input type="text" value="Untitled basic file" id="name"><br>
       <input type="submit" value="Download"><br>
-      <script>disp = window.open('https://pincescpu987.github.io/stuff/easy-html/results/','_blank','width=800,height=450')</script>
-      <input type="button" value="Open in new tab" onclick="try{disp.close();}catch(err0r){console.error('Window does not exist');}disp = window.open('https://pincescpu987.github.io/stuff/easy-html/results/','_blank','width=800,height=450')">
     </form>
 
 
@@ -120,9 +118,64 @@
           // put caret at right position again
           this.selectionStart =
             this.selectionEnd = start + 2;
+        } else if(e.key == 'F5' && e.ctrlKey){
+          e.preventDefault();
+          refreshFrame();
         }
       });
     </script>
+    <iframe width="99%" height="99%" id="output"></iframe>
+<div id="console"></div>
+<script>
+  function refreshFrame(){
+    var code = document.getElementById('txt').value;
+    var output = document.getElementById('output');
+    output.src = 'data:text/html;meta-charset,' + encodeURIComponent(`<div id="console"></div><script> ${cons} <\/script> ${code}`);
+  }
+  var cons = `
+    var console = {};
+    var div = document.querySelector('#console');
+    console.log = function(inp){
+    	var p = document.createElement('span');
+      p.innerHTML = 'Log: ' + inp;
+      p.style = 'color:black;background-color:white;border:2px solid black;'
+      div.appendChild(p);
+      div.appendChild(document.createElement('br'));
+    };
+    console.warn = function(inp){
+    	var p = document.createElement('span');
+      p.innerHTML = 'Warn: ' + inp;
+      p.style = 'color:#333300;background-color:#ffffaa;border:2px solid #333300;'
+      div.appendChild(p);
+      div.appendChild(document.createElement('br'));
+    };
+    console.error = function(inp){
+    	var p = document.createElement('span');
+      p.innerHTML = 'Error: ' + inp;
+      p.style = 'color:#330000;background-color:#ffaaaa;border:2px solid #330000;'
+      div.appendChild(p);
+      div.appendChild(document.createElement('br'));
+    };`
+</script>
+<style>
+  #button{
+    position:fixed;
+    top:0px;
+    right:0px;
+    border-top:2px solid #000;
+    border-left:2px solid #f00;
+    border-right:2px solid #00f;
+    border-bottom:2px solid #0f0;
+    background-color:white;
+    color:black;
+  }
+  #output {
+    border-top:2px solid #000;
+    border-left:2px solid #f00;
+    border-right:2px solid #00f;
+    border-bottom:2px solid #0f0;
+  }
+</style>
   </body>
   <link rel="stylesheet" href="/stuff/scrollbar.css">
 <link rel="stylesheet" href="/stuff/style.css">
