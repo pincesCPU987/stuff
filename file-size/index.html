@@ -14,8 +14,8 @@
       function fileSize(value){
       	index = 0;
         number = value.length;
-        while(number > 999){
-          number = number / 1000;
+        while(number > 1023){
+          number = number / 1024;
           index += 1;
         }
         return number + fixes[index] + 'B';
