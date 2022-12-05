@@ -1,54 +1,37 @@
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-</head>
-    <body>
-        <label>Select a file to read from your system:</label>
-        <input type="file" id="fileinput" multiple/>
-
-        <script>
-            /**
-             *  Simple JavaScript Promise that reads a file as text.
-             **/
-            function readFileAsText(file){
-                return new Promise(function(resolve,reject){
-                    let fr = new FileReader();
-
-                    fr.onload = function(){
-                        resolve(fr.result);
-                    };
-
-                    fr.onerror = function(){
-                        reject(fr);
-                    };
-
-                    fr.readAsText(file);
-                });
-            }
-
-            // Handle fileupload
-            document.getElementById("fileinput").addEventListener("change", function(event){
-                var output = document.querySelector('#output').innerHTML;
-                output.innerHTML = ''
-                for(var i = 0;i < event.target.files.length;i++){
-                  let file = event.target.files[i];
-
-                // Abort file reading if no file was selected
-                if(!file) return;
-
-                readFileAsText(file).then((fileContent) => {
-                    // Print file content on the console
-                    output = output.innerHTML + file.name +' is ' + fileContent.length + ' bytes.' + '<br>';
-                });
-                }
-            }, false);
-        </script>
-      <p id="output"></p>
-    </body>
-</html>
+<html>
+  <head>
+    <title>File Size Reader</title>
+  </head>
+  <body>
+    <input type="file" multiple id="input">
+    <p id="output">
+      
+    </p>
+    <script>
+      var fixes = ['','K','M','G','T','P','E','Z','Y'];
+      var number = 0;
+      var index = 0;
+      function fileSize(value){
+      	index = 0;
+        number = value.length;
+        while(number > 999){
+          number = number / 1000;
+          index += 1;
+        }
+        return number + fixes[index] + 'B';
+      }
+      var input = document.querySelector('#input');
+      var output = document.querySelector('#output');
+      input.addEventListener('change', function(e){
+        var file = e.target.files;
+        for(var i = 0;i < file.length; i++){
+        	var fr = new FileReader();
+          fr.readAsText(file[i]);
+          fr.i = i;
+          fr.addEventListener('load', function(e){
+          	output.innerHTML += file[e.target.i].name + ': ' + fileSize(e.target.result) + '<br>';
+        	});
+        }
+      });
+    </script>
+  </body>
