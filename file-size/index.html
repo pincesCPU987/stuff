@@ -14,8 +14,8 @@
       function fileSize(value){
       	index = 0;
         number = value.length;
-        while(number > 1023){
-          number = number / 1024;
+        while(number > 999){
+          number = Math.round(number) / 1000;
           index += 1;
         }
         return number + fixes[index] + 'B';
@@ -29,7 +29,7 @@
           fr.readAsText(file[i]);
           fr.i = i;
           fr.addEventListener('load', function(e){
-          	output.innerHTML += file[e.target.i].name + ': ' + fileSize(e.target.result) + '<br>';
+          	output.innerHTML += '<span style="color:blue;">' + file[e.target.i].name + '</span>: <span style="color:red;">' + fileSize(e.target.result) + '</span><br>';
         	});
         }
       });
