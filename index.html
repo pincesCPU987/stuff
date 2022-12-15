@@ -20,6 +20,7 @@
         <a href="javascript:showGoogle()">Google</a>
         <a href="javascript:showOther()">Other sites</a>
         <a href="javascript:showMyGames()">My games</a>
+        <a href="javascript:uploadTheme()">Upload CSS Theme</a>
       </nav>
     </div>
     <style>
@@ -516,6 +517,23 @@
         setVideoSrc('');
         mygames.style.display = 'block';
         games.style.display = google.style.display = other.style.display = top.style.display = 'none';
+      }
+      
+      function uploadTheme(){
+        var style = document.createElement('style');
+        document.body.appendChild(style);
+        var input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'text/css';
+        document.body.appendChild(input);
+        input.addEventListener('change',function(e){
+          var fr = new FileReader();
+          fr.onload = function(){
+            style.innerHTML = fr.result;
+          }
+          fr.readAsText(e.target.files[0]);
+        });
+        input.click();
       }
     </script>
     </body>
