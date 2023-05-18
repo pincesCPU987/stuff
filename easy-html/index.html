@@ -15,7 +15,9 @@
     <form onsubmit="event.preventDefault();var name=document.getElementById('name');var txt=document.getElementById('txt');downl(this['name'].value.replace(/\ /g,'-').toLowerCase()+'.html',this['txt'].value);">
       <input type="file" name="inputfile" id="inputfile" accept="text/*"><label for="inputfile">Choose a file to upload (Input the name of the file you want to save in the text box indicated.).</label><br>
       <input type="checkbox" id="check" onclick="refresh.checkbox();refresh.frame()"><label for="check">Hints</label><br>
-      <textarea id="txt" ondragover="event.preventDefault();" ondrop="dropHandler(event);" oninput="refresh.textarea();" style="width:100%;height:100%;" wrap="off">Put HTML here or use codes provided.</textarea><br>
+      <div>
+        <textarea ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" id="txt" oninput="refresh.textarea();" style="width:100%;height:100%;" wrap="off">Put HTML here or use codes provided.</textarea>
+      </div>
       <input type="text" value="Untitled basic file" id="name"><br>
       <input type="submit" value="Download"><br>
     </form>
@@ -135,37 +137,6 @@
           refreshFrame();
         }
       });
-      function dropHandler(e){
-        console.log("File(s) dropped");
-
-        // Prevent default behavior (Prevent file from being opened)
-        e.preventDefault();
-
-        if (e.dataTransfer.items) {
-          // Use DataTransferItemList interface to access the file(s)
-          [...e.dataTransfer.items].forEach((item, i) => {
-            // If dropped items aren't files, reject them
-            if (item.kind === "file") {
-              const file = item.getAsFile();
-              var fr = new FileReader();
-              fr.onload = () => {
-                e.target.value = fr.result;
-              }
-              fr.readAsText(file);
-            }
-          });
-        } else {
-          // Use DataTransfer interface to access the file(s)
-          [...e.dataTransfer.files].forEach((file, i) => {
-            const file = item.getAsFile();
-            var fr = new FileReader();
-            fr.onload = () => {
-              e.target.value = fr.result;
-            }
-            fr.readAsText(file);
-          });
-        }
-      }
       
     </script>
    
@@ -210,6 +181,43 @@
     console.clear = function(inp){
       div.innerHTML = '';
     }`
+    function dropHandler(e){
+      console.log("File(s) dropped");
+
+      // Prevent default behavior (Prevent file from being opened)
+      e.preventDefault();
+
+      if (e.dataTransfer.items) {
+        // Use DataTransferItemList interface to access the file(s)
+        [...e.dataTransfer.items].forEach((item, i) => {
+          // If dropped items aren't files, reject them
+          if (item.kind === "file") {
+            var file = item.getAsFile();
+            var fr = new FileReader();
+            fr.onload = () => {
+              e.target.value = fr.result;
+            }
+            fr.readAsText(file);
+          }
+        });
+      } else {
+        // Use DataTransfer interface to access the file(s)
+        [...e.dataTransfer.files].forEach((file, i) => {
+          var file = item.getAsFile();
+          var fr = new FileReader();
+          fr.onload = () => {
+            e.target.value = fr.result;
+          }
+          fr.readAsText(file);
+        });
+      }
+    }
+
+    function dragOverHandler(e) {
+
+      // Prevent default behavior (Prevent file from being opened)
+      e.preventDefault();
+    }
 </script>
 <style>
   #button{
